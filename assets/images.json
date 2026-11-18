@@ -1,0 +1,106 @@
+[
+  {
+    "id": "giza-pyramids",
+    "file": "osama-elsayed-vqRMXgVtGXM-unsplash.jpg",
+    "source": "Unsplash",
+    "author": "Osama Elsayed",
+    "status": "ok",
+    "notes": "Free Unsplash download. Wide view of the three pyramids."
+  },
+  {
+    "id": "pyramid-closeup",
+    "file": "thomas-k-Kv9TzthO1pc-unsplash.jpg",
+    "source": "Unsplash",
+    "author": "Thomas K",
+    "status": "ok",
+    "notes": "Low-angle detail of pyramid stone blocks."
+  },
+  {
+    "id": "abu-simbel",
+    "file": "thomas-k-DqDSIMNLZVU-unsplash.jpg",
+    "source": "Unsplash",
+    "author": "Thomas K",
+    "status": "ok",
+    "notes": "Temple facade. Crowd at the bottom of the frame."
+  },
+  {
+    "id": "luxor-balloons",
+    "file": "nathalie-lays-k1XjZELq3No-unsplash.jpg",
+    "source": "Unsplash",
+    "author": "Nathalie Lays",
+    "status": "ok",
+    "notes": "Balloons over Hatshepsut's temple. Registration numbers visible on the balloons."
+  },
+  {
+    "id": "aswan-nile",
+    "file": "martijn-vonk-604NDw5t-Xg-unsplash.jpg",
+    "source": "Unsplash",
+    "author": "Martijn Vonk",
+    "status": "ok",
+    "notes": "Nile at Aswan with felucca, golden hour."
+  },
+  {
+    "id": "karnak-columns",
+    "file": "pexels-axp-photography-500641970-18934726.jpg",
+    "source": "Pexels",
+    "author": "AXP Photography",
+    "status": "ok",
+    "notes": "Portrait. Painted columns of the Great Hypostyle Hall."
+  },
+  {
+    "id": "karnak-obelisk",
+    "file": "pexels-axp-photography-500641970-18991547.jpg",
+    "source": "Pexels",
+    "author": "AXP Photography",
+    "status": "ok",
+    "notes": "Portrait. Obelisk framed by columns."
+  },
+  {
+    "id": "anubis-mural",
+    "file": "rafaella-waasdorp-NBzeOoGMQVY-unsplash.jpg",
+    "source": "Unsplash",
+    "author": "Rafaella Waasdorp",
+    "status": "ok",
+    "notes": "Tomb painting. Exact tomb and location not confirmed, do not caption it with a specific site."
+  },
+  {
+    "id": "library-exterior",
+    "file": "Alexandria_library__1_.jpg",
+    "source": "unknown",
+    "author": "unknown",
+    "status": "unverified",
+    "notes": "Source and license not confirmed. Verify before publishing."
+  },
+  {
+    "id": "library-hall",
+    "file": "Alexandria_library__9_.jpg",
+    "source": "unknown",
+    "author": "unknown",
+    "status": "unverified",
+    "notes": "Source and license not confirmed. Verify before publishing."
+  },
+  {
+    "id": "sphinx",
+    "file": "ابو-الهول-3.jpg",
+    "source": "unknown",
+    "author": "unknown",
+    "status": "unverified",
+    "notes": "Source and license not confirmed. Only 1000 px wide, fine for small cards only."
+  },
+  {
+    "id": "luxor-temple-dusk",
+    "file": "1794788233279_image.png",
+    "source": "unknown",
+    "author": "unknown",
+    "status": "unverified",
+    "notes": "Source and license not confirmed. Only 600 px wide."
+  },
+  {
+    "id": "sphinx-unsplash-plus",
+    "file": "1794786213971_image.png",
+    "source": "Unsplash+",
+    "author": "unknown",
+    "status": "blocked",
+    "notes": "Watermarked preview of a paid Unsplash+ image. Cannot be used unless the license is purchased."
+  }
+]

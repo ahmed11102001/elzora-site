@@ -1,0 +1,139 @@
+{
+  "abu-simbel": {
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAALABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAIF/8QAIhAAAgIBAgcBAAAAAAAAAAAAAQIDEQASIQQFEyJBUWGx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwT/xAAXEQEBAQEAAAAAAAAAAAAAAAABAAIR/9oADAMBAAIRAxEAPwBZnBmkVqAjUat/NX+VldWnXaw33M+RitID2uz6h7xfBO0nLwzmyLAOA5qB7f/Z",
+    "status": "ok",
+    "credit": "Thomas K / Unsplash"
+  },
+  "anubis-mural": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAMABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABAX/xAAfEAACAgIBBQAAAAAAAAAAAAABAgMRACEEEhMiQWH/xAAUAQEAAAAAAAAAAAAAAAAAAAAD/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERAv/aAAwDAQACEQMRAD8AXPC0ykii9eNnWHRjFIaJWSKupgdXlIqksaM0a2RXvBcuuy8gUBiK18wHmDJ0/9k=",
+    "status": "ok",
+    "credit": "Rafaella Waasdorp / Unsplash"
+  },
+  "aswan-nile": {
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAALABADASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAABP/EACIQAAIBAgUFAAAAAAAAAAAAAAECAwAEBRESIUEiUZGhwf/EABQBAQAAAAAAAAAAAAAAAAAAAAP/xAAaEQABBQEAAAAAAAAAAAAAAAABAAIDEjEi/9oADAMBAAIRAxEAPwAEWMX7HolZ/fymwX2IuVLkqp7rlRRIyOqodKngbU7MmXSdwePNDM+hqNSwMMnRxf/Z",
+    "status": "ok",
+    "credit": "Martijn Vonk / Unsplash"
+  },
+  "giza-pyramids": {
+    "width": 1920,
+    "height": 1080,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAJABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBf/EABwQAAIDAAMBAAAAAAAAAAAAAAECAAMREiExUf/EABUBAQEAAAAAAAAAAAAAAAAAAAME/8QAGREAAQUAAAAAAAAAAAAAAAAAAAECAwQT/9oADAMBAAIRAxEAPwDWVeVqlKXI8J0DI9yWOuOpz5y6hRKXeSNbcg+LT//Z",
+    "status": "ok",
+    "credit": "Osama Elsayed / Unsplash"
+  },
+  "karnak-columns": {
+    "width": 1280,
+    "height": 1920,
+    "widths": [
+      640,
+      1280
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAYABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAD/8QAIhAAAQMEAQUBAAAAAAAAAAAAAQIDEQAEBSESEyJBYbEx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgT/xAAcEQACAQUBAAAAAAAAAAAAAAAAAgEREhMhUTH/2gAMAwEAAhEDEQA/AE4ZqTcuuHikAASdAfs1gm0Fy6l5oBK1Ocp5TqTPylMcRhXRAIW8AqZMCARWJcC1OMyUgIj2fJ+1PktVY5sohLmae6DLyTYwvSCu/r714iiLyDYulrSUQQNx6qqoUqPw/9k=",
+    "status": "ok",
+    "credit": "AXP Photography / Pexels"
+  },
+  "karnak-obelisk": {
+    "width": 1280,
+    "height": 1920,
+    "widths": [
+      640,
+      1280
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAYABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EACMQAAICAgEEAgMAAAAAAAAAAAECAxEABAUGEiFBMXFRYZH/xAAWAQEBAQAAAAAAAAAAAAAAAAAEAQL/xAAZEQEAAgMAAAAAAAAAAAAAAAAAAREhMUL/2gAMAwEAAhEDEQA/AM7iNRdzaTXYlQ5F0asex/Md1BDFr8k+vBGI44wAqj6Bv94zpsVyULuQo8kG/wAD3k3Ujs/KEsbIjQH77cLiiuhoSCIuzGqQm1FnJ+WkEu8zoW7SBXd8nwMMMzG1p//Z",
+    "status": "ok",
+    "credit": "AXP Photography / Pexels"
+  },
+  "library-exterior": {
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAALABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAMF/8QAHxAAAgICAgMBAAAAAAAAAAAAAQIDEQAEEjEFISIy/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAXEQADAQAAAAAAAAAAAAAAAAAAAhES/9oADAMBAAIRAxEAPwBnkpol17hmUsGH4bC6e0xnRXbkrMAbzDj+kIYkg9i/WWWCMHkFpu7vHprSeVkP/9k=",
+    "status": "unverified",
+    "credit": ""
+  },
+  "library-hall": {
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAALABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgME/8QAIRAAAgEDBAMBAAAAAAAAAAAAAQIRAAMSBCExYRMigUH/xAAUAQEAAAAAAAAAAAAAAAAAAAAD/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERITH/2gAMAwEAAhEDEQA/AMZ1GnO720JwxEW4gfI37qTa+4mK2C9tV/M5EHmBwKOCq1kBR7QDO8zQYnxt1cx+UeiwlR//2Q==",
+    "status": "unverified",
+    "credit": ""
+  },
+  "luxor-balloons": {
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAALABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgME/8QAHxAAAgICAQUAAAAAAAAAAAAAAQIDEQASQQQTISJR/8QAFQEBAQAAAAAAAAAAAAAAAAAABAX/xAAZEQACAwEAAAAAAAAAAAAAAAAAAQISMUH/2gAMAwEAAhEDEQA/AA7M8BVHAY83geQJUZktwPuQ6R2YPsSaPjM03tH3CTtZF3xglDhQutP/2Q==",
+    "status": "ok",
+    "credit": "Nathalie Lays / Unsplash"
+  },
+  "luxor-temple-dusk": {
+    "width": 600,
+    "height": 400,
+    "widths": [
+      600
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAALABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBv/EACEQAAEDAwUBAQAAAAAAAAAAAAECAxEABBIFITFBUSKB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAIRH/2gAMAwEAAhEDEQA/AEstSsWcgpxtYz+cRGKdtzPPfFWu6rpzlqFi5SyqZKIlRA6/awySfaFE+0VUx//Z",
+    "status": "unverified",
+    "credit": ""
+  },
+  "pyramid-closeup": {
+    "width": 1280,
+    "height": 1920,
+    "widths": [
+      640,
+      1280
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAYABADASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQAEBv/EACQQAAEDAgQHAAAAAAAAAAAAAAEAAhEDBAUxQVESEyEiMkJx/8QAFgEBAQEAAAAAAAAAAAAAAAAABAEC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQARA//aAAwDAQACEQMRAD8AQYIWqkFzVxiFS4dA7Kc+M5/UvbXD6LWkiWnMbKPY3LRycgqAkmHbtkadEkDymcJgVGiCfUjVSkRkl//Z",
+    "status": "ok",
+    "credit": "Thomas K / Unsplash"
+  },
+  "sphinx": {
+    "width": 640,
+    "height": 427,
+    "widths": [
+      640
+    ],
+    "blur": "data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAALABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAfEAACAQQCAwAAAAAAAAAAAAABAhEAAxIhMUEEMmH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABgRAQEAAwAAAAAAAAAAAAAAAAIAAwQx/9oADAMBAAIRAxEAPwCnZteOFZgciJ1PNC5wBsIVn2y6+VPZit1QpIme6ISXg7HNTraalOEnl//Z",
+    "status": "unverified",
+    "credit": ""
+  }
+}

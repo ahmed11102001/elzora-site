@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "ELZORA — Ägypten, von Einheimischen gestaltet",
+    "description": "Maßgeschneiderte Ägypten-Reisen mit vertrauenswürdigen lokalen Partnern. Sagen Sie uns, was Sie lieben – den Rest gestalten wir."
+  },
+  "nav": {
+    "trips": "Reisen",
+    "destinations": "Reiseziele",
+    "about": "Über uns",
+    "contact": "Kontakt"
+  },
+  "cta": {
+    "plan": "Meine Reise planen",
+    "whatsapp": "WhatsApp"
+  },
+  "header": {
+    "skip": "Zum Inhalt springen",
+    "language": "Sprache",
+    "menu": "Menü"
+  },
+  "footer": {
+    "tagline": "Ägypten, von Einheimischen gestaltet.",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "common": {
+    "close": "Schließen"
+  },
+  "trips": {
+    "days": "Tage",
+    "day": "Tag",
+    "from": "ab",
+    "priceOnRequest": "Preis auf Anfrage"
+  },
+  "hero": {
+    "eyebrow": "Ägypten, von Einheimischen gestaltet",
+    "title": "Ägypten ist kein Reiseziel. Es ist eine Reise.",
+    "subtitle": "Sagen Sie uns, was Sie lieben. Unsere lokalen Partner gestalten den Rest, von den Pyramiden bis zum Nil.",
+    "journeyCta": "Der Reise folgen",
+    "trust": {
+      "licensed": "Lizenzierte lokale Partner",
+      "reply": "Antwort innerhalb von 24 Stunden",
+      "support": "Support rund um die Uhr"
+    }
+  },
+  "journey": {
+    "title": "Der Reise folgen",
+    "subtitle": "Von der Mittelmeerküste bis zu den Tempeln am Nil.",
+    "mapLabel": "Karte von Ägypten mit fünf Stationen entlang des Nils",
+    "stations": {
+      "alexandria": "Alexandria",
+      "giza": "Gizeh",
+      "luxor": "Luxor",
+      "aswan": "Assuan",
+      "abuSimbel": "Abu Simbel"
+    },
+    "stops": {
+      "alexandria": {
+        "title": "Bibliotheca Alexandrina",
+        "text": "Eine geneigte Granitscheibe am Mittelmeer, überzogen mit Schriftzeichen vieler Alphabete: eine moderne Hommage an die antike Bibliothek.",
+        "photoAlt": "Lesesaal der Bibliotheca Alexandrina"
+      },
+      "giza": {
+        "title": "Die Cheops-Pyramide",
+        "text": "Erbaut für Pharao Cheops um 2560 v. Chr., das letzte erhaltene Weltwunder der Antike.",
+        "statYears": "Jahre Bestand",
+        "statBlocks": "Steinblöcke, ca.",
+        "secondTitle": "Die Sphinx",
+        "secondText": "Rund 73 m lang, aus dem Kalksteinfelsen des Gizeh-Plateaus gemeißelt.",
+        "secondAlt": "Die Große Sphinx von Gizeh"
+      },
+      "luxor": {
+        "title": "Sonnenaufgang über dem Tempel der Hatschepsut",
+        "text": "Schweben Sie über dem Terrassentempel der Königin Hatschepsut, während die Felsen golden werden.",
+        "items": [
+          {
+            "title": "Karnak-Tempel",
+            "text": "Bemalte Säulen, vor über 3.000 Jahren gemeißelt.",
+            "alt": "Bemalte Säulen des Karnak-Tempels"
+          },
+          {
+            "title": "Luxor-Tempel",
+            "text": "Abends angestrahlt, mitten in der Stadt.",
+            "alt": "Der Luxor-Tempel am Abend"
+          },
+          {
+            "title": "Die Obelisken von Karnak",
+            "text": "Granit voller Hieroglyphen, eingerahmt von riesigen Säulen.",
+            "alt": "Ein Obelisk zwischen den Säulen von Karnak"
+          }
+        ]
+      },
+      "aswan": {
+        "title": "Wo der Nil golden wird.",
+        "text": "Feluken, Granitinseln und Palmenhaine säumen den Fluss bei Assuan."
+      },
+      "abuSimbel": {
+        "title": "Ramses II.",
+        "text": "Kolossale Statuen bewachen einen Tempel, der in den 1960er-Jahren Block für Block versetzt wurde."
+      }
+    },
+    "ui": {
+      "skip": "Reise überspringen",
+      "rail": "Fortschritt der Reise",
+      "scroll": "Zum Starten scrollen"
+    },
+    "finale": {
+      "title": "Ihr Ägypten wartet",
+      "text": "Sagen Sie uns, was Sie lieben. Unsere lokalen Partner gestalten den Rest.",
+      "cta": "Meine Reise planen"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.next
+node_modules
+package-lock.json
+next-env.d.ts
+public
+prototype
+prototype
+src/content/images.generated.json
+public/images
+assets/originals

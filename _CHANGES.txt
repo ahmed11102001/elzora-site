@@ -1,0 +1,15 @@
+Unzip into the project root, overwriting existing files.
+
+NEW:
+  src/components/journey/gate.ts
+
+MODIFIED:
+  .env.example
+  README.md
+  TASKS.md
+  scripts/check-images.mjs
+  src/components/journey/JourneyEnhancer.tsx
+  src/i18n/de.json
+  src/i18n/en.json
+
+DELETE THESE (no longer used):

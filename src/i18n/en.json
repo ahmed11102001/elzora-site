@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "ELZORA — Egypt, designed by locals",
+    "description": "Tailor-made Egypt journeys, built with trusted local partners. Tell us what you love and we design the rest."
+  },
+  "nav": {
+    "trips": "Trips",
+    "destinations": "Destinations",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "cta": {
+    "plan": "Design my trip",
+    "whatsapp": "WhatsApp"
+  },
+  "header": {
+    "skip": "Skip to content",
+    "language": "Language",
+    "menu": "Menu"
+  },
+  "footer": {
+    "tagline": "Egypt, designed by locals.",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "close": "Close"
+  },
+  "trips": {
+    "days": "days",
+    "day": "day",
+    "from": "from",
+    "priceOnRequest": "Price on request"
+  },
+  "hero": {
+    "eyebrow": "Egypt, designed by locals",
+    "title": "Egypt isn’t a destination. It’s a journey.",
+    "subtitle": "Tell us what you love. Our local partners design the rest, from the pyramids to the Nile.",
+    "journeyCta": "Follow the journey",
+    "trust": {
+      "licensed": "Licensed local partners",
+      "reply": "Reply within 24 hours",
+      "support": "24/7 support"
+    }
+  },
+  "journey": {
+    "title": "Follow the journey",
+    "subtitle": "From the Mediterranean coast to the temples of the Nile.",
+    "mapLabel": "Map of Egypt with five stops along the Nile",
+    "stations": {
+      "alexandria": "Alexandria",
+      "giza": "Giza",
+      "luxor": "Luxor",
+      "aswan": "Aswan",
+      "abuSimbel": "Abu Simbel"
+    },
+    "stops": {
+      "alexandria": {
+        "title": "Bibliotheca Alexandrina",
+        "text": "A tilted granite disc on the Mediterranean, carved with characters from many alphabets: a modern homage to the ancient library.",
+        "photoAlt": "Reading hall of the Bibliotheca Alexandrina"
+      },
+      "giza": {
+        "title": "The Great Pyramid",
+        "text": "Built for Pharaoh Khufu around 2560 BC, the last surviving wonder of the ancient world.",
+        "statYears": "years standing",
+        "statBlocks": "stone blocks, approx.",
+        "secondTitle": "The Sphinx",
+        "secondText": "About 73 m long, carved from the limestone bedrock of the Giza plateau.",
+        "secondAlt": "The Great Sphinx of Giza"
+      },
+      "luxor": {
+        "title": "Sunrise over Hatshepsut’s temple",
+        "text": "Drift above Queen Hatshepsut’s terraced temple as the cliffs turn gold.",
+        "items": [
+          {
+            "title": "Karnak Temple",
+            "text": "Painted columns, carved over 3,000 years ago.",
+            "alt": "Painted columns of Karnak Temple"
+          },
+          {
+            "title": "Luxor Temple",
+            "text": "Floodlit at dusk in the heart of the city.",
+            "alt": "Luxor Temple at dusk"
+          },
+          {
+            "title": "Karnak’s obelisks",
+            "text": "Hieroglyph-covered granite, framed by giant columns.",
+            "alt": "An obelisk framed by the columns of Karnak"
+          }
+        ]
+      },
+      "aswan": {
+        "title": "Where the Nile turns to gold.",
+        "text": "Felucca sails, granite islets and palm groves line the river at Aswan."
+      },
+      "abuSimbel": {
+        "title": "Ramses II",
+        "text": "Colossal statues guard a temple that was moved block by block in the 1960s."
+      }
+    },
+    "ui": {
+      "skip": "Skip journey",
+      "rail": "Journey progress",
+      "scroll": "Scroll to begin"
+    },
+    "finale": {
+      "title": "Your Egypt is waiting",
+      "text": "Tell us what you love. Our local partners design the rest.",
+      "cta": "Design my trip"
+    }
+  }
+}
