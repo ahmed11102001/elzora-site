@@ -1,3 +1,4 @@
+import { isDevPreview } from "@/content";
 import { localize, type Review, type Trip } from "@/content/schema";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -21,12 +22,36 @@ function Stars({ rating, label }: { rating: number; label: string }) {
   );
 }
 
+// Development only (never rendered in production): marks where the reviews will go. It is
+// deliberately not styled like a testimonial, so it cannot be mistaken for a real review.
+function ReviewsDevPlaceholder() {
+  return (
+    <section
+      id="reviews"
+      aria-label="Reviews (development placeholder)"
+      className="bg-ink-deep py-16"
+    >
+      <Container>
+        <div className="rounded-2xl border border-dashed border-gold/50 p-8 text-center">
+          <p className="text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+            Development preview only
+          </p>
+          <p className="mt-3 text-sand/80">
+            Reviews section: no published, verified reviews exist yet. This block is hidden in
+            production, where the section renders nothing until real reviews are added.
+          </p>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 // Real travelers only. With no published, verified review the section renders nothing (no empty
 // cards, no placeholder that could suggest customers who do not exist). The review schema has no
 // photo field, so traveler photos are not shown.
 export function ReviewsSection({ lang, dict, reviews, trips }: ReviewsSectionProps) {
   const list = publicReviews(reviews);
-  if (list.length === 0) return null;
+  if (list.length === 0) return isDevPreview ? <ReviewsDevPlaceholder /> : null;
 
   const t = dict.home.reviews;
   const summary = ratingSummary(list);

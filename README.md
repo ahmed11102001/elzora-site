@@ -93,8 +93,10 @@ validates the data and cross-checks references (unknown style, wrong day numbers
 - The data currently comes from `src/content/seed/*.ts`. When the CMS is chosen, only
   `src/content/index.ts` changes: it fetches from the CMS and parses with the same schemas.
 - Every text field is `{ en, de? }`. German falls back to English until Phase 10.
-- `status` is `draft`, `review` or `published`. Only `published` content is served unless
-  `SHOW_DRAFT_CONTENT=true`, so the placeholder copy cannot go live by accident.
+- `status` is `draft`, `review` or `published`. Production serves only `published`, with no override.
+  In development (`next dev`) `review` content is shown too, so the full page can be reviewed before
+  approval (`draft` also needs `SHOW_DRAFT_CONTENT=true`). The home page shows a development-only
+  placeholder where there are no real reviews.
 - No reviews are seeded on purpose, and prices are empty until a partner confirms them.
 - Partners are internal: the `Partner` registry is never exported to pages and no company is named.
 

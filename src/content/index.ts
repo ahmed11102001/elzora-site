@@ -12,13 +12,20 @@ import { trips as tripSeed } from "./seed/trips";
  * Data access for CMS content. Right now it reads the seed files; every function is async and
  * returns validated data, so swapping in a CMS later only changes this file.
  *
- * Only content with status "published" is returned, unless SHOW_DRAFT_CONTENT=true (local dev and
- * review deployments). Placeholder content is therefore never shown on production by accident.
+ * Visibility rules:
+ * - Production (NODE_ENV === "production"): only "published" content. Nothing can override this,
+ *   so "review" and "draft" placeholder copy can never go live.
+ * - Development (next dev): "published" and "review" content, so the whole page can be reviewed
+ *   before the copy is approved. "draft" is shown only with SHOW_DRAFT_CONTENT=true.
  */
 
-const showDrafts = process.env.SHOW_DRAFT_CONTENT === "true";
+/** True in `next dev` only. Used for review previews and development-only placeholders. */
+export const isDevPreview = process.env.NODE_ENV !== "production";
+
+const showDrafts = isDevPreview && process.env.SHOW_DRAFT_CONTENT === "true";
+const visibleStatuses: Status[] = isDevPreview ? ["published", "review"] : ["published"];
 const visible = <T extends { status: Status }>(items: T[]) =>
-  showDrafts ? items : items.filter((item) => item.status === "published");
+  items.filter((item) => showDrafts || visibleStatuses.includes(item.status));
 
 // Validated once at startup/build: a typo in the seed data fails fast with a clear message.
 const tripStyles = z.array(TripStyle).parse(tripStyleSeed);
