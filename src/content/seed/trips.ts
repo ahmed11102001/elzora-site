@@ -5,18 +5,22 @@ import { L, type TripInput } from "../schema";
 export const trips: TripInput[] = [
   {
     id: "classic-egypt-8-days",
-    title: L("Classic Egypt: Cairo, Luxor & Aswan"),
+    title: L("Classic Egypt: Cairo, Luxor & Aswan", "Klassisches Ägypten: Kairo, Luxor & Assuan"),
     summary: L(
       "Eight days from the pyramids of Giza to the temples of Luxor and the Nile at Aswan.",
+      "Acht Tage von den Pyramiden von Gizeh über die Tempel von Luxor bis zum Nil bei Assuan.",
     ),
     styleIds: ["classic"],
     destinationIds: ["giza", "luxor", "aswan"],
     durationDays: 8,
     highlights: [
-      L("The Pyramids of Giza and the Sphinx"),
-      L("Karnak and Luxor Temple"),
-      L("The Valley of the Kings and Hatshepsut’s temple"),
-      L("A felucca ride on the Nile at Aswan"),
+      L("The Pyramids of Giza and the Sphinx", "Die Pyramiden von Gizeh und die Sphinx"),
+      L("Karnak and Luxor Temple", "Karnak und Luxor-Tempel"),
+      L(
+        "The Valley of the Kings and Hatshepsut’s temple",
+        "Das Tal der Könige und der Tempel der Hatschepsut",
+      ),
+      L("A felucca ride on the Nile at Aswan", "Eine Feluken-Fahrt auf dem Nil bei Assuan"),
     ],
     itinerary: [
       {
@@ -72,18 +76,19 @@ export const trips: TripInput[] = [
   },
   {
     id: "nile-cruise-5-days",
-    title: L("Nile Cruise: Luxor to Aswan"),
+    title: L("Nile Cruise: Luxor to Aswan", "Nilkreuzfahrt: Luxor bis Assuan"),
     summary: L(
       "Five days sailing the Nile between Luxor and Aswan, with the great temples along the river.",
+      "Fünf Tage auf dem Nil zwischen Luxor und Assuan, mit den großen Tempeln am Fluss.",
     ),
     styleIds: ["nile-cruise", "classic"],
     destinationIds: ["luxor", "aswan"],
     durationDays: 5,
     highlights: [
-      L("Karnak and the West Bank of Luxor"),
-      L("The temples of Edfu and Kom Ombo"),
-      L("Sunset on the Nile"),
-      L("Aswan by felucca"),
+      L("Karnak and the West Bank of Luxor", "Karnak und das Westufer von Luxor"),
+      L("The temples of Edfu and Kom Ombo", "Die Tempel von Edfu und Kom Ombo"),
+      L("Sunset on the Nile", "Sonnenuntergang auf dem Nil"),
+      L("Aswan by felucca", "Assuan per Feluke"),
     ],
     itinerary: [
       {
@@ -123,15 +128,18 @@ export const trips: TripInput[] = [
   },
   {
     id: "alexandria-and-pyramids-4-days",
-    title: L("Pyramids & Alexandria"),
-    summary: L("A short city break: the pyramids of Giza and Egypt’s Mediterranean city."),
+    title: L("Pyramids & Alexandria", "Pyramiden & Alexandria"),
+    summary: L(
+      "A short city break: the pyramids of Giza and Egypt’s Mediterranean city.",
+      "Ein kurzer Städtetrip: die Pyramiden von Gizeh und Ägyptens Stadt am Mittelmeer.",
+    ),
     styleIds: ["classic", "family"],
     destinationIds: ["giza", "alexandria"],
     durationDays: 4,
     highlights: [
-      L("The Pyramids of Giza and the Sphinx"),
-      L("The Alexandria waterfront"),
-      L("The Bibliotheca Alexandrina"),
+      L("The Pyramids of Giza and the Sphinx", "Die Pyramiden von Gizeh und die Sphinx"),
+      L("The Alexandria waterfront", "Die Uferpromenade von Alexandria"),
+      L("The Bibliotheca Alexandrina", "Die Bibliotheca Alexandrina"),
     ],
     itinerary: [
       {

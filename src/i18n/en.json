@@ -108,5 +108,93 @@
       "text": "Tell us what you love. Our local partners design the rest.",
       "cta": "Design my trip"
     }
+  },
+  "home": {
+    "trust": {
+      "label": "Why you can trust us",
+      "partners": {
+        "title": "Licensed local partners",
+        "text": "Each program is run by a local partner company whose license we have verified."
+      },
+      "rating": {
+        "title": "Rated {rating} out of 5",
+        "text": "From {count} verified traveler reviews"
+      },
+      "support": {
+        "title": "Talk to us directly",
+        "text": "Send us a message on WhatsApp."
+      },
+      "cancellation": {
+        "title": "Clear cancellation terms",
+        "text": "Written into every offer, so you read them before you commit."
+      }
+    },
+    "styles": {
+      "eyebrow": "Choose your journey",
+      "title": "Which Egypt is yours?",
+      "description": "Pick the kind of trip that sounds like you. We shape the details together.",
+      "tripCount": {
+        "one": "{count} itinerary",
+        "other": "{count} itineraries"
+      },
+      "seeTrips": "See the itineraries",
+      "plan": "Plan this journey"
+    },
+    "trips": {
+      "eyebrow": "Featured trips",
+      "title": "Itineraries to start from",
+      "description": "Starting points for your own Egypt. We adapt each one to your dates, pace and budget."
+    },
+    "why": {
+      "eyebrow": "Why ELZORA",
+      "title": "Egypt, designed by people who know it",
+      "intro": "A trip to Egypt is easy to book and hard to get right. This is how we approach it.",
+      "imageAlt": "Low-angle view of the stone blocks of a pyramid",
+      "items": [
+        {
+          "title": "Local knowledge",
+          "text": "Routes shaped by people who know Egypt: the right time of day for each temple, and the quieter way to see it."
+        },
+        {
+          "title": "Planning around you",
+          "text": "Tell us what you love, when you can travel and how you like to move. Your itinerary is built from that, not from a catalogue."
+        },
+        {
+          "title": "Transparent pricing",
+          "text": "Every offer states what is included, the price and when payment is due, before you commit to anything."
+        },
+        {
+          "title": "Human support",
+          "text": "Write to us and a person answers. Ask your questions in plain words, as often as you need."
+        },
+        {
+          "title": "Carefully chosen partners",
+          "text": "Local partner companies build and run your program, and we choose which ones to work with."
+        }
+      ],
+      "transparency": {
+        "title": "How ELZORA earns",
+        "text": "We don’t build or run the trips ourselves. Local partner companies do, and they pay us a commission for the travelers we bring them. You can ask us about it at any time."
+      }
+    },
+    "reviews": {
+      "eyebrow": "Traveler reviews",
+      "title": "In their own words",
+      "summary": "Rated {rating} out of 5 from {count} verified traveler reviews",
+      "verified": "Verified review",
+      "starsLabel": "{rating} out of 5 stars"
+    },
+    "faq": {
+      "eyebrow": "Good to know",
+      "title": "Questions, answered",
+      "description": "Straight answers to the questions we hear most.",
+      "contactTitle": "Still have a question?",
+      "contactText": "Ask us directly. A person will answer."
+    },
+    "finalCta": {
+      "eyebrow": "Your Egypt",
+      "title": "Ready for your Egypt?",
+      "text": "Tell us what you love and when you can travel. We’ll design the rest with our local partners."
+    }
   }
 }

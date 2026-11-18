@@ -4,7 +4,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Card, CardBody } from "@/components/ui/Card";
 import { Chip } from "@/components/ui/Chip";
-import { Clock } from "@/components/ui/icons";
+import { Check, Clock } from "@/components/ui/icons";
 import { Photo } from "@/components/ui/Photo";
 import { Skeleton } from "@/components/ui/Skeleton";
 
@@ -14,9 +14,11 @@ type TripCardProps = {
   labels: Dictionary["trips"];
   /** Omit to render a non-clickable card (the trip pages arrive in Phase 7). */
   href?: string;
+  /** Also list the first highlights of the trip (used on the home page). */
+  showHighlights?: boolean;
 };
 
-export function TripCard({ trip, lang, labels, href }: TripCardProps) {
+export function TripCard({ trip, lang, labels, href, showHighlights = false }: TripCardProps) {
   const days = `${trip.durationDays} ${trip.durationDays === 1 ? labels.day : labels.days}`;
   const price = trip.priceFromEUR
     ? `${labels.from} €${trip.priceFromEUR.toLocaleString(lang)}`
@@ -46,6 +48,16 @@ export function TripCard({ trip, lang, labels, href }: TripCardProps) {
           {localize(trip.title, lang)}
         </h3>
         <p className="line-clamp-3 text-sand/75">{localize(trip.summary, lang)}</p>
+        {showHighlights && trip.highlights.length > 0 && (
+          <ul className="mt-auto space-y-2 border-t border-sand/10 pt-4 text-sm text-sand/80">
+            {trip.highlights.slice(0, 3).map((highlight) => (
+              <li key={highlight.en} className="flex gap-2">
+                <Check className="mt-0.5 size-4 shrink-0 text-gold" />
+                {localize(highlight, lang)}
+              </li>
+            ))}
+          </ul>
+        )}
       </CardBody>
     </Card>
   );

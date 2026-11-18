@@ -108,5 +108,93 @@
       "text": "Sagen Sie uns, was Sie lieben. Unsere lokalen Partner gestalten den Rest.",
       "cta": "Meine Reise planen"
     }
+  },
+  "home": {
+    "trust": {
+      "label": "Warum Sie uns vertrauen können",
+      "partners": {
+        "title": "Lizenzierte lokale Partner",
+        "text": "Jedes Programm wird von einem lokalen Partnerunternehmen durchgeführt, dessen Lizenz wir geprüft haben."
+      },
+      "rating": {
+        "title": "Bewertung: {rating} von 5",
+        "text": "Aus {count} verifizierten Reisebewertungen"
+      },
+      "support": {
+        "title": "Sprechen Sie direkt mit uns",
+        "text": "Schreiben Sie uns per WhatsApp."
+      },
+      "cancellation": {
+        "title": "Klare Stornobedingungen",
+        "text": "In jedem Angebot festgehalten, damit Sie sie lesen, bevor Sie sich entscheiden."
+      }
+    },
+    "styles": {
+      "eyebrow": "Ihre Reiseart",
+      "title": "Welches Ägypten passt zu Ihnen?",
+      "description": "Wählen Sie die Art von Reise, die zu Ihnen passt. Die Details gestalten wir gemeinsam.",
+      "tripCount": {
+        "one": "{count} Reiseverlauf",
+        "other": "{count} Reiseverläufe"
+      },
+      "seeTrips": "Reiseverläufe ansehen",
+      "plan": "Diese Reise planen"
+    },
+    "trips": {
+      "eyebrow": "Ausgewählte Reisen",
+      "title": "Reiseverläufe als Ausgangspunkt",
+      "description": "Ausgangspunkte für Ihr eigenes Ägypten. Wir passen jeden an Ihre Reisedaten, Ihr Tempo und Ihr Budget an."
+    },
+    "why": {
+      "eyebrow": "Warum ELZORA",
+      "title": "Ägypten, gestaltet von Menschen, die es kennen",
+      "intro": "Eine Ägypten-Reise ist schnell gebucht und schwer richtig zu machen. So gehen wir vor.",
+      "imageAlt": "Steinblöcke einer Pyramide aus der Froschperspektive",
+      "items": [
+        {
+          "title": "Lokales Wissen",
+          "text": "Routen von Menschen, die Ägypten kennen: die richtige Tageszeit für jeden Tempel und der ruhigere Weg dorthin."
+        },
+        {
+          "title": "Planung rund um Sie",
+          "text": "Sagen Sie uns, was Sie lieben, wann Sie reisen können und wie Sie unterwegs sein möchten. Ihre Reise entsteht daraus, nicht aus einem Katalog."
+        },
+        {
+          "title": "Transparente Preise",
+          "text": "Jedes Angebot nennt, was enthalten ist, den Preis und wann die Zahlung fällig ist, bevor Sie sich zu etwas verpflichten."
+        },
+        {
+          "title": "Persönlicher Kontakt",
+          "text": "Schreiben Sie uns, und ein Mensch antwortet. Stellen Sie Ihre Fragen in einfachen Worten, so oft Sie möchten."
+        },
+        {
+          "title": "Sorgfältig gewählte Partner",
+          "text": "Lokale Partnerunternehmen planen und führen Ihr Programm durch, und wir entscheiden selbst, mit welchen wir arbeiten."
+        }
+      ],
+      "transparency": {
+        "title": "So verdient ELZORA",
+        "text": "Wir planen und führen die Reisen nicht selbst durch. Das tun lokale Partnerunternehmen, die uns für die vermittelten Reisenden eine Provision zahlen. Fragen Sie uns jederzeit danach."
+      }
+    },
+    "reviews": {
+      "eyebrow": "Reisebewertungen",
+      "title": "In ihren eigenen Worten",
+      "summary": "Bewertung {rating} von 5 aus {count} verifizierten Reisebewertungen",
+      "verified": "Verifizierte Bewertung",
+      "starsLabel": "{rating} von 5 Sternen"
+    },
+    "faq": {
+      "eyebrow": "Gut zu wissen",
+      "title": "Ihre Fragen, beantwortet",
+      "description": "Klare Antworten auf die Fragen, die wir am häufigsten hören.",
+      "contactTitle": "Noch eine Frage?",
+      "contactText": "Fragen Sie uns direkt. Ein Mensch antwortet Ihnen."
+    },
+    "finalCta": {
+      "eyebrow": "Ihr Ägypten",
+      "title": "Bereit für Ihr Ägypten?",
+      "text": "Sagen Sie uns, was Sie lieben und wann Sie reisen können. Den Rest gestalten wir mit unseren lokalen Partnern."
+    }
   }
 }

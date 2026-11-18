@@ -96,4 +96,14 @@ export async function getFaqs(category?: Faq["category"]) {
 export async function getReviews() {
   return visible(reviews);
 }
+
+/**
+ * Aggregate partner facts for trust claims. Only booleans leave this module: the partner records
+ * themselves stay internal and must never reach a page.
+ */
+export async function getPartnerStatus() {
+  return {
+    allLicensesVerified: partners.length > 0 && partners.every((p) => p.licenseVerified),
+  };
+}
 // Partners are intentionally not exported: they are internal and must never reach a page.
