@@ -10,7 +10,14 @@ export type AuditEvent = {
     | "auth.mfa.verified"
     | "auth.mfa.failure"
     | "auth.logout"
-    | "auth.forbidden";
+    | "auth.forbidden"
+    | "trip.create"
+    | "trip.update"
+    | "trip.status"
+    | "trip.archive"
+    | "trip.restore"
+    | "trip.duplicate"
+    | "trip.delete";
   userId?: string;
   detail?: Record<string, string | number | boolean>;
 };

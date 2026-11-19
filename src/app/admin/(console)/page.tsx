@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { requireSession } from "@/admin/auth/session";
 import { Badge, Card, PageHeader, buttonClass } from "@/admin/ui/primitives";
+import { STATE_LABEL, tripState, type TripState } from "@/admin/trips/model";
+import { getTripStore } from "@/admin/trips/store";
 
 export const metadata: Metadata = { title: "Overview" };
 
 export default async function OverviewPage() {
   const { user, role } = await requireSession();
+
+  // Trip counts by status (7.4B). A trip counts once, under its most advanced language.
+  const counts: Record<TripState, number> = { draft: 0, review: 0, published: 0, archived: 0 };
+  for (const trip of await getTripStore().list()) counts[tripState(trip)] += 1;
 
   // Booleans only: configuration values are never shown, not even to the Owner.
   const checks = [
@@ -53,6 +59,28 @@ export default async function OverviewPage() {
         </div>
       </section>
 
+      <section aria-labelledby="trips-title" className="mb-8">
+        <h2
+          id="trips-title"
+          className="mb-3 text-sm font-semibold tracking-wide text-ink/70 uppercase"
+        >
+          Trips by status
+        </h2>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {(["draft", "review", "published", "archived"] as const).map((key) => (
+            <Link
+              key={key}
+              href={key === "archived" ? "/trips?status=archived" : `/trips?status=${key}`}
+            >
+              <Card className="h-full transition-colors hover:border-ink/30">
+                <p className="font-display text-4xl font-semibold">{counts[key]}</p>
+                <p className="mt-0.5 text-sm text-ink/65">{STATE_LABEL[key]}</p>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section aria-labelledby="roadmap-title">
         <h2
           id="roadmap-title"
@@ -65,7 +93,8 @@ export default async function OverviewPage() {
             <p className="font-semibold">Trips</p>
             <p className="mt-0.5 text-sm text-ink/65">
               Create and edit trips in English and German, with itinerary, photos and SEO, then
-              preview and publish (milestone 7.4B to 7.4D).
+              preview and publish (milestones 7.4B to 7.4D; the editor is live, storage and
+              publishing follow).
             </p>
             <Link href="/trips" className={`${buttonClass("ghost")} mt-3`}>
               Open trips

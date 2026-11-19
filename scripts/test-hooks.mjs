@@ -24,6 +24,12 @@ export async function resolve(specifier, context, next) {
   )
     base = resolvePath(dirname(fileURLToPath(context.parentURL)), specifier);
   const file = base && tryFile(base);
-  if (file) return next(pathToFileURL(file).href, context);
+  if (file) {
+    const result = await next(pathToFileURL(file).href, context);
+    // JSON modules (the image manifest) need an explicit import attribute under plain Node.
+    return file.endsWith(".json")
+      ? { ...result, importAttributes: { ...context.importAttributes, type: "json" } }
+      : result;
+  }
   return next(specifier, context);
 }
