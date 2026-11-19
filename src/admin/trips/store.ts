@@ -1,8 +1,9 @@
 import "server-only";
-// Storage seam for trips. 7.4B ships an in-memory implementation so the whole dashboard can be built and
-// reviewed now; 7.4C adds a Postgres implementation of the same interface (tables trips,
-// trip_translations, media_assets, trip_media, redirects) and switches `getTripStore()` to it.
-// Nothing outside this file knows where the data lives.
+// Storage seam for trips. With ADMIN_DATABASE_URL / DATABASE_URL set, the dashboard uses the Postgres
+// store (postgres-store.ts, tables from db/migrations/0020). Without it, an in-memory store keeps local
+// review working and the dashboard shows a "not saved" warning. Nothing outside this file chooses.
+import { adminDatabaseConfigured } from "../db/sql";
+import { postgresTripStore } from "./postgres-store";
 import { seedRecords } from "./seed";
 import type { Locale, TripRecord } from "./model";
 
@@ -69,5 +70,9 @@ const memoryStore: TripStore = {
 };
 
 export function getTripStore(): TripStore {
-  return memoryStore; // 7.4C: return the Postgres store when DATABASE_URL is configured.
+  if (adminDatabaseConfigured()) return postgresTripStore;
+  // Real deployments must never fall back silently to throw-away data.
+  if (process.env.NODE_ENV === "production" && process.env.ALLOW_MEMORY_TRIP_STORE !== "true")
+    throw new Error("The dashboard needs ADMIN_DATABASE_URL or DATABASE_URL in production.");
+  return memoryStore;
 }

@@ -1,5 +1,7 @@
-// Audit trail for sensitive dashboard actions. Until the `audit_logs` table exists (7.4C) events are
-// written to the server log as one JSON line. Never put secrets, passwords or e-mail bodies in an event.
+// Audit trail for sensitive dashboard actions. Each event is logged as one JSON line and, when the database
+// is configured, also stored in `audit_logs` (7.4C). A failing audit insert is logged but never breaks the
+// action. Never put secrets, passwords or e-mail bodies in an event.
+import { adminDatabaseConfigured, adminSql } from "./db/sql";
 
 export type AuditEvent = {
   action:
@@ -24,4 +26,11 @@ export type AuditEvent = {
 
 export function recordAudit(event: AuditEvent): void {
   console.info(JSON.stringify({ audit: true, at: new Date().toISOString(), ...event }));
+  if (!adminDatabaseConfigured()) return;
+  const sql = adminSql();
+  void sql`INSERT INTO audit_logs (action, user_id, detail)
+           VALUES (${event.action}, ${event.userId ?? null}, ${sql.json((event.detail ?? {}) as never)})`.catch(
+    (error: unknown) =>
+      console.error("audit_logs insert failed", error instanceof Error ? error.message : error),
+  );
 }
