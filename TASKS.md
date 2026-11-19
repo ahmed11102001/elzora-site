@@ -216,18 +216,18 @@ to `#planner` (Phase 6).
 
 ---
 
-## Phase 6 — Trip planner & leads
+## Phase 6 — Trip planner & leads (code done; needs DATABASE_URL, Resend, Turnstile and the privacy page, see README)
 
-- [ ] Multi-step form, one question per screen: when, who, interests, budget, contact (**L**)
-- [ ] Validation with zod (client and server) (**S**)
-- [ ] API route: store lead in the database with source, UTM, locale, timestamp (**M**)
-- [ ] Notifications: email to the team via Resend, WhatsApp link to the traveler (**M**)
-- [ ] Confirmation page and confirmation email (**S**)
-- [ ] Spam protection: honeypot + Cloudflare Turnstile, rate limit (**M**)
-- [ ] GDPR consent checkbox with a link to the privacy policy (**S**)
-- [ ] Error, offline and retry states (**S**)
-- [ ] Simple admin view or export of leads (CSV or CMS) (**M**)
-- [ ] Sticky "Plan my trip" entry point on mobile (**S**)
+- [x] Multi-step form, one question per screen: when, who, interests, budget, contact (**L**)
+- [x] Validation with zod (client and server) (**S**)
+- [x] API route: store lead in the database with source, UTM, locale, timestamp (**M**)
+- [x] Notifications: email to the team via Resend, WhatsApp link to the traveler (**M**)
+- [x] Confirmation page and confirmation email (**S**)
+- [x] Spam protection: honeypot + Cloudflare Turnstile, rate limit (**M**)
+- [x] GDPR consent checkbox with a link to the privacy policy (**S**)
+- [x] Error, offline and retry states (**S**)
+- [x] Simple admin view or export of leads (CSV or CMS) (**M**)
+- [x] Sticky "Plan my trip" entry point on mobile (**S**)
 
 **Done when:** a test lead goes from the form to the database, the team's inbox and the traveler's confirmation, and spam is filtered.
 

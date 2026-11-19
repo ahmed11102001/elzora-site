@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { navRoutes } from "@/lib/routes";
+import { navRoutes, plannerPath } from "@/lib/routes";
 import { siteName, whatsappNumber } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -46,7 +46,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
               {dict.cta.whatsapp}
             </Button>
           )}
-          <Button href={`/${lang}#planner`} size="sm">
+          <Button href={plannerPath(lang)} size="sm">
             {dict.cta.plan}
           </Button>
           {navItems.length > 0 && (

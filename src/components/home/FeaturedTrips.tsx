@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { TripCard, TripCardSkeleton } from "@/components/trips/TripCard";
 import { Button } from "@/components/ui/Button";
+import { plannerPath } from "@/lib/routes";
 import { Container } from "@/components/ui/Container";
 import { FEATURED_TRIPS_LIMIT, featuredTrips } from "./home-data";
 
@@ -42,7 +43,7 @@ export function FeaturedTrips({ lang, dict, trips }: FeaturedTripsProps) {
         </ul>
 
         <div className="mt-10 flex justify-center sm:mt-14">
-          <Button href={`/${lang}#planner`}>{dict.cta.plan}</Button>
+          <Button href={plannerPath(lang)}>{dict.cta.plan}</Button>
         </div>
       </Container>
     </section>

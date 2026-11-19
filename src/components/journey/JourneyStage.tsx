@@ -2,6 +2,7 @@ import type { Ref } from "react";
 import type { Locale } from "@/i18n/config";
 import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
+import { plannerPath } from "@/lib/routes";
 import { CLIPS } from "./clips";
 import { stationText, type JourneyCopy } from "./copy";
 import { EGYPT_PATH, MAP_VIEWBOX, NILE_BRANCHES, NILE_MAIN, stationPositions } from "./map-data";
@@ -335,7 +336,7 @@ export function JourneyStage({ stageRef, ...props }: StageProps) {
           {copy.finale.title}
         </h2>
         <p className="opacity-90">{copy.finale.text}</p>
-        <Button href={`/${props.lang}#planner`}>{copy.finale.cta}</Button>
+        <Button href={plannerPath(props.lang)}>{copy.finale.cta}</Button>
       </div>
 
       <nav aria-label={copy.ui.rail} className="absolute top-1/2 right-3.5 z-20 -translate-y-1/2">

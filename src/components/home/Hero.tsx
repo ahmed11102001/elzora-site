@@ -5,6 +5,7 @@ import { Chip } from "@/components/ui/Chip";
 import { Container } from "@/components/ui/Container";
 import { ArrowDown, Chat, Clock, Shield } from "@/components/ui/icons";
 import { Photo } from "@/components/ui/Photo";
+import { plannerPath } from "@/lib/routes";
 
 // The first screen. Server-rendered, no animation library and no client JavaScript, so it paints
 // fast on a phone. The animated journey lives in the section below.
@@ -47,7 +48,7 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
         <p className="mt-5 max-w-xl text-lg text-sand/90 sm:text-xl">{t.subtitle}</p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Button href={`/${lang}#planner`}>{dict.cta.plan}</Button>
+          <Button href={plannerPath(lang)}>{dict.cta.plan}</Button>
           <Button href="#journey" variant="ghost" className="gap-2">
             {t.journeyCta}
             <ArrowDown className="size-4" />

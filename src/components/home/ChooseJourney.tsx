@@ -5,6 +5,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { Container } from "@/components/ui/Container";
 import { ArrowRight } from "@/components/ui/icons";
 import { Photo } from "@/components/ui/Photo";
+import { plannerPath } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { featuredTrips } from "./home-data";
 
@@ -54,7 +55,7 @@ export function ChooseJourney({ lang, dict, styles, trips }: ChooseJourneyProps)
             const related = trips.filter((trip) => trip.styleIds.includes(style.id));
             const target = related.find((trip) => shown.some((s) => s.id === trip.id));
             let href = "#trips";
-            if (related.length === 0) href = `/${lang}#planner`;
+            if (related.length === 0) href = plannerPath(lang);
             else if (target) href = `#trip-${target.id}`;
             const countTemplate = related.length === 1 ? t.tripCount.one : t.tripCount.other;
             const countLabel = countTemplate.replace("{count}", String(related.length));

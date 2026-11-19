@@ -143,6 +143,31 @@ Station coordinates are in `map-data.ts`, copy is in `journey` in the dictionari
 On phones (`variant: "mobile"`) the photo brightness filter and the card blur are off and the scroll
 distance is shorter.
 
+## Trip planner and leads (Phase 6)
+
+`/en/plan-your-trip` and `/de/plan-your-trip`: seven one-question screens (dates, travellers, experience,
+duration, budget, contact, review), then a confirmation page. No payment or booking.
+
+- **UI:** `src/components/planner` (state in memory only, never in browser storage), copy in `planner` in the dictionaries.
+- **Shared validation:** `src/lib/leads/schema.ts` (zod). Errors are codes; the UI maps them to `planner.errors`.
+- **API:** `POST /api/leads`. Order: rate limit, honeypot, validation, duplicate check, Turnstile, save, notify.
+  Success is returned only after the lead is stored. Logic lives in `src/lib/leads/submit.ts` (framework-free, tested).
+- **Database:** plain Postgres via `DATABASE_URL` (`postgres` package). Tables in `db/migrations/0001_create_leads.sql`
+  (`leads`, `lead_rate_limits`), applied with `npm run db:migrate`. RLS is enabled with no policies so Supabase's public API cannot read them.
+- **Duplicates:** the browser sends an idempotency key per attempt; the server also fingerprints the answers (30 min window).
+- **Emails:** Resend over HTTP (`src/lib/leads/notifications.ts`), team notification plus localized traveler confirmation, sent after
+  the response. Failures are stored on the lead and retried with
+  `curl -X POST -H "Authorization: Bearer $LEADS_ADMIN_TOKEN" https://<site>/api/admin/leads/retry-notifications`.
+- **Export:** `curl -H "Authorization: Bearer $LEADS_ADMIN_TOKEN" https://<site>/api/admin/leads/export -o leads.csv`
+  (UTF-8 with BOM, formula-injection safe). There is no admin login in this project: this is one shared secret, and the routes
+  answer 404 while it is unset. Also protect `/api/admin/*` at the platform level.
+- **Attribution:** first-touch UTM, referrer and landing page are kept in `sessionStorage` (`AttributionCapture`) and sent with the lead.
+- **Tests:** `npm test` (Node's built-in runner, no extra packages).
+
+Still needed from the owner: `DATABASE_URL` + `npm run db:migrate`, Resend key and a verified sender domain, Turnstile keys,
+the real Privacy Policy page at `/{lang}/privacy` (Phase 7, the consent link points there) and its version in
+`CONSENT_VERSION` (`src/lib/leads/options.ts`), plus legal wording review of the consent text and the Cloudflare mention.
+
 ## Design page
 
 `/en/design` shows every component with real seed data. It is available in dev and returns 404 in

@@ -3,6 +3,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Photo } from "@/components/ui/Photo";
+import { plannerPath } from "@/lib/routes";
 
 type FinalCTAProps = {
   lang: Locale;
@@ -11,8 +12,7 @@ type FinalCTAProps = {
   whatsappUrl: string | null;
 };
 
-// Closing call to action before the footer. "Design my trip" points to #planner, which exists once
-// the planner is built (Phase 6), the same target the header and hero already use.
+// Closing call to action before the footer. Leads to the trip planner, like the header and hero.
 export function FinalCTA({ lang, dict, whatsappUrl }: FinalCTAProps) {
   const t = dict.home.finalCta;
 
@@ -45,7 +45,7 @@ export function FinalCTA({ lang, dict, whatsappUrl }: FinalCTAProps) {
         </h2>
         <p className="mt-5 max-w-xl text-lg text-sand/90 sm:text-xl">{t.text}</p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Button href={`/${lang}#planner`}>{dict.cta.plan}</Button>
+          <Button href={plannerPath(lang)}>{dict.cta.plan}</Button>
           {whatsappUrl && (
             <Button href={whatsappUrl} variant="ghost">
               {dict.cta.whatsapp}

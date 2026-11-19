@@ -11,7 +11,8 @@
   },
   "cta": {
     "plan": "Design my trip",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "planMobile": "Plan my trip"
   },
   "header": {
     "skip": "Skip to content",
@@ -195,6 +196,269 @@
       "eyebrow": "Your Egypt",
       "title": "Ready for your Egypt?",
       "text": "Tell us what you love and when you can travel. We’ll design the rest with our local partners."
+    }
+  },
+  "planner": {
+    "meta": {
+      "title": "Plan your trip to Egypt",
+      "description": "Tell us when you would like to travel, who is coming and what you love. We pass your request to a suitable local tour partner. No payment, no commitment."
+    },
+    "confirmationMeta": {
+      "title": "Request received"
+    },
+    "intro": {
+      "eyebrow": "Your Egypt, designed by locals",
+      "title": "Let’s plan your Egypt",
+      "text": "Answer a few short questions, one at a time. It takes about two minutes, and nothing is booked or paid here.",
+      "points": [
+        "No payment, no commitment",
+        "Matched with a suitable local tour partner",
+        "Your details are used only to answer your request"
+      ]
+    },
+    "progress": {
+      "label": "Trip planner progress",
+      "step": "Step {current} of {total}"
+    },
+    "stepNames": ["When", "Travellers", "Experience", "Duration", "Budget", "Contact", "Review"],
+    "common": {
+      "back": "Back",
+      "continue": "Continue",
+      "change": "Change",
+      "optional": "Optional",
+      "requiredNote": "All questions are required unless marked optional.",
+      "notSure": "Not sure yet",
+      "notProvided": "Not provided",
+      "selected": "Selected"
+    },
+    "when": {
+      "title": "When would you like to visit Egypt?",
+      "hint": "You don’t need exact dates. Tell us what you know today.",
+      "options": {
+        "specific": {
+          "title": "I have specific dates",
+          "text": "I know when I can arrive and leave."
+        },
+        "flexible": {
+          "title": "My dates are flexible",
+          "text": "I can travel around a certain time."
+        },
+        "undecided": {
+          "title": "I haven’t decided yet",
+          "text": "I’m still exploring the idea."
+        }
+      },
+      "arrival": "Arrival date",
+      "departure": "Departure date",
+      "flexibleWhen": "When would you prefer to travel?",
+      "flexibleHint": "Pick a season or a month. Egypt can be visited all year.",
+      "any": "Any time of year",
+      "seasonsGroup": "Seasons",
+      "monthsGroup": "Months",
+      "seasons": {
+        "spring": "Spring (March–May)",
+        "summer": "Summer (June–August)",
+        "autumn": "Autumn (September–November)",
+        "winter": "Winter (December–February)"
+      },
+      "choosePlaceholder": "Select…"
+    },
+    "who": {
+      "title": "Who is travelling?",
+      "hint": "Use the buttons to change the numbers.",
+      "adults": "Adults",
+      "adultsHint": "Age 18 and over",
+      "children": "Children",
+      "childrenHint": "Under 18",
+      "adultsLess": "Fewer adults",
+      "adultsMore": "More adults",
+      "childrenLess": "Fewer children",
+      "childrenMore": "More children",
+      "agesTitle": "How old are the children?",
+      "agesHint": "Their age at the time of travel helps us suggest suitable options.",
+      "childAge": "Age of child {n}",
+      "agePlaceholder": "Select age",
+      "ageUnder1": "Under 1 year",
+      "age1": "1 year",
+      "ageOther": "{age} years",
+      "adultsOne": "1 adult",
+      "adultsMany": "{count} adults",
+      "childrenOne": "1 child",
+      "childrenMany": "{count} children",
+      "ages": "ages {ages}"
+    },
+    "experience": {
+      "title": "What kind of experience are you looking for?",
+      "hint": "Choose as many as you like.",
+      "options": {
+        "history": {
+          "title": "Ancient Egypt & History",
+          "text": "Pyramids, temples and tombs, with context."
+        },
+        "nile": {
+          "title": "Nile Cruise",
+          "text": "Slow days on the river between Luxor and Aswan."
+        },
+        "redsea": {
+          "title": "Red Sea & Beaches",
+          "text": "Sun, swimming and snorkelling by the coast."
+        },
+        "desert": {
+          "title": "Desert & Adventure",
+          "text": "Oases, dunes and nights under the stars."
+        },
+        "culture": {
+          "title": "Culture & Local Experiences",
+          "text": "Markets, food and everyday life with locals."
+        },
+        "family": {
+          "title": "Family Holiday",
+          "text": "An easy pace and experiences for all ages."
+        },
+        "romantic": {
+          "title": "Romantic Escape",
+          "text": "Quiet moments and special places for two."
+        },
+        "everything": {
+          "title": "A bit of everything",
+          "text": "A mix of the above. We’ll suggest the balance."
+        }
+      }
+    },
+    "duration": {
+      "title": "How long would you like to stay?",
+      "hint": "A rough idea is enough.",
+      "options": {
+        "3-5": "3–5 days",
+        "6-8": "6–8 days",
+        "9-12": "9–12 days",
+        "13-16": "13–16 days",
+        "16+": "More than 16 days",
+        "unsure": "Not sure yet"
+      }
+    },
+    "budget": {
+      "title": "What is your approximate budget?",
+      "hint": "Please think per person, for the whole trip, in euros.",
+      "note": "This only helps us suggest suitable options. It is not a quote, and we can’t promise a specific itinerary or price at this stage.",
+      "perPerson": "Per person",
+      "templates": {
+        "under": "Under {max}",
+        "range": "{min}–{max}",
+        "over": "{min}+",
+        "unsure": "Not sure yet"
+      }
+    },
+    "contact": {
+      "title": "How can we reach you?",
+      "hint": "We use these details only to prepare and answer your trip request.",
+      "fullName": "Full name",
+      "email": "Email address",
+      "emailHint": "Your confirmation will be sent here.",
+      "country": "Country of residence",
+      "countryPlaceholder": "Select your country",
+      "phone": "WhatsApp or phone number",
+      "phoneHint": "Optional. Include the country code, for example +49.",
+      "notes": "Anything else we should know?",
+      "notesPlaceholder": "Special requests, occasions, mobility needs…",
+      "notesCount": "{count} / {max}",
+      "privacyNote": "Nothing is booked or charged through this form."
+    },
+    "review": {
+      "title": "Review your trip request",
+      "hint": "Check your answers. You can change any of them without losing the rest.",
+      "labels": {
+        "when": "Travel dates",
+        "who": "Travellers",
+        "experience": "Experience",
+        "duration": "Length of stay",
+        "budget": "Budget per person",
+        "contact": "Contact"
+      },
+      "dates": {
+        "range": "{arrival} to {departure}",
+        "flexibleAny": "Flexible, any time of year",
+        "flexibleSeason": "Flexible, {season}",
+        "flexibleMonth": "Flexible, around {month}",
+        "undecided": "Not decided yet"
+      },
+      "consent": {
+        "before": "I agree that ELZORA may use the information above to prepare and answer my trip request. I have read the ",
+        "link": "Privacy Policy",
+        "after": "."
+      },
+      "captchaLabel": "Security check",
+      "captchaLoading": "Loading security check…",
+      "submit": "Send my trip request",
+      "submitting": "Sending…",
+      "reassurance": "Nothing is booked or paid through this request. We will get back to you by email.",
+      "honeypot": "Leave this field empty"
+    },
+    "errors": {
+      "choose": "Please choose an option to continue.",
+      "chooseMany": "Please choose at least one option.",
+      "required": "This field is required.",
+      "too_long": "This is too long.",
+      "invalid": "Something doesn’t look right here.",
+      "invalid_email": "Please enter a valid email address.",
+      "invalid_phone": "Please enter a valid phone number, including the country code.",
+      "invalid_option": "Please choose one of the options.",
+      "invalid_date": "Please enter a valid date.",
+      "date_in_past": "Please choose a date in the future.",
+      "date_too_far": "That is too far ahead. Please choose a date within the next two years.",
+      "departure_before_arrival": "The departure date must be after the arrival date.",
+      "stay_too_long": "Please choose a stay of up to 90 days.",
+      "age_invalid": "Please select the child’s age.",
+      "too_many_travelers": "One request can include up to 16 travellers.",
+      "consent_required": "Please confirm your consent to send your request."
+    },
+    "status": {
+      "offline": "You appear to be offline. Reconnect to send your request. Your answers are kept on this page.",
+      "network": "We couldn’t reach the server. Please check your connection and try again. Your answers are still here.",
+      "service": "We couldn’t save your request just now. Nothing you entered was lost. Please try again in a moment.",
+      "rateLimited": "Too many attempts. Please wait a few minutes and try again.",
+      "captchaFailed": "The security check didn’t complete. Please try again.",
+      "captchaPending": "Please wait for the security check to finish.",
+      "validation": "Some answers need your attention. We took you to the first one.",
+      "retry": "Try again"
+    },
+    "confirmation": {
+      "title": "Thank you. Your request is in.",
+      "text": "We’ve received your trip request. A confirmation will be sent to the email address you gave us.",
+      "referenceLabel": "Your reference",
+      "referenceHint": "Please keep it for any message to us.",
+      "nextTitle": "What happens next",
+      "next": [
+        "We read your request and look for a suitable local tour partner.",
+        "A personal proposal is prepared around your dates, interests and budget.",
+        "We contact you by email to talk it through. Nothing is booked or paid before you agree to an offer."
+      ],
+      "whatsappTitle": "Prefer to chat?",
+      "whatsappCta": "Message us on WhatsApp",
+      "whatsappMessage": "Hello ELZORA, my trip request reference is {reference}.",
+      "home": "Back to home",
+      "missingTitle": "No recent request found",
+      "missingText": "We can’t show a reference in this browser session. If you just sent a request, please check your email for the confirmation.",
+      "planAgain": "Plan a trip"
+    },
+    "email": {
+      "subject": "We’ve received your trip request ({reference})",
+      "preheader": "Your reference is {reference}.",
+      "greeting": "Dear {name},",
+      "heading": "Thank you for your trip request",
+      "intro": "We’ve received your request for a trip to Egypt. Please keep this reference for any message to us.",
+      "referenceLabel": "Your reference",
+      "nextTitle": "What happens next",
+      "next": [
+        "We read your request and look for a suitable local tour partner.",
+        "A personal proposal is prepared around your dates, interests and budget.",
+        "We contact you by email to talk it through. Nothing is booked or paid before you agree to an offer."
+      ],
+      "note": "This message confirms that we received your request. It is not an offer or a booking, and nothing has been charged.",
+      "whatsapp": "Prefer to chat? Message us on WhatsApp",
+      "whatsappMessage": "Hello ELZORA, my trip request reference is {reference}.",
+      "signoff": "Warm regards,",
+      "footer": "You received this email because you sent a trip request on our website. If this wasn’t you, you can ignore it."
     }
   }
 }

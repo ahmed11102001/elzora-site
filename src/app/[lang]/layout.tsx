@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { defaultLocale, hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { siteName, siteUrl } from "@/lib/site";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SkipLink } from "@/components/layout/SkipLink";
+import { AttributionCapture } from "@/components/planner/AttributionCapture";
+import { PlannerMobileEntry } from "@/components/planner/PlannerMobileEntry";
 import { cormorant, inter } from "../fonts";
 import "../globals.css";
 
@@ -52,6 +55,10 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
           {children}
         </main>
         <Footer dict={dict} />
+        <AttributionCapture />
+        <Suspense fallback={null}>
+          <PlannerMobileEntry lang={locale} label={dict.cta.planMobile} />
+        </Suspense>
       </body>
     </html>
   );

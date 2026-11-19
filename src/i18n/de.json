@@ -11,7 +11,8 @@
   },
   "cta": {
     "plan": "Meine Reise planen",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "planMobile": "Reise planen"
   },
   "header": {
     "skip": "Zum Inhalt springen",
@@ -195,6 +196,269 @@
       "eyebrow": "Ihr Ägypten",
       "title": "Bereit für Ihr Ägypten?",
       "text": "Sagen Sie uns, was Sie lieben und wann Sie reisen können. Den Rest gestalten wir mit unseren lokalen Partnern."
+    }
+  },
+  "planner": {
+    "meta": {
+      "title": "Ihre Reise nach Ägypten planen",
+      "description": "Sagen Sie uns, wann Sie reisen möchten, wer mitkommt und was Sie begeistert. Wir geben Ihre Anfrage an einen passenden lokalen Reisepartner weiter. Keine Zahlung, keine Verpflichtung."
+    },
+    "confirmationMeta": {
+      "title": "Anfrage erhalten"
+    },
+    "intro": {
+      "eyebrow": "Ihr Ägypten, gestaltet von Einheimischen",
+      "title": "Planen wir Ihr Ägypten",
+      "text": "Beantworten Sie ein paar kurze Fragen, eine nach der anderen. Das dauert etwa zwei Minuten, und hier wird nichts gebucht oder bezahlt.",
+      "points": [
+        "Keine Zahlung, keine Verpflichtung",
+        "Vermittlung an einen passenden lokalen Reisepartner",
+        "Ihre Angaben dienen nur der Beantwortung Ihrer Anfrage"
+      ]
+    },
+    "progress": {
+      "label": "Fortschritt der Reiseplanung",
+      "step": "Schritt {current} von {total}"
+    },
+    "stepNames": ["Zeitraum", "Reisende", "Erlebnis", "Dauer", "Budget", "Kontakt", "Prüfen"],
+    "common": {
+      "back": "Zurück",
+      "continue": "Weiter",
+      "change": "Ändern",
+      "optional": "Optional",
+      "requiredNote": "Alle Fragen sind Pflichtfragen, sofern sie nicht als optional gekennzeichnet sind.",
+      "notSure": "Noch unsicher",
+      "notProvided": "Nicht angegeben",
+      "selected": "Ausgewählt"
+    },
+    "when": {
+      "title": "Wann möchten Sie Ägypten besuchen?",
+      "hint": "Genaue Daten sind nicht nötig. Sagen Sie uns, was Sie heute schon wissen.",
+      "options": {
+        "specific": {
+          "title": "Ich habe feste Reisedaten",
+          "text": "Ich weiß, wann ich an- und abreisen kann."
+        },
+        "flexible": {
+          "title": "Meine Reisedaten sind flexibel",
+          "text": "Ich kann ungefähr zu einer bestimmten Zeit reisen."
+        },
+        "undecided": {
+          "title": "Ich habe mich noch nicht entschieden",
+          "text": "Ich informiere mich noch."
+        }
+      },
+      "arrival": "Anreisedatum",
+      "departure": "Abreisedatum",
+      "flexibleWhen": "Wann würden Sie am liebsten reisen?",
+      "flexibleHint": "Wählen Sie eine Jahreszeit oder einen Monat. Ägypten lässt sich das ganze Jahr über bereisen.",
+      "any": "Zu jeder Jahreszeit",
+      "seasonsGroup": "Jahreszeiten",
+      "monthsGroup": "Monate",
+      "seasons": {
+        "spring": "Frühling (März–Mai)",
+        "summer": "Sommer (Juni–August)",
+        "autumn": "Herbst (September–November)",
+        "winter": "Winter (Dezember–Februar)"
+      },
+      "choosePlaceholder": "Auswählen …"
+    },
+    "who": {
+      "title": "Wer reist mit?",
+      "hint": "Ändern Sie die Anzahl mit den Schaltflächen.",
+      "adults": "Erwachsene",
+      "adultsHint": "Ab 18 Jahren",
+      "children": "Kinder",
+      "childrenHint": "Unter 18 Jahren",
+      "adultsLess": "Weniger Erwachsene",
+      "adultsMore": "Mehr Erwachsene",
+      "childrenLess": "Weniger Kinder",
+      "childrenMore": "Mehr Kinder",
+      "agesTitle": "Wie alt sind die Kinder?",
+      "agesHint": "Das Alter zum Reisezeitpunkt hilft uns, passende Vorschläge zu machen.",
+      "childAge": "Alter von Kind {n}",
+      "agePlaceholder": "Alter wählen",
+      "ageUnder1": "Unter 1 Jahr",
+      "age1": "1 Jahr",
+      "ageOther": "{age} Jahre",
+      "adultsOne": "1 Erwachsener",
+      "adultsMany": "{count} Erwachsene",
+      "childrenOne": "1 Kind",
+      "childrenMany": "{count} Kinder",
+      "ages": "Alter: {ages}"
+    },
+    "experience": {
+      "title": "Welche Art von Erlebnis suchen Sie?",
+      "hint": "Wählen Sie so viele aus, wie Sie möchten.",
+      "options": {
+        "history": {
+          "title": "Altes Ägypten & Geschichte",
+          "text": "Pyramiden, Tempel und Gräber, gut erklärt."
+        },
+        "nile": {
+          "title": "Nilkreuzfahrt",
+          "text": "Ruhige Tage auf dem Fluss zwischen Luxor und Assuan."
+        },
+        "redsea": {
+          "title": "Rotes Meer & Strände",
+          "text": "Sonne, Baden und Schnorcheln an der Küste."
+        },
+        "desert": {
+          "title": "Wüste & Abenteuer",
+          "text": "Oasen, Dünen und Nächte unter dem Sternenhimmel."
+        },
+        "culture": {
+          "title": "Kultur & Begegnungen vor Ort",
+          "text": "Märkte, Essen und Alltag mit Einheimischen."
+        },
+        "family": {
+          "title": "Familienurlaub",
+          "text": "Entspanntes Tempo und Erlebnisse für jedes Alter."
+        },
+        "romantic": {
+          "title": "Romantische Auszeit",
+          "text": "Ruhige Momente und besondere Orte für zwei."
+        },
+        "everything": {
+          "title": "Von allem etwas",
+          "text": "Eine Mischung aus allem. Wir schlagen die Balance vor."
+        }
+      }
+    },
+    "duration": {
+      "title": "Wie lange möchten Sie bleiben?",
+      "hint": "Eine grobe Vorstellung genügt.",
+      "options": {
+        "3-5": "3–5 Tage",
+        "6-8": "6–8 Tage",
+        "9-12": "9–12 Tage",
+        "13-16": "13–16 Tage",
+        "16+": "Mehr als 16 Tage",
+        "unsure": "Noch unsicher"
+      }
+    },
+    "budget": {
+      "title": "Wie hoch ist Ihr ungefähres Budget?",
+      "hint": "Bitte denken Sie pro Person, für die gesamte Reise, in Euro.",
+      "note": "Das hilft uns nur, passende Vorschläge zu machen. Es ist kein Angebot, und wir können zum jetzigen Zeitpunkt keine bestimmte Reiseroute und keinen Preis zusagen.",
+      "perPerson": "Pro Person",
+      "templates": {
+        "under": "Unter {max}",
+        "range": "{min}–{max}",
+        "over": "{min}+",
+        "unsure": "Noch unsicher"
+      }
+    },
+    "contact": {
+      "title": "Wie können wir Sie erreichen?",
+      "hint": "Wir verwenden diese Angaben nur, um Ihre Reiseanfrage vorzubereiten und zu beantworten.",
+      "fullName": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "emailHint": "Ihre Bestätigung senden wir an diese Adresse.",
+      "country": "Wohnsitzland",
+      "countryPlaceholder": "Land auswählen",
+      "phone": "WhatsApp- oder Telefonnummer",
+      "phoneHint": "Optional. Bitte mit Ländervorwahl, zum Beispiel +49.",
+      "notes": "Gibt es noch etwas, das wir wissen sollten?",
+      "notesPlaceholder": "Besondere Wünsche, Anlässe, Einschränkungen bei der Mobilität …",
+      "notesCount": "{count} / {max}",
+      "privacyNote": "Über dieses Formular wird nichts gebucht und nichts abgebucht."
+    },
+    "review": {
+      "title": "Prüfen Sie Ihre Reiseanfrage",
+      "hint": "Kontrollieren Sie Ihre Angaben. Sie können jede Antwort ändern, ohne die übrigen zu verlieren.",
+      "labels": {
+        "when": "Reisezeitraum",
+        "who": "Reisende",
+        "experience": "Erlebnis",
+        "duration": "Aufenthaltsdauer",
+        "budget": "Budget pro Person",
+        "contact": "Kontakt"
+      },
+      "dates": {
+        "range": "{arrival} bis {departure}",
+        "flexibleAny": "Flexibel, zu jeder Jahreszeit",
+        "flexibleSeason": "Flexibel, {season}",
+        "flexibleMonth": "Flexibel, etwa {month}",
+        "undecided": "Noch nicht entschieden"
+      },
+      "consent": {
+        "before": "Ich bin damit einverstanden, dass ELZORA die oben genannten Angaben verwendet, um meine Reiseanfrage vorzubereiten und zu beantworten. Ich habe die ",
+        "link": "Datenschutzerklärung",
+        "after": " gelesen."
+      },
+      "captchaLabel": "Sicherheitsprüfung",
+      "captchaLoading": "Sicherheitsprüfung wird geladen …",
+      "submit": "Meine Reiseanfrage senden",
+      "submitting": "Wird gesendet …",
+      "reassurance": "Über diese Anfrage wird nichts gebucht oder bezahlt. Wir melden uns per E-Mail bei Ihnen.",
+      "honeypot": "Bitte dieses Feld leer lassen"
+    },
+    "errors": {
+      "choose": "Bitte wählen Sie eine Option, um fortzufahren.",
+      "chooseMany": "Bitte wählen Sie mindestens eine Option.",
+      "required": "Dieses Feld ist erforderlich.",
+      "too_long": "Diese Eingabe ist zu lang.",
+      "invalid": "Hier stimmt etwas nicht.",
+      "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "invalid_phone": "Bitte geben Sie eine gültige Telefonnummer mit Ländervorwahl ein.",
+      "invalid_option": "Bitte wählen Sie eine der Optionen.",
+      "invalid_date": "Bitte geben Sie ein gültiges Datum ein.",
+      "date_in_past": "Bitte wählen Sie ein Datum in der Zukunft.",
+      "date_too_far": "Das liegt zu weit in der Zukunft. Bitte wählen Sie ein Datum innerhalb der nächsten zwei Jahre.",
+      "departure_before_arrival": "Das Abreisedatum muss nach dem Anreisedatum liegen.",
+      "stay_too_long": "Bitte wählen Sie einen Aufenthalt von höchstens 90 Tagen.",
+      "age_invalid": "Bitte wählen Sie das Alter des Kindes.",
+      "too_many_travelers": "Eine Anfrage kann bis zu 16 Reisende umfassen.",
+      "consent_required": "Bitte bestätigen Sie Ihre Einwilligung, um die Anfrage zu senden."
+    },
+    "status": {
+      "offline": "Sie scheinen offline zu sein. Bitte verbinden Sie sich erneut, um Ihre Anfrage zu senden. Ihre Antworten bleiben auf dieser Seite erhalten.",
+      "network": "Wir konnten den Server nicht erreichen. Bitte prüfen Sie Ihre Verbindung und versuchen Sie es erneut. Ihre Antworten sind weiterhin vorhanden.",
+      "service": "Wir konnten Ihre Anfrage gerade nicht speichern. Ihre Eingaben sind nicht verloren gegangen. Bitte versuchen Sie es gleich noch einmal.",
+      "rateLimited": "Zu viele Versuche. Bitte warten Sie einige Minuten und versuchen Sie es dann erneut.",
+      "captchaFailed": "Die Sicherheitsprüfung wurde nicht abgeschlossen. Bitte versuchen Sie es erneut.",
+      "captchaPending": "Bitte warten Sie, bis die Sicherheitsprüfung abgeschlossen ist.",
+      "validation": "Einige Antworten brauchen Ihre Aufmerksamkeit. Wir haben Sie zur ersten gebracht.",
+      "retry": "Erneut versuchen"
+    },
+    "confirmation": {
+      "title": "Vielen Dank. Ihre Anfrage ist eingegangen.",
+      "text": "Wir haben Ihre Reiseanfrage erhalten. Eine Bestätigung senden wir an die von Ihnen angegebene E-Mail-Adresse.",
+      "referenceLabel": "Ihre Referenz",
+      "referenceHint": "Bitte halten Sie sie für jede Nachricht an uns bereit.",
+      "nextTitle": "So geht es weiter",
+      "next": [
+        "Wir lesen Ihre Anfrage und suchen einen passenden lokalen Reisepartner.",
+        "Ein persönlicher Vorschlag wird auf Ihre Reisedaten, Interessen und Ihr Budget abgestimmt.",
+        "Wir melden uns per E-Mail, um alles mit Ihnen zu besprechen. Gebucht oder bezahlt wird erst, wenn Sie einem Angebot zustimmen."
+      ],
+      "whatsappTitle": "Lieber chatten?",
+      "whatsappCta": "Schreiben Sie uns auf WhatsApp",
+      "whatsappMessage": "Hallo ELZORA, die Referenz meiner Reiseanfrage lautet {reference}.",
+      "home": "Zurück zur Startseite",
+      "missingTitle": "Keine aktuelle Anfrage gefunden",
+      "missingText": "In dieser Browsersitzung können wir keine Referenz anzeigen. Wenn Sie gerade eine Anfrage gesendet haben, finden Sie die Bestätigung in Ihrem E-Mail-Postfach.",
+      "planAgain": "Reise planen"
+    },
+    "email": {
+      "subject": "Wir haben Ihre Reiseanfrage erhalten ({reference})",
+      "preheader": "Ihre Referenz lautet {reference}.",
+      "greeting": "Guten Tag {name},",
+      "heading": "Vielen Dank für Ihre Reiseanfrage",
+      "intro": "Wir haben Ihre Anfrage für eine Reise nach Ägypten erhalten. Bitte halten Sie diese Referenz für jede Nachricht an uns bereit.",
+      "referenceLabel": "Ihre Referenz",
+      "nextTitle": "So geht es weiter",
+      "next": [
+        "Wir lesen Ihre Anfrage und suchen einen passenden lokalen Reisepartner.",
+        "Ein persönlicher Vorschlag wird auf Ihre Reisedaten, Interessen und Ihr Budget abgestimmt.",
+        "Wir melden uns per E-Mail, um alles mit Ihnen zu besprechen. Gebucht oder bezahlt wird erst, wenn Sie einem Angebot zustimmen."
+      ],
+      "note": "Diese Nachricht bestätigt den Eingang Ihrer Anfrage. Sie ist weder ein Angebot noch eine Buchung, und es wurde nichts abgebucht.",
+      "whatsapp": "Lieber chatten? Schreiben Sie uns auf WhatsApp",
+      "whatsappMessage": "Hallo ELZORA, die Referenz meiner Reiseanfrage lautet {reference}.",
+      "signoff": "Herzliche Grüße",
+      "footer": "Sie erhalten diese E-Mail, weil Sie auf unserer Website eine Reiseanfrage gesendet haben. Wenn Sie das nicht waren, können Sie diese Nachricht ignorieren."
     }
   }
 }
