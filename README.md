@@ -164,6 +164,21 @@ Still needed from the owner: `DATABASE_URL` + `npm run db:migrate`, Resend key a
 the real Privacy Policy page at `/{lang}/privacy` (Phase 7, the consent link points there) and its version in
 `CONSENT_VERSION` (`src/lib/leads/options.ts`), plus legal wording review of the consent text and the Cloudflare mention.
 
+## Dashboard (7.4A: foundation)
+
+The dashboard lives in this app (`src/admin`, routes in `src/app/admin`) but is served **only on the admin host**
+(`admin.<your-domain>`; locally `http://admin.localhost:3000`). On the public host `/admin` answers 404.
+It has its own root layout, is `noindex`, and imports nothing from public components.
+
+- Login: Supabase Auth (email + password), **no public registration**, rate-limited (needs `DATABASE_URL` in production).
+- MFA (TOTP) is mandatory: first login enrolls an authenticator app, later logins ask for the code.
+- Roles: `owner` (e-mails in `DASHBOARD_OWNER_EMAILS`) and `admin` (later). Permissions are in `src/admin/auth/permissions.ts`.
+- Every protected page and server action calls `requireSession(permission)`; the layout alone is not trusted.
+- Sensitive actions go through `recordAudit` (console for now; table in 7.4C).
+
+Supabase setup: Authentication → disable "Allow new users to sign up", enable TOTP MFA, create the Owner user
+(confirmed e-mail), then set the three env variables above.
+
 ## Design page
 
 `/en/design` shows every component with real seed data. It is available in dev and returns 404 in
