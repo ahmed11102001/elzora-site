@@ -1,9 +1,8 @@
 "use client";
 
-import { Component, useEffect, useRef, useState, type ComponentType, type ReactNode } from "react";
+import { Component, useEffect, useState, type ComponentType, type ReactNode } from "react";
 import type { Locale } from "@/i18n/config";
 import type { JourneyCopy } from "./copy";
-import { blockedReason, readGateInput, readOverride } from "./gate";
 import type { JourneyAnimatedProps } from "./JourneyAnimated";
 
 function whenIdle(callback: () => void): () => void {
@@ -27,7 +26,7 @@ function whenIdle(callback: () => void): () => void {
   };
 }
 
-// If the animated journey crashes, fall back to the static version instead of an error page.
+// If the animated journey crashes, show the intro instead of an error page.
 class JourneyBoundary extends Component<
   { onError: (error: Error) => void; children: ReactNode },
   { failed: boolean }
@@ -44,82 +43,44 @@ class JourneyBoundary extends Component<
   }
 }
 
-type EnhancerProps = { lang: Locale; copy: JourneyCopy; intro: ReactNode; stack: ReactNode };
+type EnhancerProps = { lang: Locale; copy: JourneyCopy; intro: ReactNode };
 
 /**
- * Static first, animated when possible.
- * The server HTML holds the intro and every station as a card (the fallback, also for search engines).
- * After the page is idle the animation code (GSAP + ScrollTrigger, ~50 KB gzip) is downloaded, and as
- * soon as it is ready the section is swapped for the animated journey, unless the visitor has already
- * scrolled deep into the static cards. If the device or connection should not run it,
- * or anything fails, the static version simply stays.
- * In development (or with ?journey=... in the URL) the decision is logged to the console.
+ * The animated journey, always. The server HTML holds only the intro (title + route map), which is the
+ * same picture the animation starts on. Once the page is idle the animation code (GSAP + ScrollTrigger,
+ * ~50 KB gzip) is downloaded and the intro is swapped for the journey. There is no static fallback:
+ * if the code fails to load or the journey crashes, the intro stays.
  */
-export function JourneyEnhancer({ lang, copy, intro, stack }: EnhancerProps) {
-  const host = useRef<HTMLDivElement>(null);
+export function JourneyEnhancer({ lang, copy, intro }: EnhancerProps) {
   const [Animated, setAnimated] = useState<ComponentType<JourneyAnimatedProps> | null>(null);
   const [variant, setVariant] = useState<"desktop" | "mobile">("desktop");
 
   useEffect(() => {
-    const override = readOverride(window.location.search);
-    const debug = process.env.NODE_ENV !== "production" || override !== null;
-    const log = (message: string, detail?: unknown) => {
-      if (debug) console.info(`[journey] ${message}`, detail ?? "");
-    };
-
-    const reason =
-      override === "static"
-        ? "forced by ?journey=static"
-        : override === "animated"
-          ? null
-          : blockedReason(readGateInput());
-    if (reason) {
-      log(`static version: ${reason}`);
-      return;
-    }
-
     let cancelled = false;
     const cancelIdle = whenIdle(() => {
       import("./JourneyAnimated")
         .then((module) => {
           if (cancelled) return;
-          // Swap while the visitor is above the section or still on its first screen (the intro looks the
-          // same in the animated version). Deeper inside the static cards, leave them alone.
-          const top = host.current?.getBoundingClientRect().top ?? 1;
-          if (override !== "animated" && top < -window.innerHeight * 0.9) {
-            log("static version: the visitor is already deep inside the section");
-            return;
-          }
           setVariant(window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop");
           setAnimated(() => module.JourneyAnimated);
-          log("animated version started");
         })
-        .catch((error) => log("static version: the animation code failed to load", error));
+        .catch((error) => console.error("[journey] the animation code failed to load", error));
     });
-
     return () => {
       cancelled = true;
       cancelIdle();
     };
   }, []);
 
+  if (!Animated) return <>{intro}</>;
   return (
-    <div ref={host}>
-      {Animated ? (
-        <JourneyBoundary
-          onError={(error) => {
-            console.error("[journey] the animated version crashed, showing the static one", error);
-            setAnimated(null);
-          }}
-        >
-          <Animated lang={lang} copy={copy} variant={variant} />
-        </JourneyBoundary>
-      ) : (
-        <>
-          {intro}
-          {stack}
-        </>
-      )}
-    </div>
+    <JourneyBoundary
+      onError={(error) => {
+        console.error("[journey] the animated version crashed, showing the intro", error);
+        setAnimated(null);
+      }}
+    >
+      <Animated lang={lang} copy={copy} variant={variant} />
+    </JourneyBoundary>
   );
 }

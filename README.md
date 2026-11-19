@@ -119,19 +119,15 @@ the final photos are in). To clear a photo: set `"status": "ok"` in `assets/imag
 
 ## Journey
 
-The scroll-driven journey (map, five stations, finale) lives in `src/components/journey`. It is
-progressively enhanced:
+The scroll-driven journey (map, five stations, finale) lives in `src/components/journey`. It is always
+the animated version; there is no static fallback.
 
-1. **Server HTML (always):** `JourneyIntro` (title + route map) and `StaticJourney` (every station as a
-   card). This is what search engines, no-JS visitors and everyone who cannot animate see.
-2. **Enhancement (`JourneyEnhancer`, client):** if the device allows it (`gate.ts`: no reduced motion, no
-   Save-Data, not 2G/3G, more than 2 GB memory) the animation chunk (GSAP + ScrollTrigger, about 50 KB
-   gzip) is downloaded once the page is idle. As soon as it is ready the section is swapped for the
-   animated journey, unless the visitor has already scrolled deep into the static cards. If anything
-   fails, the static version stays (an error boundary catches crashes).
-   **Debugging:** in development the console prints `[journey] ...` with the reason for the version
-   you got. Add `?journey=animated` to the URL to force the animation (ignores reduced motion and the
-   network checks) or `?journey=static` to force the static version.
+1. **Server HTML:** `JourneyIntro` only (title + route map). The animated stage starts on the same
+   picture, so the swap is hardly visible.
+2. **`JourneyEnhancer` (client):** once the page is idle it downloads the animation chunk (GSAP +
+   ScrollTrigger, about 50 KB gzip) and swaps the intro for the journey on every device, including
+   reduced-motion and slow connections. If the chunk fails to load or the journey crashes (error
+   boundary), the intro stays.
 3. **Animated stage (`JourneyAnimated` + `JourneyStage` + `timeline.ts`):** one GSAP timeline scrubbed by
    scroll. Photos for station N+1 are mounted while the visitor is on station N.
 

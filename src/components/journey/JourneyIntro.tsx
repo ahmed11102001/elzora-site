@@ -4,8 +4,7 @@ import { EgyptMapOutline } from "./EgyptMapOutline";
 import { stationPositions } from "./map-data";
 
 // First screen of the journey section: title + route map. It is both the placeholder shown while the
-// animated version loads and the opening of the static version. The animated stage starts on the
-// same picture, so the swap is hardly visible.
+// animated version loads. The animated stage starts on the same picture, so the swap is hardly visible.
 export function JourneyIntro({ dict }: { dict: Dictionary }) {
   const t = dict.journey;
   const stations = (Object.keys(stationPositions) as (keyof typeof stationPositions)[]).map(
