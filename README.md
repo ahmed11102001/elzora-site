@@ -95,7 +95,7 @@ validates the data and cross-checks references (unknown style, wrong day numbers
 - Every text field is `{ en, de? }`. German falls back to English until Phase 10.
 - `status` is `draft`, `review` or `published`. Production serves only `published`, with no override.
   In development (`next dev`) `review` content is shown too, so the full page can be reviewed before
-  approval (`draft` also needs `SHOW_DRAFT_CONTENT=true`). The home page shows a development-only
+  approval (`draft` also needs `SHOW_DRAFT_CONTENT=true`). Pre-launch, `review` content is served in production too (see `visibleStatuses` in `src/content/index.ts`; switch it back to `published` only before launch). The home page shows a development-only
   placeholder where there are no real reviews.
 - No reviews are seeded on purpose, and prices are empty until a partner confirms them.
 - Partners are internal: the `Partner` registry is never exported to pages and no company is named.

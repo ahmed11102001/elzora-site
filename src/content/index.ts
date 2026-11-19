@@ -12,18 +12,19 @@ import { trips as tripSeed } from "./seed/trips";
  * Data access for CMS content. Right now it reads the seed files; every function is async and
  * returns validated data, so swapping in a CMS later only changes this file.
  *
- * Visibility rules:
- * - Production (NODE_ENV === "production"): only "published" content. Nothing can override this,
- *   so "review" and "draft" placeholder copy can never go live.
- * - Development (next dev): "published" and "review" content, so the whole page can be reviewed
- *   before the copy is approved. "draft" is shown only with SHOW_DRAFT_CONTENT=true.
+ * Visibility rules (pre-launch): "published" and "review" content is served in every environment, so
+ * all sections and pages can be reviewed on the live site. Before the public launch, change
+ * `visibleStatuses` back to ["published"]. "draft" is shown only in development with SHOW_DRAFT_CONTENT=true.
  */
 
 /** True in `next dev` only. Used for review previews and development-only placeholders. */
 export const isDevPreview = process.env.NODE_ENV !== "production";
 
 const showDrafts = isDevPreview && process.env.SHOW_DRAFT_CONTENT === "true";
-const visibleStatuses: Status[] = isDevPreview ? ["published", "review"] : ["published"];
+// Pre-launch: "published" and "review" content is served everywhere, production included, so every
+// section and page that exists is visible for review. Revisit this line before the public launch
+// (back to ["published"] only) once the copy is approved. "draft" stays development-only.
+const visibleStatuses: Status[] = ["published", "review"];
 const visible = <T extends { status: Status }>(items: T[]) =>
   items.filter((item) => showDrafts || visibleStatuses.includes(item.status));
 
