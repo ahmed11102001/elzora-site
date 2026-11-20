@@ -1,7 +1,14 @@
 import type { Locale } from "@/i18n/config";
 import type { Budget, DateMode, Duration, Interest } from "./options";
 
-export const LEAD_STATUSES = ["new", "contacted", "qualified", "converted", "rejected"] as const;
+export const LEAD_STATUSES = [
+  "new",
+  "contacted",
+  "qualified",
+  "proposal_sent",
+  "converted",
+  "lost",
+] as const;
 export type LeadStatus = (typeof LEAD_STATUSES)[number];
 
 /** What the API hands to storage. Everything is already validated and normalised. */
@@ -33,6 +40,8 @@ export type NewLead = {
   utmContent?: string;
   utmTerm?: string;
   referrer?: string;
+  /** Slug of the trip the traveler came from (the planner link carries ?trip=<slug>). */
+  tripSlug?: string;
   consentVersion: string;
   consentedAt: Date;
 };
@@ -41,6 +50,9 @@ export type StoredLead = NewLead & {
   id: string;
   referenceCode: string;
   status: LeadStatus;
+  /** Set by the database when the slug matches a trip translation; the slug itself is kept either way. */
+  tripId: string | null;
+  firstContactedAt: Date | null;
   teamNotifiedAt: Date | null;
   travelerNotifiedAt: Date | null;
   notificationAttempts: number;

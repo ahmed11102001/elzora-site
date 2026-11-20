@@ -24,12 +24,17 @@ export async function resolve(specifier, context, next) {
   )
     base = resolvePath(dirname(fileURLToPath(context.parentURL)), specifier);
   const file = base && tryFile(base);
-  if (file) {
-    const result = await next(pathToFileURL(file).href, context);
-    // JSON modules (the image manifest) need an explicit import attribute under plain Node.
-    return file.endsWith(".json")
-      ? { ...result, importAttributes: { ...context.importAttributes, type: "json" } }
-      : result;
-  }
+  if (file) return next(pathToFileURL(file).href, context);
   return next(specifier, context);
+}
+
+// Source files import JSON without the "with { type: "json" }" attribute (the bundler allows it,
+// plain Node does not), so add the attribute here. This lets scripts and tests load the content layer.
+export async function load(url, context, next) {
+  if (url.endsWith(".json"))
+    return next(url, {
+      ...context,
+      importAttributes: { ...context.importAttributes, type: "json" },
+    });
+  return next(url, context);
 }

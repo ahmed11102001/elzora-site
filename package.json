@@ -15,13 +15,14 @@
     "prebuild": "node scripts/check-images.mjs",
     "test": "node --import ./scripts/test-register.mjs --test \"src/**/*.test.ts\"",
     "db:migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs",
-    "db:seed-trips": "node --env-file-if-exists=.env.local --import ./scripts/test-register.mjs scripts/seed-dashboard-trips.ts"
+    "db:check-roles": "node --env-file-if-exists=.env.local scripts/check-db-roles.mjs",
+    "verify:routing": "node scripts/verify-routing.mjs",
+    "content:seed": "node --import ./scripts/test-register.mjs --env-file-if-exists=.env.local scripts/seed-content.mjs",
+    "content:verify": "node --import ./scripts/test-register.mjs --env-file-if-exists=.env.local scripts/verify-content.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",
     "@fontsource/cormorant-garamond": "^5.3.0",
-    "@supabase/ssr": "^0.8.0",
-    "@supabase/supabase-js": "^2.58.0",
     "gsap": "^3.15.1",
     "next": "16.4.6",
     "postgres": "^3.4.7",

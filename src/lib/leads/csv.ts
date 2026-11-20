@@ -20,6 +20,7 @@ const day = (value?: string) => value ?? "";
 export const CSV_COLUMNS: { header: string; value: (lead: StoredLead) => unknown }[] = [
   { header: "reference_code", value: (l) => l.referenceCode },
   { header: "status", value: (l) => l.status },
+  { header: "first_contacted_at", value: (l) => l.firstContactedAt },
   { header: "created_at", value: (l) => l.createdAt },
   { header: "locale", value: (l) => l.locale },
   { header: "full_name", value: (l) => l.fullName },
@@ -47,6 +48,7 @@ export const CSV_COLUMNS: { header: string; value: (lead: StoredLead) => unknown
   { header: "utm_content", value: (l) => l.utmContent },
   { header: "utm_term", value: (l) => l.utmTerm },
   { header: "referrer", value: (l) => l.referrer },
+  { header: "trip_slug", value: (l) => l.tripSlug },
   { header: "consent_version", value: (l) => l.consentVersion },
   { header: "consented_at", value: (l) => l.consentedAt },
   { header: "team_notified_at", value: (l) => l.teamNotifiedAt },

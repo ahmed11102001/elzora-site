@@ -238,8 +238,11 @@ to `#planner` (Phase 6).
 - [ ] Trips listing with filters (style, duration, budget) (**M**)
 - [ ] Trip detail: day-by-day itinerary, inclusions/exclusions, gallery, CTA (**L**)
 - [ ] Destination pages: Giza, Luxor, Alexandria, Aswan, Abu Simbel (SEO content) (**L**)
-- [ ] About and Contact (**S**)
-- [ ] Legal: Privacy, Terms, Cookies, **Imprint/Impressum** (needed for Germany) (**M**)
+- [x] About and Contact, EN and DE, real channels only (WhatsApp and email appear only when configured) (**S**) _(7.1; the placeholder text needs your review, see docs/phase-7/7.1-legal-placeholders.md)_
+- [x] Legal: Privacy, Terms, Cookies as temporary placeholder text, EN and DE, with a visible draft notice (**M**) _(7.1)_
+- [ ] Legal: **Imprint/Impressum** (needed for Germany; needs real operator data) and the final reviewed legal texts (**M**, needs you)
+- [ ] Content database: migration `0002`, trips/translations/media/redirects tables, lead trip context and status model, `content:seed` and `content:verify` (**L**) _(7.2: written and unit tested; tick it after `db:migrate`, `content:seed` and `content:verify` pass on your database, then set `CONTENT_SOURCE=database`)_
+- [ ] Run the 7.0 checks on your machine: `npm run verify:routing` and `npm run db:check-roles` (**S**, needs you)
 - [ ] Blog scaffold with 2–3 SEO articles ("best time to visit Egypt", "10-day Egypt itinerary") (**M**)
 - [ ] Structured data (TouristTrip / Organization / FAQ) (**S**)
 

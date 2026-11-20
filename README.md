@@ -44,6 +44,7 @@ See `.env.example`. `NEXT_PUBLIC_*` values are inlined at **build** time.
 | ----------------------------- | ---------------------------------------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL`        | Canonical URLs, sitemap, Open Graph                                    |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Optional. Digits only. The WhatsApp button is hidden when empty        |
+| `NEXT_PUBLIC_CONTACT_EMAIL`   | Optional. A real public email for the contact page. Hidden when empty  |
 | `ALLOW_INDEXING`              | `true` only in production. Otherwise `robots.txt` disallows everything |
 
 ## Structure
@@ -164,21 +165,6 @@ Still needed from the owner: `DATABASE_URL` + `npm run db:migrate`, Resend key a
 the real Privacy Policy page at `/{lang}/privacy` (Phase 7, the consent link points there) and its version in
 `CONSENT_VERSION` (`src/lib/leads/options.ts`), plus legal wording review of the consent text and the Cloudflare mention.
 
-## Dashboard (7.4A: foundation)
-
-The dashboard lives in this app (`src/admin`, routes in `src/app/admin`) but is served **only on the admin host**
-(`admin.<your-domain>`; locally `http://admin.localhost:3000`). On the public host `/admin` answers 404.
-It has its own root layout, is `noindex`, and imports nothing from public components.
-
-- Login: Supabase Auth (email + password), **no public registration**, rate-limited (needs `DATABASE_URL` in production).
-- MFA (TOTP) is mandatory: first login enrolls an authenticator app, later logins ask for the code.
-- Roles: `owner` (e-mails in `DASHBOARD_OWNER_EMAILS`) and `admin` (later). Permissions are in `src/admin/auth/permissions.ts`.
-- Every protected page and server action calls `requireSession(permission)`; the layout alone is not trusted.
-- Sensitive actions go through `recordAudit` (console for now; table in 7.4C).
-
-Supabase setup: Authentication → disable "Allow new users to sign up", enable TOTP MFA, create the Owner user
-(confirmed e-mail), then set the three env variables above.
-
 ## Design page
 
 `/en/design` shows every component with real seed data. It is available in dev and returns 404 in
@@ -200,3 +186,26 @@ production unless `ENABLE_DESIGN_PAGE=true`.
 1. Import the GitHub repository.
 2. Set `NEXT_PUBLIC_SITE_URL`, and `ALLOW_INDEXING=true` for **Production only**.
 3. Preview deployments stay out of search results by default.
+
+## Localized URLs
+
+Public paths differ per language (`/en/privacy` and `/de/datenschutz`). The map lives in
+`src/lib/routes.ts`; the internal files keep the English paths and `src/proxy.ts` rewrites the German
+URLs to them. Build every link with `routePath()` (or `plannerPath()` etc.), never with a typed path.
+`npm run verify:routing` checks a running server (`npm run dev`) against the approved map.
+
+## Content database (Phase 7.2)
+
+Trips can be read from Postgres instead of the seed files. Nothing changes until you switch:
+
+```bash
+npm run db:migrate        # 0002: trips, translations, media, redirects, lead trip context and statuses
+npm run content:seed      # copies the seed trips into the database (safe to re-run; --dry-run to preview)
+npm run content:verify    # compares the database with the seed, field by field
+# then set CONTENT_SOURCE=database (see .env.example)
+```
+
+Status lives on each translation (`draft`, `review`, `published`), so each language is published on its
+own. The visibility rule is unchanged (`visibleStatuses` in `src/content/index.ts`). Leads now store the
+trip the visitor came from: a planner link with `?trip=<slug>` is saved as `trip_slug`, and `trip_id`
+when that slug matches a trip. Details: `docs/phase-7/7.2-content-migration.md`.

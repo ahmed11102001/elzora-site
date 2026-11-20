@@ -54,7 +54,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         <main id="main" className="flex-1">
           {children}
         </main>
-        <Footer dict={dict} />
+        <Footer lang={locale} dict={dict} />
         <AttributionCapture />
         <Suspense fallback={null}>
           <PlannerMobileEntry lang={locale} label={dict.cta.planMobile} />

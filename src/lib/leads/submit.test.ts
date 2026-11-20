@@ -39,6 +39,15 @@ describe("lead submission", () => {
     assert.equal(t.leads[0].consentedAt.toISOString(), NOW.toISOString());
   });
 
+  it("stores the trip the traveler came from", async () => {
+    const t = setup();
+    await t.send(validInput({ tripSlug: "classic-egypt-8-days" }));
+    assert.equal(t.leads[0].tripSlug, "classic-egypt-8-days");
+    const plain = setup();
+    await plain.send(validInput());
+    assert.equal(plain.leads[0].tripSlug, undefined);
+  });
+
   it("preserves UTM attribution and locale", async () => {
     const t = setup();
     await t.send(validInput());

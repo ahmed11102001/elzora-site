@@ -8,4 +8,8 @@ export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:30
 /** Digits only, international format without "+" (e.g. 201000000000). Optional. */
 export const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
 
+/** Optional public contact email, shown on the contact page only when it is set. */
+const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ?? "";
+export const contactEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : "";
+
 export const allowIndexing = process.env.ALLOW_INDEXING === "true";

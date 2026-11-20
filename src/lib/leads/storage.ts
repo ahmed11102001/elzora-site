@@ -14,7 +14,7 @@ import type { Budget, DateMode, Duration, Interest } from "./options";
 
 // Postgres storage (provider-agnostic: Supabase, Neon, Vercel Postgres, RDS ...) over DATABASE_URL.
 // The connection string is read on the server only and never reaches the browser.
-// Table definitions: db/migrations/0001_create_leads.sql.
+// Table definitions: db/migrations/0001_create_leads.sql and 0002_content_platform.sql (trip context).
 //
 // Provider notes:
 //  - Serverless (Vercel): use the provider's POOLED connection string (Supabase: "transaction pooler",
@@ -77,6 +77,9 @@ function toLead(row: Row): StoredLead {
     utmContent: opt(row.utm_content),
     utmTerm: opt(row.utm_term),
     referrer: opt(row.referrer),
+    tripSlug: opt(row.trip_slug),
+    tripId: (row.trip_id as string | null) ?? null,
+    firstContactedAt: (row.first_contacted_at as Date | null) ?? null,
     consentVersion: row.consent_version as string,
     consentedAt: row.consented_at as Date,
     teamNotifiedAt: (row.team_notified_at as Date | null) ?? null,
@@ -140,6 +143,7 @@ export const postgresStorage: LeadStorage = {
               date_flexibility, arrival_date, departure_date, flexible_when,
               adults, children, children_ages, interests, duration, budget, budget_type, notes,
               source, landing_page, utm_source, utm_medium, utm_campaign, utm_content, utm_term, referrer,
+              trip_id, trip_slug,
               consent_version, consented_at
             ) VALUES (
               ${referenceCode}, ${lead.idempotencyKey}, ${lead.dedupeHash}, ${lead.locale},
@@ -152,6 +156,9 @@ export const postgresStorage: LeadStorage = {
               ${lead.source ?? null}, ${lead.landingPage ?? null}, ${lead.utmSource ?? null},
               ${lead.utmMedium ?? null}, ${lead.utmCampaign ?? null}, ${lead.utmContent ?? null},
               ${lead.utmTerm ?? null}, ${lead.referrer ?? null},
+              (SELECT trip_id FROM trip_translations WHERE slug = ${lead.tripSlug ?? null}
+                 ORDER BY (locale = ${lead.locale}) DESC LIMIT 1),
+              ${lead.tripSlug ?? null},
               ${lead.consentVersion}, ${lead.consentedAt}
             )
             ON CONFLICT (idempotency_key) DO NOTHING

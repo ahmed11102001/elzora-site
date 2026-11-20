@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localizedAlternates } from "@/lib/seo";
+import { routeAlternates } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { Check } from "@/components/ui/icons";
 import { TripPlanner } from "@/components/planner/TripPlanner";
@@ -16,7 +16,7 @@ export async function generateMetadata({
   return {
     title: dict.planner.meta.title,
     description: dict.planner.meta.description,
-    alternates: localizedAlternates(lang, "/plan-your-trip"),
+    alternates: routeAlternates(lang, "planner"),
   };
 }
 

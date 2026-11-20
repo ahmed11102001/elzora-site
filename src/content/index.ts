@@ -17,6 +17,17 @@ import { trips as tripSeed } from "./seed/trips";
  * `visibleStatuses` back to ["published"]. "draft" is shown only in development with SHOW_DRAFT_CONTENT=true.
  */
 
+/**
+ * Where trips come from: "seed" (the files in ./seed, the default) or "database" (Postgres, after
+ * `npm run db:migrate` and `npm run content:seed`). A wrong value is an error, never a silent fallback.
+ * In database mode a failing read throws; it never serves the seed instead.
+ */
+const rawSource = process.env.CONTENT_SOURCE ?? "seed";
+if (rawSource !== "seed" && rawSource !== "database") {
+  throw new Error(`CONTENT_SOURCE must be "seed" or "database", got "${rawSource}"`);
+}
+const contentSource: "seed" | "database" = rawSource;
+
 /** True in `next dev` only. Used for review previews and development-only placeholders. */
 export const isDevPreview = process.env.NODE_ENV !== "production";
 
@@ -28,6 +39,9 @@ const visibleStatuses: Status[] = ["published", "review"];
 const visible = <T extends { status: Status }>(items: T[]) =>
   items.filter((item) => showDrafts || visibleStatuses.includes(item.status));
 
+const allowedStatuses = (): Status[] =>
+  showDrafts ? ["draft", "review", "published"] : visibleStatuses;
+
 // Validated once at startup/build: a typo in the seed data fails fast with a clear message.
 const tripStyles = z.array(TripStyle).parse(tripStyleSeed);
 const destinations = z.array(Destination).parse(destinationSeed);
@@ -36,16 +50,17 @@ const reviews = z.array(Review).parse(reviewSeed);
 const faqs = z.array(Faq).parse(faqSeed);
 const partners = z.array(Partner).parse(partnerSeed);
 
-function assertReferences() {
+const fail = (message: string): never => {
+  throw new Error(`Content error: ${message}`);
+};
+
+/** Every trip must point at styles, destinations and (internal) partners that exist. */
+function assertTripReferences(tripList: Trip[]) {
   const styleIds = new Set(tripStyles.map((s) => s.id));
   const destinationIds = new Set(destinations.map((d) => d.id));
-  const tripIds = new Set(trips.map((t) => t.id));
   const partnerIds = new Set(partners.map((p) => p.id));
-  const fail = (message: string): never => {
-    throw new Error(`Content error: ${message}`);
-  };
 
-  for (const trip of trips) {
+  for (const trip of tripList) {
     trip.styleIds.forEach(
       (id) => styleIds.has(id) || fail(`trip "${trip.id}" uses unknown style "${id}"`),
     );
@@ -66,12 +81,27 @@ function assertReferences() {
       }
     });
   }
+}
+
+// The seed stays validated in every mode: it is the source of the one-time import.
+assertTripReferences(trips);
+if (contentSource === "seed") {
+  const tripIds = new Set(trips.map((t) => t.id));
   for (const review of reviews) {
     if (review.tripId && !tripIds.has(review.tripId))
       fail(`review "${review.id}" uses unknown trip`);
   }
 }
-assertReferences();
+
+/** The trips of the configured source, already limited to the visible statuses. */
+async function allTrips(): Promise<Trip[]> {
+  if (contentSource === "seed") return visible(trips);
+  // Loaded only in database mode, so seed mode never touches the database layer.
+  const { loadTripsFromDatabase } = await import("./db/trips");
+  const loaded = z.array(Trip).parse(await loadTripsFromDatabase(allowedStatuses()));
+  assertTripReferences(loaded);
+  return visible(loaded);
+}
 
 export async function getTripStyles() {
   return visible(tripStyles);
@@ -86,7 +116,7 @@ export async function getDestination(id: string) {
 }
 
 export async function getTrips(filter?: { styleId?: string; destinationId?: string }) {
-  return visible(trips).filter(
+  return (await allTrips()).filter(
     (t) =>
       (!filter?.styleId || t.styleIds.includes(filter.styleId)) &&
       (!filter?.destinationId || t.destinationIds.includes(filter.destinationId)),
@@ -94,7 +124,7 @@ export async function getTrips(filter?: { styleId?: string; destinationId?: stri
 }
 
 export async function getTrip(id: string) {
-  return visible(trips).find((t) => t.id === id) ?? null;
+  return (await allTrips()).find((t) => t.id === id) ?? null;
 }
 
 export async function getFaqs(category?: Faq["category"]) {

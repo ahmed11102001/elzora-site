@@ -74,6 +74,7 @@ function toNewLead(lead: ValidLead, consentedAt: Date): NewLead {
     utmContent: a.utmContent,
     utmTerm: a.utmTerm,
     referrer: a.referrer,
+    tripSlug: lead.tripSlug,
     consentVersion: CONSENT_VERSION,
     consentedAt,
   };

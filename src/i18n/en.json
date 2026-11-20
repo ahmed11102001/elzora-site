@@ -21,7 +21,13 @@
   },
   "footer": {
     "tagline": "Egypt, designed by locals.",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "legal": {
+      "label": "Company and legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "cookies": "Cookie Policy"
+    }
   },
   "common": {
     "close": "Close"
@@ -459,6 +465,30 @@
       "whatsappMessage": "Hello ELZORA, my trip request reference is {reference}.",
       "signoff": "Warm regards,",
       "footer": "You received this email because you sent a trip request on our website. If this wasn’t you, you can ignore it."
+    }
+  },
+  "pages": {
+    "draftNotice": {
+      "title": "Draft text",
+      "text": "This page contains temporary placeholder text that has not been reviewed yet. It is not legal advice and will change before launch."
+    },
+    "updated": "Last updated",
+    "contact": {
+      "title": "Contact",
+      "description": "Ways to reach ELZORA and ask questions before you plan your trip.",
+      "intro": "Planning a trip to Egypt and have questions? Choose the way that suits you.",
+      "plannerTitle": "Tell us about your trip",
+      "plannerText": "The trip planner takes a few minutes. Share your dates, interests and budget, and we prepare an offer.",
+      "whatsappTitle": "Write to us on WhatsApp",
+      "whatsappText": "For a quick question, send us a message.",
+      "emailTitle": "Email",
+      "emailText": "You can also write to us by email.",
+      "privacy": "How we handle your data is explained in the Privacy Policy."
+    },
+    "about": {
+      "ctaTitle": "Ready to plan?",
+      "ctaText": "Tell us what you would like to experience in Egypt.",
+      "contact": "Contact us"
     }
   }
 }

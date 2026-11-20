@@ -116,6 +116,16 @@ const attribution = z
   .optional()
   .transform((value): Attribution => value ?? {});
 
+// Trip context from the planner link (?trip=<slug>). A malformed value is dropped, never an error:
+// a bad query string must not stop a real inquiry.
+const TRIP_SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+const tripSlug = z
+  .string()
+  .optional()
+  .transform((value) =>
+    value && value.length <= 120 && TRIP_SLUG.test(value) ? value : undefined,
+  );
+
 // The date rules need "now". Tests pass a fixed one; production uses the clock at parse time.
 export function createLeadSchema(now: () => Date = () => new Date()) {
   return z
@@ -162,6 +172,7 @@ export function createLeadSchema(now: () => Date = () => new Date()) {
       consent: z.literal(true, "consent_required"),
 
       attribution,
+      tripSlug,
       idempotencyKey: z.uuid("invalid"),
       turnstileToken: z.string().max(2048, "invalid").optional(),
     })

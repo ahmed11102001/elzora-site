@@ -82,6 +82,8 @@ export function buildPayload(
     attribution: Attribution;
     idempotencyKey?: string;
     turnstileToken?: string;
+    /** Slug from the ?trip= query parameter, when the visitor came from a trip. */
+    tripSlug?: string;
   },
 ): LeadInput & { website: string } {
   const specific = draft.dateMode === "specific";
@@ -104,6 +106,7 @@ export function buildPayload(
     notes: draft.notes,
     consent: draft.consent as true,
     attribution: extra.attribution,
+    tripSlug: extra.tripSlug,
     idempotencyKey: extra.idempotencyKey as string,
     turnstileToken: extra.turnstileToken,
     // The honeypot is not part of the validated schema; the API reads it from the raw body.

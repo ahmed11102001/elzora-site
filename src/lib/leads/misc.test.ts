@@ -116,6 +116,8 @@ describe("emails", () => {
       id: "id-1",
       referenceCode: "EZ-ABCD-2345",
       status: "new" as const,
+      tripId: null,
+      firstContactedAt: null,
       teamNotifiedAt: null,
       travelerNotifiedAt: null,
       notificationAttempts: 0,

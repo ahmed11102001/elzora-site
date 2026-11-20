@@ -122,6 +122,20 @@ describe("lead schema", () => {
     assert.equal(r["attribution.utmSource"], "too_long");
   });
 
+  it("keeps a valid trip slug and drops anything else without failing the lead", () => {
+    const ok = schema.safeParse(validInput({ tripSlug: "classic-egypt-8-days" }));
+    assert.ok(ok.success);
+    assert.equal(ok.data.tripSlug, "classic-egypt-8-days");
+    for (const bad of ["Classic Egypt", "../etc", "x".repeat(121), "a--b", ""]) {
+      const r = schema.safeParse(validInput({ tripSlug: bad }));
+      assert.ok(r.success, bad);
+      assert.equal(r.data.tripSlug, undefined, bad);
+    }
+    const none = schema.safeParse(validInput());
+    assert.ok(none.success);
+    assert.equal(none.data.tripSlug, undefined);
+  });
+
   it("parseIsoDate only accepts real calendar days", () => {
     assert.ok(parseIsoDate("2028-02-29"));
     assert.equal(parseIsoDate("2027-02-29"), null);

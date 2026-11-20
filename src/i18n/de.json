@@ -21,7 +21,13 @@
   },
   "footer": {
     "tagline": "Ägypten, von Einheimischen gestaltet.",
-    "rights": "Alle Rechte vorbehalten."
+    "rights": "Alle Rechte vorbehalten.",
+    "legal": {
+      "label": "Unternehmen und Rechtliches",
+      "privacy": "Datenschutzerklärung",
+      "terms": "Nutzungsbedingungen",
+      "cookies": "Cookie-Richtlinie"
+    }
   },
   "common": {
     "close": "Schließen"
@@ -459,6 +465,30 @@
       "whatsappMessage": "Hallo ELZORA, die Referenz meiner Reiseanfrage lautet {reference}.",
       "signoff": "Herzliche Grüße",
       "footer": "Sie erhalten diese E-Mail, weil Sie auf unserer Website eine Reiseanfrage gesendet haben. Wenn Sie das nicht waren, können Sie diese Nachricht ignorieren."
+    }
+  },
+  "pages": {
+    "draftNotice": {
+      "title": "Entwurfstext",
+      "text": "Diese Seite enthält vorläufigen Platzhaltertext, der noch nicht geprüft wurde. Er ist keine Rechtsberatung und ändert sich vor dem Start."
+    },
+    "updated": "Zuletzt aktualisiert",
+    "contact": {
+      "title": "Kontakt",
+      "description": "So erreichen Sie ELZORA und stellen Ihre Fragen, bevor Sie Ihre Reise planen.",
+      "intro": "Sie planen eine Reise nach Ägypten und haben Fragen? Wählen Sie den Weg, der zu Ihnen passt.",
+      "plannerTitle": "Erzählen Sie uns von Ihrer Reise",
+      "plannerText": "Der Reiseplaner dauert nur wenige Minuten. Nennen Sie Reisedaten, Interessen und Budget, und wir bereiten ein Angebot vor.",
+      "whatsappTitle": "Schreiben Sie uns auf WhatsApp",
+      "whatsappText": "Für eine schnelle Frage senden Sie uns eine Nachricht.",
+      "emailTitle": "E-Mail",
+      "emailText": "Sie können uns auch per E-Mail schreiben.",
+      "privacy": "Wie wir mit Ihren Daten umgehen, steht in der Datenschutzerklärung."
+    },
+    "about": {
+      "ctaTitle": "Bereit zum Planen?",
+      "ctaText": "Sagen Sie uns, was Sie in Ägypten erleben möchten.",
+      "contact": "Kontakt aufnehmen"
     }
   }
 }

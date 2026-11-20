@@ -175,14 +175,19 @@ export function TripPlanner({ lang, copy, turnstileSiteKey }: TripPlannerProps) 
         ownHost: window.location.host,
       }),
     );
+    // A link from a trip page carries ?trip=<slug>; the server ignores anything that is not a slug.
+    const tripSlug = new URLSearchParams(window.location.search).get("trip") ?? undefined;
     // Same answers => same idempotency key, so a retry after a lost response can never create a second lead.
-    const fingerprint = JSON.stringify(buildPayload(draft, { locale: lang, attribution }));
+    const fingerprint = JSON.stringify(
+      buildPayload(draft, { locale: lang, attribution, tripSlug }),
+    );
     if (!attempt.current || attempt.current.fingerprint !== fingerprint) {
       attempt.current = { key: crypto.randomUUID(), fingerprint };
     }
     const payload = buildPayload(draft, {
       locale: lang,
       attribution,
+      tripSlug,
       idempotencyKey: attempt.current.key,
       turnstileToken: token ?? undefined,
     });

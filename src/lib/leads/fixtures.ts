@@ -50,6 +50,8 @@ export function fakeStorage(overrides: Partial<LeadStorage> = {}) {
         id: `id-${leads.length + 1}`,
         referenceCode: `EZ-TEST-000${leads.length + 1}`,
         status: "new",
+        tripId: null,
+        firstContactedAt: null,
         teamNotifiedAt: null,
         travelerNotifiedAt: null,
         notificationAttempts: 0,
