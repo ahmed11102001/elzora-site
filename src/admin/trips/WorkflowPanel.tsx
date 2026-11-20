@@ -1,11 +1,14 @@
+import Link from "next/link";
 import { Badge, Card, buttonClass } from "../ui/primitives";
 import {
   archiveTrip,
   deleteTrip,
   duplicateTrip,
+  publishTranslation,
   restoreTrip,
   returnToDraft,
   submitForReview,
+  unpublishTranslation,
 } from "./actions";
 import { ConfirmButton } from "./ConfirmButton";
 import type { Locale, TripRecord } from "./model";
@@ -81,14 +84,35 @@ export function WorkflowPanel({
                       </button>
                     </form>
                   )}
-                  <button
-                    type="button"
+                  <Link
+                    href={`/trips/${encodeURIComponent(trip.id)}/preview?locale=${locale}`}
                     className={buttonClass("ghost")}
-                    disabled
-                    title="Publishing arrives in 7.4D"
                   >
-                    Publish (7.4D)
-                  </button>
+                    Preview
+                  </Link>
+                  {translation.status === "review" && !trip.archivedAt && (
+                    <form action={publishTranslation}>
+                      <Hidden trip={trip} locale={locale} />
+                      <ConfirmButton
+                        className={buttonClass()}
+                        message={`Publish the ${LANGUAGE[locale]} version? It goes live on the public site now.`}
+                        disabled={(publish?.blockers.length ?? 1) > 0}
+                      >
+                        Publish
+                      </ConfirmButton>
+                    </form>
+                  )}
+                  {translation.status === "published" && (
+                    <form action={unpublishTranslation}>
+                      <Hidden trip={trip} locale={locale} />
+                      <ConfirmButton
+                        className={buttonClass("danger")}
+                        message={`Unpublish the ${LANGUAGE[locale]} version? It leaves the public site and goes back to draft.`}
+                      >
+                        Unpublish
+                      </ConfirmButton>
+                    </form>
+                  )}
                 </div>
               </div>
 

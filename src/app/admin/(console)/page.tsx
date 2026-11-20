@@ -93,8 +93,7 @@ export default async function OverviewPage() {
             <p className="font-semibold">Trips</p>
             <p className="mt-0.5 text-sm text-ink/65">
               Create and edit trips in English and German, with itinerary, photos and SEO, then
-              preview and publish (milestones 7.4B to 7.4D; the editor is live, storage and
-              publishing follow).
+              preview and publish.
             </p>
             <Link href="/trips" className={`${buttonClass("ghost")} mt-3`}>
               Open trips

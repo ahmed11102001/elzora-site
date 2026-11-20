@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { recordAudit } from "../audit";
 import { requireSession } from "../auth/session";
+import { refreshPublicSite } from "../publishing/revalidate";
 import { readinessContext } from "./context";
 import {
   SLUG_RE,
@@ -189,6 +190,8 @@ export async function saveTrip(_state: SaveState, formData: FormData): Promise<S
 
   if (!(await store.replace(updated))) return { error: "That trip no longer exists." };
   recordAudit({ action: "trip.update", userId: user.id, detail: { tripId: id.data } });
+  // A published language is live: its edit (or a slug change) must reach the public site now.
+  if (anyPublished(updated)) refreshPublicSite(updated.id);
   const tab = formData.get("tab");
   return go(id.data, { msg: "saved", tab: tab === "de" ? "de" : "en" });
 }
@@ -197,8 +200,11 @@ export async function saveTrip(_state: SaveState, formData: FormData): Promise<S
 
 const WorkflowInput = z.object({ tripId: TripId, locale: LocaleSchema.optional() });
 
-async function load(formData: FormData) {
-  const { user } = await requireSession("trips.manage");
+async function load(
+  formData: FormData,
+  permission: "trips.manage" | "trips.publish" = "trips.manage",
+) {
+  const { user } = await requireSession(permission);
   const input = WorkflowInput.safeParse({
     tripId: formData.get("tripId"),
     locale: formData.get("locale") ?? undefined,
@@ -313,4 +319,61 @@ export async function deleteTrip(formData: FormData): Promise<void> {
   await store.remove(trip.id);
   recordAudit({ action: "trip.delete", userId: user.id, detail: { tripId: trip.id } });
   return redirect("/trips?msg=deleted");
+}
+
+// ---------------------------------------------------------------- publishing (7.4D)
+
+export async function publishTranslation(formData: FormData): Promise<void> {
+  // Needs trips.publish, not just trips.manage: publishing is the sensitive step.
+  const { user, store, trip, locale } = await load(formData, "trips.publish");
+  if (!locale) return go(trip.id, { err: "failed" });
+  const translation = trip.translations[locale];
+  if (!translation) return go(trip.id, { err: "no-translation", tab: locale });
+  if (trip.archivedAt) return go(trip.id, { err: "archived", tab: locale });
+  // Only a translation that went through review can go live.
+  if (translation.status !== "review") return go(trip.id, { err: "wrong-status", tab: locale });
+
+  // Checked again here, on the stored version: the checklist on screen may be minutes old.
+  const { blockers } = checkTranslation(
+    trip,
+    locale,
+    "publish",
+    await readinessContext(store, trip),
+  );
+  if (blockers.length > 0) return go(trip.id, { err: "not-ready", tab: locale });
+
+  const stamp = now();
+  trip.translations[locale] = { ...translation, status: "published", publishedAt: stamp };
+  trip.updatedAt = stamp;
+  trip.updatedBy = user.id;
+  if (!(await store.replace(trip))) return go(trip.id, { err: "slug-conflict", tab: locale });
+  recordAudit({
+    action: "trip.publish",
+    userId: user.id,
+    detail: { tripId: trip.id, locale, slug: translation.slug },
+  });
+  refreshPublicSite(trip.id);
+  return go(trip.id, { msg: "published", tab: locale });
+}
+
+export async function unpublishTranslation(formData: FormData): Promise<void> {
+  const { user, store, trip, locale } = await load(formData, "trips.publish");
+  if (!locale) return go(trip.id, { err: "failed" });
+  const translation = trip.translations[locale];
+  if (!translation) return go(trip.id, { err: "no-translation", tab: locale });
+  if (translation.status !== "published") return go(trip.id, { err: "wrong-status", tab: locale });
+
+  // Back to draft: it stays out of the site until it is reviewed and published again. The slug history is
+  // kept, so old URLs never get reused by another trip.
+  trip.translations[locale] = { ...translation, status: "draft", publishedAt: null };
+  trip.updatedAt = now();
+  trip.updatedBy = user.id;
+  await store.replace(trip);
+  recordAudit({
+    action: "trip.unpublish",
+    userId: user.id,
+    detail: { tripId: trip.id, locale, slug: translation.slug },
+  });
+  refreshPublicSite(trip.id);
+  return go(trip.id, { msg: "unpublished", tab: locale });
 }
