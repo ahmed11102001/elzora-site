@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { TripSlugMap } from "@/lib/switch-path";
@@ -49,7 +50,11 @@ export function Header({
         )}
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <LanguageSwitcher lang={lang} label={dict.header.language} tripSlugs={tripSlugs} />
+          {/* usePathname() needs a Suspense boundary on routes whose address is only known per request
+              (the draft preview); the placeholder keeps the header from jumping. */}
+          <Suspense fallback={<span aria-hidden className="inline-block h-9 w-20" />}>
+            <LanguageSwitcher lang={lang} label={dict.header.language} tripSlugs={tripSlugs} />
+          </Suspense>
           {whatsapp && (
             <Button href={whatsapp} variant="ghost" size="sm" className="hidden sm:inline-flex">
               {dict.cta.whatsapp}
