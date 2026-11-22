@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { localize, type Trip } from "@/content/schema";
+import type { TripView } from "@/content/trips-public";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Card, CardBody } from "@/components/ui/Card";
@@ -9,10 +9,10 @@ import { Photo } from "@/components/ui/Photo";
 import { Skeleton } from "@/components/ui/Skeleton";
 
 type TripCardProps = {
-  trip: Trip;
+  trip: TripView;
   lang: Locale;
   labels: Dictionary["trips"];
-  /** Omit to render a non-clickable card (the trip pages arrive in Phase 7). */
+  /** Link to the trip page. Omit to render a non-clickable card. */
   href?: string;
   /** Also list the first highlights of the trip (used on the home page). */
   showHighlights?: boolean;
@@ -29,8 +29,8 @@ export function TripCard({ trip, lang, labels, href, showHighlights = false }: T
       <div className="aspect-[4/3] bg-gradient-to-br from-ink to-teal/30">
         {trip.image && (
           <Photo
-            id={trip.image}
-            alt=""
+            id={trip.image.photoId}
+            alt={trip.image.alt}
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="h-full"
           />
@@ -44,16 +44,14 @@ export function TripCard({ trip, lang, labels, href, showHighlights = false }: T
           </Chip>
           <span className="font-medium text-gold">{price}</span>
         </div>
-        <h3 className="font-display text-2xl leading-tight font-semibold">
-          {localize(trip.title, lang)}
-        </h3>
-        <p className="line-clamp-3 text-sand/75">{localize(trip.summary, lang)}</p>
+        <h3 className="font-display text-2xl leading-tight font-semibold">{trip.title}</h3>
+        <p className="line-clamp-3 text-sand/75">{trip.summary}</p>
         {showHighlights && trip.highlights.length > 0 && (
           <ul className="mt-auto space-y-2 border-t border-sand/10 pt-4 text-sm text-sand/80">
             {trip.highlights.slice(0, 3).map((highlight) => (
-              <li key={highlight.en} className="flex gap-2">
+              <li key={highlight} className="flex gap-2">
                 <Check className="mt-0.5 size-4 shrink-0 text-gold" />
-                {localize(highlight, lang)}
+                {highlight}
               </li>
             ))}
           </ul>

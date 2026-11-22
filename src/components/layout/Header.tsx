@@ -1,16 +1,25 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { navRoutes, plannerPath } from "@/lib/routes";
+import type { TripSlugMap } from "@/lib/switch-path";
+import { navRoutes, plannerPath, routePath } from "@/lib/routes";
 import { siteName, whatsappNumber } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MobileNav } from "./MobileNav";
 
-export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
-  const navItems = navRoutes.map(({ key, path }) => ({
-    href: `/${lang}${path}`,
+export function Header({
+  lang,
+  dict,
+  tripSlugs,
+}: {
+  lang: Locale;
+  dict: Dictionary;
+  tripSlugs: TripSlugMap;
+}) {
+  const navItems = navRoutes.map(({ key, route }) => ({
+    href: routePath(lang, route),
     label: dict.nav[key],
   }));
   const whatsapp = whatsappNumber ? `https://wa.me/${whatsappNumber}` : null;
@@ -27,10 +36,10 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
 
         {navRoutes.length > 0 && (
           <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
-            {navRoutes.map(({ key, path }) => (
+            {navRoutes.map(({ key, route }) => (
               <Link
                 key={key}
-                href={`/${lang}${path}`}
+                href={routePath(lang, route)}
                 className="text-sm font-medium text-sand/80 hover:text-gold"
               >
                 {dict.nav[key]}
@@ -40,7 +49,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
         )}
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <LanguageSwitcher lang={lang} label={dict.header.language} />
+          <LanguageSwitcher lang={lang} label={dict.header.language} tripSlugs={tripSlugs} />
           {whatsapp && (
             <Button href={whatsapp} variant="ghost" size="sm" className="hidden sm:inline-flex">
               {dict.cta.whatsapp}

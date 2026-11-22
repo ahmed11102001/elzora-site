@@ -1,19 +1,19 @@
 import Link from "next/link";
-import { localize, type Trip, type TripStyle } from "@/content/schema";
+import { localize, type TripStyle } from "@/content/schema";
+import type { TripView } from "@/content/trips-public";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Container } from "@/components/ui/Container";
 import { ArrowRight } from "@/components/ui/icons";
 import { Photo } from "@/components/ui/Photo";
 import { plannerPath } from "@/lib/routes";
-import { cn } from "@/lib/utils";
 import { featuredTrips } from "./home-data";
 
 type ChooseJourneyProps = {
   lang: Locale;
   dict: Dictionary;
   styles: TripStyle[];
-  trips: Trip[];
+  trips: TripView[];
 };
 
 // Column spans on large screens, repeated: 7+5, 5+7, 6+6. Written out in full so Tailwind sees them.

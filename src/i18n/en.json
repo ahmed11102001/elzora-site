@@ -27,7 +27,8 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
       "cookies": "Cookie Policy"
-    }
+    },
+    "browse": "Explore"
   },
   "common": {
     "close": "Close"
@@ -36,7 +37,75 @@
     "days": "days",
     "day": "day",
     "from": "from",
-    "priceOnRequest": "Price on request"
+    "priceOnRequest": "Price on request",
+    "list": {
+      "meta": {
+        "title": "Egypt trips and itineraries",
+        "description": "Browse our Egypt itineraries by style, length and budget. Each one is a starting point we adapt to your dates, pace and interests."
+      },
+      "eyebrow": "Itineraries",
+      "title": "Egypt trips",
+      "description": "Starting points for your own Egypt. We adapt each one to your dates, pace and budget.",
+      "filters": {
+        "label": "Filter trips",
+        "style": "Style",
+        "duration": "Length",
+        "budget": "Budget per person",
+        "destination": "Destination",
+        "all": "All",
+        "apply": "Show trips",
+        "clear": "Clear filters",
+        "durations": {
+          "short": "Up to 5 days",
+          "medium": "6 to 9 days",
+          "long": "10 days or more"
+        },
+        "budgets": {
+          "lt1000": "Under €1,000",
+          "1000-1500": "€1,000 to 1,500",
+          "1500-2500": "€1,500 to 2,500",
+          "2500-4000": "€2,500 to 4,000",
+          "4000+": "€4,000 and up"
+        }
+      },
+      "count": {
+        "one": "{count} trip",
+        "other": "{count} trips"
+      },
+      "empty": {
+        "title": "Our itineraries are being prepared",
+        "text": "We design every journey around you. Tell us what you love and we will build it."
+      },
+      "emptyFiltered": {
+        "title": "No trip matches these filters",
+        "text": "Try fewer filters, or tell us what you have in mind and we will design it."
+      },
+      "viewTrip": "View trip"
+    },
+    "detail": {
+      "breadcrumbs": "Breadcrumb",
+      "home": "Home",
+      "duration": "Duration",
+      "price": "Price",
+      "styles": "Style",
+      "destinations": "Destinations",
+      "overview": "Overview",
+      "highlights": "Highlights",
+      "itinerary": "Day by day",
+      "day": "Day",
+      "included": "Included",
+      "notIncluded": "Not included",
+      "gallery": "Photos",
+      "priceNoteDefault": "No price or availability is promised until we confirm it with our local partners.",
+      "related": "You may also like",
+      "cta": {
+        "title": "Make it yours",
+        "text": "Tell us when you would like to travel and who is coming. We adapt this trip to you. No payment, no commitment.",
+        "button": "Plan this trip"
+      },
+      "previewBanner": "Preview: this is a saved draft. Visitors and search engines cannot see it.",
+      "exitPreview": "Exit preview"
+    }
   },
   "hero": {
     "eyebrow": "Egypt, designed by locals",
@@ -490,5 +559,24 @@
       "ctaText": "Tell us what you would like to experience in Egypt.",
       "contact": "Contact us"
     }
+  },
+  "destinations": {
+    "meta": {
+      "title": "Egypt destinations",
+      "description": "Giza, Luxor, Alexandria, Aswan and Abu Simbel: what each place is known for and which of our trips visit it."
+    },
+    "eyebrow": "Destinations",
+    "title": "Where in Egypt?",
+    "description": "Five places that shape most journeys. Each one links to the trips that visit it.",
+    "explore": "Explore {name}",
+    "facts": "Quick facts",
+    "tripsHere": "Trips that visit {name}",
+    "noTrips": "No published trip visits {name} yet. Tell us what you have in mind and we will design it.",
+    "cta": {
+      "title": "Visit {name}",
+      "text": "Tell us when you would like to travel. We build the trip around you.",
+      "button": "Plan my trip"
+    },
+    "all": "All destinations"
   }
 }

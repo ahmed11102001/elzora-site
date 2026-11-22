@@ -68,3 +68,16 @@ export function decideRoute(pathname: string, acceptLanguage: string | null): Ro
   }
   return { type: "redirect", pathname: join(preferred, tail), permanent: false };
 }
+
+/**
+ * A trip address opened with a valid preview cookie is served by the draft preview page instead of the
+ * public one: /de/reisen/<slug> -> /de/trips/<slug>/preview. Returns null for every other path. The preview
+ * page checks the cookie again, so this rewrite alone never reveals a draft.
+ */
+export function previewRewrite(pathname: string, lang: Locale): string | null {
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts[0] !== lang) return null;
+  const resolved = resolveTail(lang, parts.length > 1 ? `/${parts.slice(1).join("/")}` : "");
+  if (resolved?.key !== "trips" || !/^\/[^/]+$/.test(resolved.rest)) return null;
+  return `/${lang}${routeMap.trips[defaultLocale]}${resolved.rest}/preview`;
+}

@@ -19,7 +19,10 @@ export type AuditEvent = {
     | "trip.archive"
     | "trip.restore"
     | "trip.duplicate"
-    | "trip.delete";
+    | "trip.delete"
+    | "trip.publish"
+    | "trip.unpublish"
+    | "trip.preview";
   userId?: string;
   detail?: Record<string, string | number | boolean>;
 };

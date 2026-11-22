@@ -1,4 +1,4 @@
-import type { Review, Trip } from "@/content/schema";
+import type { Review } from "@/content/schema";
 
 // Small, pure helpers shared by the home page sections. No fetching happens here: the page reads
 // the content once and passes the result down.
@@ -9,7 +9,7 @@ export const FEATURED_TRIPS_LIMIT = 3;
 /** An average rating is only shown once at least this many real reviews back it up. */
 export const MIN_REVIEWS_FOR_RATING = 3;
 
-export const featuredTrips = (trips: Trip[]) => trips.slice(0, FEATURED_TRIPS_LIMIT);
+export const featuredTrips = <T>(trips: T[]) => trips.slice(0, FEATURED_TRIPS_LIMIT);
 
 /**
  * Only real, confirmed travelers on the public site. This is stricter than the content layer: with

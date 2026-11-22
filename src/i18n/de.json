@@ -27,7 +27,8 @@
       "privacy": "Datenschutzerklärung",
       "terms": "Nutzungsbedingungen",
       "cookies": "Cookie-Richtlinie"
-    }
+    },
+    "browse": "Entdecken"
   },
   "common": {
     "close": "Schließen"
@@ -36,7 +37,75 @@
     "days": "Tage",
     "day": "Tag",
     "from": "ab",
-    "priceOnRequest": "Preis auf Anfrage"
+    "priceOnRequest": "Preis auf Anfrage",
+    "list": {
+      "meta": {
+        "title": "Ägypten-Reisen und Reiseverläufe",
+        "description": "Entdecken Sie unsere Ägypten-Reisen nach Stil, Dauer und Budget. Jede ist ein Ausgangspunkt, den wir an Ihre Reisedaten, Ihr Tempo und Ihre Interessen anpassen."
+      },
+      "eyebrow": "Reiseverläufe",
+      "title": "Ägypten-Reisen",
+      "description": "Ausgangspunkte für Ihr eigenes Ägypten. Wir passen jede Reise an Ihre Reisedaten, Ihr Tempo und Ihr Budget an.",
+      "filters": {
+        "label": "Reisen filtern",
+        "style": "Stil",
+        "duration": "Dauer",
+        "budget": "Budget pro Person",
+        "destination": "Reiseziel",
+        "all": "Alle",
+        "apply": "Reisen anzeigen",
+        "clear": "Filter zurücksetzen",
+        "durations": {
+          "short": "Bis zu 5 Tage",
+          "medium": "6 bis 9 Tage",
+          "long": "10 Tage oder mehr"
+        },
+        "budgets": {
+          "lt1000": "Unter 1.000 €",
+          "1000-1500": "1.000 bis 1.500 €",
+          "1500-2500": "1.500 bis 2.500 €",
+          "2500-4000": "2.500 bis 4.000 €",
+          "4000+": "Ab 4.000 €"
+        }
+      },
+      "count": {
+        "one": "{count} Reise",
+        "other": "{count} Reisen"
+      },
+      "empty": {
+        "title": "Unsere Reiseverläufe sind in Vorbereitung",
+        "text": "Wir gestalten jede Reise rund um Sie. Sagen Sie uns, was Sie lieben, und wir stellen sie zusammen."
+      },
+      "emptyFiltered": {
+        "title": "Keine Reise passt zu diesen Filtern",
+        "text": "Versuchen Sie weniger Filter, oder sagen Sie uns, was Sie sich vorstellen, und wir gestalten es."
+      },
+      "viewTrip": "Reise ansehen"
+    },
+    "detail": {
+      "breadcrumbs": "Brotkrumen-Navigation",
+      "home": "Startseite",
+      "duration": "Dauer",
+      "price": "Preis",
+      "styles": "Stil",
+      "destinations": "Reiseziele",
+      "overview": "Überblick",
+      "highlights": "Höhepunkte",
+      "itinerary": "Tag für Tag",
+      "day": "Tag",
+      "included": "Inklusive",
+      "notIncluded": "Nicht inklusive",
+      "gallery": "Fotos",
+      "priceNoteDefault": "Preis und Verfügbarkeit werden erst zugesagt, wenn wir sie mit unseren lokalen Partnern bestätigt haben.",
+      "related": "Das könnte Ihnen auch gefallen",
+      "cta": {
+        "title": "Machen Sie sie zu Ihrer Reise",
+        "text": "Sagen Sie uns, wann Sie reisen möchten und wer mitkommt. Wir passen diese Reise an Sie an. Keine Zahlung, keine Verpflichtung.",
+        "button": "Diese Reise planen"
+      },
+      "previewBanner": "Vorschau: Dies ist ein gespeicherter Entwurf. Besucher und Suchmaschinen können ihn nicht sehen.",
+      "exitPreview": "Vorschau beenden"
+    }
   },
   "hero": {
     "eyebrow": "Ägypten, von Einheimischen gestaltet",
@@ -490,5 +559,24 @@
       "ctaText": "Sagen Sie uns, was Sie in Ägypten erleben möchten.",
       "contact": "Kontakt aufnehmen"
     }
+  },
+  "destinations": {
+    "meta": {
+      "title": "Reiseziele in Ägypten",
+      "description": "Gizeh, Luxor, Alexandria, Assuan und Abu Simbel: wofür jeder Ort bekannt ist und welche unserer Reisen ihn besuchen."
+    },
+    "eyebrow": "Reiseziele",
+    "title": "Wohin in Ägypten?",
+    "description": "Fünf Orte, die die meisten Reisen prägen. Jeder verlinkt auf die Reisen, die ihn besuchen.",
+    "explore": "{name} entdecken",
+    "facts": "Auf einen Blick",
+    "tripsHere": "Reisen mit Station in {name}",
+    "noTrips": "Noch keine veröffentlichte Reise führt nach {name}. Sagen Sie uns, was Sie sich vorstellen, und wir gestalten es.",
+    "cta": {
+      "title": "{name} besuchen",
+      "text": "Sagen Sie uns, wann Sie reisen möchten. Wir bauen die Reise rund um Sie.",
+      "button": "Meine Reise planen"
+    },
+    "all": "Alle Reiseziele"
   }
 }

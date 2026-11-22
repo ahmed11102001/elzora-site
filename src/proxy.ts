@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 import { isAdminHost, isAdminPath } from "@/admin/config";
-import { decideRoute } from "@/lib/proxy-logic";
+import { PREVIEW_COOKIE, previewSecret, verifyPreviewToken } from "@/lib/preview-token";
+import { decideRoute, previewRewrite } from "@/lib/proxy-logic";
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -22,7 +23,21 @@ export async function proxy(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  // 3. Public routing and locale negotiation.
+  // 3. Draft preview: a trip address with a valid signed preview cookie is served by the preview page.
+  const previewCookie = request.cookies.get(PREVIEW_COOKIE)?.value;
+  if (previewCookie) {
+    const access = verifyPreviewToken(previewCookie, previewSecret());
+    const target = access ? previewRewrite(pathname, access.l) : null;
+
+    if (target) {
+      const url = request.nextUrl.clone();
+      url.pathname = target;
+
+      return NextResponse.rewrite(url);
+    }
+  }
+
+  // 4. Public routing and locale negotiation.
   const decision = decideRoute(pathname, request.headers.get("accept-language"));
 
   if (decision.type === "next") {
@@ -36,7 +51,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  // 4. Preserve existing redirect behavior.
+  // 5. Preserve existing redirect behavior.
   return NextResponse.redirect(url, decision.permanent ? 308 : 307);
 }
 

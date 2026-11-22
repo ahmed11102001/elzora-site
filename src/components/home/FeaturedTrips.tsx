@@ -1,18 +1,18 @@
-import type { Trip } from "@/content/schema";
+import type { TripView } from "@/content/trips-public";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { TripCard, TripCardSkeleton } from "@/components/trips/TripCard";
 import { Button } from "@/components/ui/Button";
-import { plannerPath } from "@/lib/routes";
+import { plannerPath, routePath } from "@/lib/routes";
 import { Container } from "@/components/ui/Container";
 import { FEATURED_TRIPS_LIMIT, featuredTrips } from "./home-data";
 
-type FeaturedTripsProps = { lang: Locale; dict: Dictionary; trips: Trip[] };
+type FeaturedTripsProps = { lang: Locale; dict: Dictionary; trips: TripView[] };
 
 const gridClassName = "grid gap-6 sm:grid-cols-2 lg:grid-cols-3";
 
-// The trip pages arrive in Phase 7, so the cards are not links yet. Each card has an anchor id so
-// the "Choose your journey" tiles can jump to the trips of a style.
+// Each card links to its trip page and has an anchor id so the "Choose your journey" tiles can jump to
+// the trips of a style.
 export function FeaturedTrips({ lang, dict, trips }: FeaturedTripsProps) {
   const featured = featuredTrips(trips);
   if (featured.length === 0) return null;
@@ -37,13 +37,24 @@ export function FeaturedTrips({ lang, dict, trips }: FeaturedTripsProps) {
         <ul className={gridClassName}>
           {featured.map((trip) => (
             <li key={trip.id} id={`trip-${trip.id}`}>
-              <TripCard trip={trip} lang={lang} labels={dict.trips} showHighlights />
+              <TripCard
+                trip={trip}
+                lang={lang}
+                labels={dict.trips}
+                href={routePath(lang, "trips", `/${trip.slug}`)}
+                showHighlights
+              />
             </li>
           ))}
         </ul>
 
         <div className="mt-10 flex justify-center sm:mt-14">
-          <Button href={plannerPath(lang)}>{dict.cta.plan}</Button>
+          <Button href={routePath(lang, "trips")} variant="ghost">
+            {dict.trips.list.title}
+          </Button>
+          <Button href={plannerPath(lang)} className="ml-3">
+            {dict.cta.plan}
+          </Button>
         </div>
       </Container>
     </section>

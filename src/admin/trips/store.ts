@@ -1,6 +1,6 @@
 import "server-only";
 // Storage seam for trips. With ADMIN_DATABASE_URL / DATABASE_URL set, the dashboard uses the Postgres
-// store (postgres-store.ts, tables from db/migrations/0020). Without it, an in-memory store keeps local
+// store (postgres-store.ts, tables from db/migrations/0002 + 0003). Without it, an in-memory store keeps local
 // review working and the dashboard shows a "not saved" warning. Nothing outside this file chooses.
 import { adminDatabaseConfigured } from "../db/sql";
 import { postgresTripStore } from "./postgres-store";

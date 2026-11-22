@@ -3,13 +3,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { localeLabels, locales, type Locale } from "@/i18n/config";
+import { switchPath, type TripSlugMap } from "@/lib/switch-path";
 import { cn } from "@/lib/utils";
 
-export function LanguageSwitcher({ lang, label }: { lang: Locale; label: string }) {
+export function LanguageSwitcher({
+  lang,
+  label,
+  tripSlugs,
+}: {
+  lang: Locale;
+  label: string;
+  tripSlugs: TripSlugMap;
+}) {
   const pathname = usePathname();
-  // "/en/trips" -> "/trips"; "/en" -> ""
-  const tail = pathname.split("/").slice(2).join("/");
-  const suffix = tail ? `/${tail}` : "";
 
   return (
     <nav aria-label={label}>
@@ -17,7 +23,7 @@ export function LanguageSwitcher({ lang, label }: { lang: Locale; label: string 
         {locales.map((l) => (
           <li key={l}>
             <Link
-              href={`/${l}${suffix}`}
+              href={switchPath(pathname, l, tripSlugs)}
               lang={l}
               hrefLang={l}
               aria-label={localeLabels[l].full}

@@ -29,6 +29,8 @@ export const routePath = (lang: Locale, key: RouteKey, rest = "") =>
 
 /** Routes whose page exists and belong in the sitemap. The home page is added separately. */
 export const sitemapRoutes: RouteKey[] = [
+  "trips",
+  "destinations",
   "planner",
   "about",
   "contact",
@@ -39,6 +41,8 @@ export const sitemapRoutes: RouteKey[] = [
 
 /** Header navigation: only routes that exist. */
 export const navRoutes: { key: keyof Dictionary["nav"]; route: RouteKey }[] = [
+  { key: "trips", route: "trips" },
+  { key: "destinations", route: "destinations" },
   { key: "about", route: "about" },
   { key: "contact", route: "contact" },
 ];

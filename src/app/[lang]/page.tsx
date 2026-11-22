@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getFaqs, getPartnerStatus, getReviews, getTripStyles, getTrips } from "@/content";
+import { getPublicTrips } from "@/content/public";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localizedAlternates } from "@/lib/seo";
@@ -29,8 +30,9 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   // Content is read once here and handed to the sections. Each section hides itself when it has
   // nothing publishable, so the page stays intact with empty or unpublished content.
-  const [styles, trips, faqs, reviews, partners] = await Promise.all([
+  const [styles, trips, siteTrips, faqs, reviews, partners] = await Promise.all([
     getTripStyles(),
+    getPublicTrips(lang),
     getTrips(),
     getFaqs(),
     getReviews(),
@@ -53,7 +55,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <ChooseJourney lang={lang} dict={dict} styles={styles} trips={trips} />
       <FeaturedTrips lang={lang} dict={dict} trips={trips} />
       <WhyElzora dict={dict} />
-      <ReviewsSection lang={lang} dict={dict} reviews={reviews} trips={trips} />
+      <ReviewsSection lang={lang} dict={dict} reviews={reviews} trips={siteTrips} />
       <FAQSection lang={lang} dict={dict} faqs={faqs} whatsappUrl={whatsappUrl} />
       <FinalCTA lang={lang} dict={dict} whatsappUrl={whatsappUrl} />
     </>

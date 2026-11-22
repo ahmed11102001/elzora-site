@@ -26,7 +26,7 @@ const rawSource = process.env.CONTENT_SOURCE ?? "seed";
 if (rawSource !== "seed" && rawSource !== "database") {
   throw new Error(`CONTENT_SOURCE must be "seed" or "database", got "${rawSource}"`);
 }
-const contentSource: "seed" | "database" = rawSource;
+export const contentSource: "seed" | "database" = rawSource;
 
 /** True in `next dev` only. Used for review previews and development-only placeholders. */
 export const isDevPreview = process.env.NODE_ENV !== "production";
@@ -35,11 +35,13 @@ const showDrafts = isDevPreview && process.env.SHOW_DRAFT_CONTENT === "true";
 // Pre-launch: "published" and "review" content is served everywhere, production included, so every
 // section and page that exists is visible for review. Revisit this line before the public launch
 // (back to ["published"] only) once the copy is approved. "draft" stays development-only.
-const visibleStatuses: Status[] = ["published", "review"];
+// SHOW_REVIEW_CONTENT=false (set it at launch) serves published content only.
+const visibleStatuses: Status[] =
+  process.env.SHOW_REVIEW_CONTENT === "false" ? ["published"] : ["published", "review"];
 const visible = <T extends { status: Status }>(items: T[]) =>
   items.filter((item) => showDrafts || visibleStatuses.includes(item.status));
 
-const allowedStatuses = (): Status[] =>
+export const allowedStatuses = (): Status[] =>
   showDrafts ? ["draft", "review", "published"] : visibleStatuses;
 
 // Validated once at startup/build: a typo in the seed data fails fast with a clear message.

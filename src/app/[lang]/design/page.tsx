@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getFaqs, getTrips } from "@/content";
+import { getFaqs } from "@/content";
+import { getPublicTrips } from "@/content/public";
 import { localize } from "@/content/schema";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -37,7 +38,7 @@ export default async function DesignPage({ params }: PageProps<"/[lang]/design">
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
-  const [trips, faqs] = await Promise.all([getTrips(), getFaqs()]);
+  const [trips, faqs] = await Promise.all([getPublicTrips(lang), getFaqs()]);
 
   return (
     <>

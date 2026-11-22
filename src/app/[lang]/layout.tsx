@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import { defaultLocale, hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getTripSlugMap } from "@/content/public";
 import { siteName, siteUrl } from "@/lib/site";
+import type { TripSlugMap } from "@/lib/switch-path";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SkipLink } from "@/components/layout/SkipLink";
@@ -45,12 +47,18 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   // Unknown locale: render the default shell; the page itself returns 404.
   const locale = hasLocale(lang) ? lang : defaultLocale;
   const dict = await getDictionary(locale);
+  // The language switcher needs the slug of each trip in the other language. A failed read must not take
+  // every page down: the switcher then falls back to the trips list.
+  const tripSlugs: TripSlugMap = await getTripSlugMap().catch((error: unknown) => {
+    console.error("trip slug map failed", error instanceof Error ? error.message : error);
+    return { en: {}, de: {} };
+  });
 
   return (
     <html lang={locale} className={`${inter.variable} ${cormorant.variable}`}>
       <body className="flex min-h-dvh flex-col">
         <SkipLink label={dict.header.skip} />
-        <Header lang={locale} dict={dict} />
+        <Header lang={locale} dict={dict} tripSlugs={tripSlugs} />
         <main id="main" className="flex-1">
           {children}
         </main>

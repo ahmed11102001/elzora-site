@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { locales } from "@/i18n/config";
-import { decideRoute, negotiateLocale } from "./proxy-logic";
+import { decideRoute, negotiateLocale, previewRewrite } from "./proxy-logic";
 import { resolveTail, routeMap, routePath, switchLocalePath, type RouteKey } from "./routes";
 
 const keys = Object.keys(routeMap) as RouteKey[];
@@ -173,5 +173,22 @@ describe("negotiateLocale", () => {
     assert.equal(negotiateLocale("fr;q=0.9, de;q=0.8"), "de");
     assert.equal(negotiateLocale("fr"), "en");
     assert.equal(negotiateLocale(null), "en");
+  });
+});
+
+describe("previewRewrite", () => {
+  it("sends a trip address to the preview page, in both languages", () => {
+    assert.equal(
+      previewRewrite("/de/reisen/nilkreuzfahrt", "de"),
+      "/de/trips/nilkreuzfahrt/preview",
+    );
+    assert.equal(previewRewrite("/en/trips/nile-cruise", "en"), "/en/trips/nile-cruise/preview");
+  });
+  it("leaves everything else alone", () => {
+    assert.equal(previewRewrite("/de/reisen", "de"), null);
+    assert.equal(previewRewrite("/de/reisen/a/b", "de"), null);
+    assert.equal(previewRewrite("/en/trips/x", "de"), null); // cookie is for another language
+    assert.equal(previewRewrite("/de/datenschutz", "de"), null);
+    assert.equal(previewRewrite("/de", "de"), null);
   });
 });
