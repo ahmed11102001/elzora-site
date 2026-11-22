@@ -1,7 +1,8 @@
 import "server-only";
 import { cacheLife, cacheTag } from "next/cache";
 import { z } from "zod";
-import { getContentSql } from "@/lib/db";
+import type { Sql } from "postgres";
+import { getContentSql, getPreviewSql } from "@/lib/db";
 import { PhotoIdSchema, Status } from "../schema";
 import type { PublicTrip, PublicTranslation } from "../trips-public";
 
@@ -72,8 +73,11 @@ const GalleryRow = z.object({
 });
 
 /** Trips whose translations have one of `statuses`; all languages. Optionally a single trip (preview). */
-async function query(statuses: Status[], tripId?: string): Promise<PublicTrip[]> {
-  const sql = getContentSql();
+async function query(
+  statuses: Status[],
+  tripId?: string,
+  sql: Sql = getContentSql(),
+): Promise<PublicTrip[]> {
   const tripRows = await sql`
     SELECT t.id, t.featured, t.sort_order, t.duration_days, t.price_from_eur, t.budget_category,
            t.style_ids, t.destination_ids, t.updated_at,
@@ -194,6 +198,6 @@ export async function loadTripRedirect(oldPath: string): Promise<string | null> 
 
 /** One trip in every status, for the signed preview only. Never cached, never public. */
 export async function loadTripForPreview(tripId: string): Promise<PublicTrip | null> {
-  const [trip] = await query(["draft", "review", "published"], tripId);
+  const [trip] = await query(["draft", "review", "published"], tripId, getPreviewSql());
   return trip ?? null;
 }

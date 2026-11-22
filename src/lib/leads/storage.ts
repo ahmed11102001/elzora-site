@@ -12,7 +12,7 @@ import type { LeadStatus } from "./types";
 import type { Locale } from "@/i18n/config";
 import type { Budget, DateMode, Duration, Interest } from "./options";
 
-// Postgres storage (provider-agnostic: Supabase, Neon, Vercel Postgres, RDS ...) over DATABASE_URL.
+// Postgres storage (provider-agnostic: Supabase, Neon, Vercel Postgres, RDS ...) over DATABASE_URL (or DATABASE_URL_LEADS).
 // The connection string is read on the server only and never reaches the browser.
 // Table definitions: db/migrations/0001_create_leads.sql and 0002_content_platform.sql (trip context).
 //
@@ -24,7 +24,8 @@ import type { Budget, DateMode, Duration, Interest } from "./options";
 const globalForSql = globalThis as unknown as { __elzoraSql?: Sql };
 
 function getSql(): Sql {
-  const url = process.env.DATABASE_URL;
+  // DATABASE_URL_LEADS is the narrow "leads" role (db/grants.sql): it can only touch leads and the rate limit.
+  const url = process.env.DATABASE_URL_LEADS || process.env.DATABASE_URL;
   if (!url) throw new StorageUnavailableError("DATABASE_URL is not set");
   globalForSql.__elzoraSql ??= postgres(url, {
     max: 1, // one connection per serverless instance; the pooler does the multiplexing

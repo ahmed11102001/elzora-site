@@ -1,0 +1,28 @@
+ELZORA 7.7 - KPIs and hardening (Partners 7.6 postponed)
+
+Unzip over the project root (same folder structure), then DELETE these three stale files:
+  db/migrations/0020_dashboard_trips.sql
+  scripts/seed-dashboard-trips.ts
+  7.4C-NOTES.md
+
+NEW
+  src/admin/kpis/model.ts, store.ts, kpis.test.ts
+  src/admin/authorization.test.ts
+  db/migrations/0005_kpi_and_trigger_security.sql
+  db/grants.sql
+  scripts/apply-grants.mjs, scripts/verify-privileges.mjs
+  docs/phase-7/7.7-kpis-and-hardening.md
+
+CHANGED
+  src/app/admin/(console)/kpis/page.tsx   (placeholder replaced)
+  src/admin/shell/nav.ts                  (KPIs clickable)
+  src/lib/db.ts                           (getPreviewSql)
+  src/content/db/public-trips.ts          (preview uses the preview connection)
+  src/lib/leads/storage.ts                (optional DATABASE_URL_LEADS)
+  db/spikes/roles.sql                     (four roles)
+  package.json                            (db:grants, db:verify-privileges)
+  .env.example
+
+THEN: npm run format && npm run lint && npm run typecheck && npm test && npm run build
+      npm run db:migrate
+      (optional hardening) see docs/phase-7/7.7-kpis-and-hardening.md

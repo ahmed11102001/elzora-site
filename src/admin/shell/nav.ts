@@ -14,7 +14,7 @@ export const NAV: NavItem[] = [
   { href: "/trips", label: "Trips", permission: "trips.manage" },
   { href: "/leads", label: "Leads", permission: "leads.manage" },
   { href: "/partners", label: "Partners", permission: "partners.manage", soon: "7.6" },
-  { href: "/kpis", label: "KPIs", permission: "kpi.read", soon: "7.7" },
+  { href: "/kpis", label: "KPIs", permission: "kpi.read" },
   { href: "/seo", label: "SEO", permission: "trips.manage" },
   { href: "/settings", label: "Settings" },
 ];

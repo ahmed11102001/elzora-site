@@ -16,6 +16,8 @@
     "test": "node --import ./scripts/test-register.mjs --test \"src/**/*.test.ts\"",
     "db:migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs",
     "db:check-roles": "node --env-file-if-exists=.env.local scripts/check-db-roles.mjs",
+    "db:grants": "node --env-file-if-exists=.env.local scripts/apply-grants.mjs",
+    "db:verify-privileges": "node --env-file-if-exists=.env.local scripts/verify-privileges.mjs",
     "verify:routing": "node scripts/verify-routing.mjs",
     "content:seed": "node --import ./scripts/test-register.mjs --env-file-if-exists=.env.local scripts/seed-content.mjs",
     "content:verify": "node --import ./scripts/test-register.mjs --env-file-if-exists=.env.local scripts/verify-content.mjs"
