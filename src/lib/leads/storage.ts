@@ -45,7 +45,7 @@ const opt = (value: unknown) =>
 const dateOnly = (value: unknown) =>
   value instanceof Date ? value.toISOString().slice(0, 10) : opt(value);
 
-function toLead(row: Row): StoredLead {
+export function toLead(row: Row): StoredLead {
   return {
     id: row.id as string,
     referenceCode: row.reference_code as string,

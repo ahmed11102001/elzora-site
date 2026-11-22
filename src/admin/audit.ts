@@ -22,7 +22,11 @@ export type AuditEvent = {
     | "trip.delete"
     | "trip.publish"
     | "trip.unpublish"
-    | "trip.preview";
+    | "trip.preview"
+    | "lead.status"
+    | "lead.note"
+    | "lead.followup"
+    | "lead.export";
   userId?: string;
   detail?: Record<string, string | number | boolean>;
 };
