@@ -22,7 +22,7 @@ export function FeaturedTrips({ lang, dict, trips }: FeaturedTripsProps) {
     <section id="trips" aria-labelledby="trips-title" className="py-16 sm:py-24">
       <Container>
         <header className="mb-10 max-w-2xl sm:mb-14">
-          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-accent uppercase">
             {t.eyebrow}
           </p>
           <h2
@@ -31,7 +31,7 @@ export function FeaturedTrips({ lang, dict, trips }: FeaturedTripsProps) {
           >
             {t.title}
           </h2>
-          <p className="mt-4 text-lg text-sand/80">{t.description}</p>
+          <p className="mt-4 text-lg text-fg/80">{t.description}</p>
         </header>
 
         <ul className={gridClassName}>

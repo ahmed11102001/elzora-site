@@ -28,7 +28,7 @@ export function ConfirmationView({
     return (
       <div className="text-center">
         <h1 className="font-display text-4xl font-semibold sm:text-5xl">{copy.missingTitle}</h1>
-        <p className="mx-auto mt-4 max-w-xl text-lg text-sand/80">{copy.missingText}</p>
+        <p className="mx-auto mt-4 max-w-xl text-lg text-fg/80">{copy.missingText}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button href={plannerPath(lang)}>{copy.planAgain}</Button>
           <Button href={`/${lang}`} variant="ghost">
@@ -47,7 +47,7 @@ export function ConfirmationView({
 
   return (
     <div className="text-center">
-      <span className="mx-auto grid size-16 place-items-center rounded-full border border-gold text-gold">
+      <span className="mx-auto grid size-16 place-items-center rounded-full border border-accent text-accent">
         <Check className="size-8" />
       </span>
       <h1
@@ -56,14 +56,14 @@ export function ConfirmationView({
       >
         {copy.title}
       </h1>
-      <p className="mx-auto mt-4 max-w-xl text-lg text-sand/85">{copy.text}</p>
+      <p className="mx-auto mt-4 max-w-xl text-lg text-fg/85">{copy.text}</p>
 
-      <div className="mx-auto mt-8 max-w-sm rounded-2xl border border-gold/50 bg-gold/10 px-6 py-5">
-        <p className="text-xs tracking-[0.25em] text-gold uppercase">{copy.referenceLabel}</p>
+      <div className="mx-auto mt-8 max-w-sm rounded-2xl border border-accent/50 bg-accent/10 px-6 py-5">
+        <p className="text-xs tracking-[0.25em] text-accent uppercase">{copy.referenceLabel}</p>
         <p className="mt-1 font-mono text-3xl font-semibold tracking-wider select-all">
           {reference}
         </p>
-        <p className="mt-1 text-sm text-sand/65">{copy.referenceHint}</p>
+        <p className="mt-1 text-sm text-fg/70">{copy.referenceHint}</p>
       </div>
 
       <div className="mx-auto mt-10 max-w-xl text-left">
@@ -71,10 +71,10 @@ export function ConfirmationView({
         <ol className="mt-4 space-y-3">
           {copy.next.map((item, index) => (
             <li key={item} className="flex gap-4">
-              <span className="grid size-7 shrink-0 place-items-center rounded-full border border-gold/60 text-sm text-gold">
+              <span className="grid size-7 shrink-0 place-items-center rounded-full border border-accent/60 text-sm text-accent">
                 {index + 1}
               </span>
-              <span className="text-sand/85">{item}</span>
+              <span className="text-fg/85">{item}</span>
             </li>
           ))}
         </ol>

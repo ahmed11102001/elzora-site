@@ -6,7 +6,7 @@ type SectionProps = {
   eyebrow?: string;
   title?: string;
   description?: string;
-  /** default: page background · deep: darker band · sand: light band (dark text) */
+  /** default: page background · sand: warm alternate band · deep: dark indigo band (light text) */
   tone?: "default" | "deep" | "sand";
   className?: string;
   children?: React.ReactNode;
@@ -21,14 +21,13 @@ export function Section({
   className,
   children,
 }: SectionProps) {
-  const light = tone === "sand";
   return (
     <section
       id={id}
       className={cn(
         "py-16 sm:py-24",
-        tone === "deep" && "bg-ink-deep",
-        light && "bg-sand text-ink",
+        tone === "sand" && "bg-surface-2",
+        tone === "deep" && "dark-zone bg-surface",
         className,
       )}
     >
@@ -36,12 +35,7 @@ export function Section({
         {(eyebrow || title || description) && (
           <header className="mb-10 max-w-2xl">
             {eyebrow && (
-              <p
-                className={cn(
-                  "mb-3 text-xs font-semibold tracking-[0.3em] uppercase",
-                  light ? "text-ink/70" : "text-gold",
-                )}
-              >
+              <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-accent uppercase">
                 {eyebrow}
               </p>
             )}
@@ -50,11 +44,7 @@ export function Section({
                 {title}
               </h2>
             )}
-            {description && (
-              <p className={cn("mt-4 text-lg", light ? "text-ink/80" : "text-sand/80")}>
-                {description}
-              </p>
-            )}
+            {description && <p className="mt-4 text-lg text-fg/80">{description}</p>}
           </header>
         )}
         {children}

@@ -23,7 +23,7 @@ export function EgyptMapOutline({
     >
       <path
         d={EGYPT_PATH}
-        className="fill-gold/10 stroke-gold"
+        className="fill-accent/10 stroke-accent"
         strokeWidth={1.6}
         strokeLinejoin="round"
       />
@@ -40,8 +40,8 @@ export function EgyptMapOutline({
       </g>
       {stations.map((s) => (
         <g key={s.id}>
-          <circle cx={s.x} cy={s.y} r={3.6} className="fill-gold" />
-          <text x={s.x + 10} y={s.y + 4} fontSize={13} className="fill-sand font-sans">
+          <circle cx={s.x} cy={s.y} r={3.6} className="fill-accent" />
+          <text x={s.x + 10} y={s.y + 4} fontSize={13} className="fill-fg font-sans">
             {s.label}
           </text>
         </g>

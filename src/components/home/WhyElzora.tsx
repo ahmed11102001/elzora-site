@@ -8,7 +8,7 @@ export function WhyElzora({ dict }: { dict: Dictionary }) {
   const t = dict.home.why;
 
   return (
-    <section id="why" aria-labelledby="why-title" className="bg-sand py-16 text-ink sm:py-24">
+    <section id="why" aria-labelledby="why-title" className="bg-surface-2 py-16 text-fg sm:py-24">
       <Container className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
         <figure className="lg:sticky lg:top-28 lg:col-span-5">
           <Photo
@@ -20,7 +20,7 @@ export function WhyElzora({ dict }: { dict: Dictionary }) {
         </figure>
 
         <div className="lg:col-span-7">
-          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-ink/70 uppercase">
+          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-fg/70 uppercase">
             {t.eyebrow}
           </p>
           <h2
@@ -29,17 +29,17 @@ export function WhyElzora({ dict }: { dict: Dictionary }) {
           >
             {t.title}
           </h2>
-          <p className="mt-4 max-w-xl text-lg text-ink/80">{t.intro}</p>
+          <p className="mt-4 max-w-xl text-lg text-fg/80">{t.intro}</p>
 
-          <ol className="mt-10 divide-y divide-ink/15 border-y border-ink/15">
+          <ol className="mt-10 divide-y divide-fg/15 border-y border-fg/15">
             {t.items.map((item, index) => (
               <li key={item.title} className="grid gap-1 py-6 sm:grid-cols-[3.5rem_1fr] sm:gap-4">
-                <span aria-hidden className="font-display text-3xl leading-none text-ink/40">
+                <span aria-hidden className="font-display text-3xl leading-none text-fg/40">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
                   <h3 className="font-display text-2xl font-semibold">{item.title}</h3>
-                  <p className="mt-1 text-ink/80">{item.text}</p>
+                  <p className="mt-1 text-fg/80">{item.text}</p>
                 </div>
               </li>
             ))}
@@ -47,12 +47,12 @@ export function WhyElzora({ dict }: { dict: Dictionary }) {
 
           <aside
             aria-labelledby="transparency-title"
-            className="mt-10 rounded-2xl bg-ink p-6 text-sand sm:p-8"
+            className="dark-zone mt-10 rounded-2xl bg-surface p-6 sm:p-8"
           >
-            <h3 id="transparency-title" className="font-display text-2xl font-semibold text-gold">
+            <h3 id="transparency-title" className="font-display text-2xl font-semibold text-accent">
               {t.transparency.title}
             </h3>
-            <p className="mt-3 text-sand/85">{t.transparency.text}</p>
+            <p className="mt-3 text-fg/85">{t.transparency.text}</p>
           </aside>
         </div>
       </Container>

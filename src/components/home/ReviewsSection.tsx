@@ -13,10 +13,7 @@ function Stars({ rating, label }: { rating: number; label: string }) {
   return (
     <div role="img" aria-label={label} className="flex gap-1">
       {Array.from({ length: 5 }, (_, i) => (
-        <Star
-          key={i}
-          className={cn("size-4", i < rating ? "fill-gold text-gold" : "text-sand/30")}
-        />
+        <Star key={i} className={cn("size-4", i < rating ? "fill-gold text-gold" : "text-fg/30")} />
       ))}
     </div>
   );
@@ -29,14 +26,14 @@ function ReviewsDevPlaceholder() {
     <section
       id="reviews"
       aria-label="Reviews (development placeholder)"
-      className="bg-ink-deep py-16"
+      className="bg-surface-2 py-16"
     >
       <Container>
-        <div className="rounded-2xl border border-dashed border-gold/50 p-8 text-center">
-          <p className="text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+        <div className="rounded-2xl border border-dashed border-accent/50 p-8 text-center">
+          <p className="text-xs font-semibold tracking-[0.3em] text-accent uppercase">
             Development preview only
           </p>
-          <p className="mt-3 text-sand/80">
+          <p className="mt-3 text-fg/80">
             Reviews section: no published, verified reviews exist yet. This block is hidden in
             production, where the section renders nothing until real reviews are added.
           </p>
@@ -81,8 +78,8 @@ export function ReviewsSection({ lang, dict, reviews, trips }: ReviewsSectionPro
       <figure
         key={review.id}
         className={cn(
-          "flex h-full flex-col gap-5 rounded-2xl border border-sand/10 p-6 sm:p-8",
-          large && "bg-ink/60",
+          "flex h-full flex-col gap-5 rounded-2xl border border-fg/10 p-6 sm:p-8",
+          large && "bg-surface/60",
         )}
       >
         <Stars
@@ -91,14 +88,14 @@ export function ReviewsSection({ lang, dict, reviews, trips }: ReviewsSectionPro
         />
         <blockquote
           className={cn(
-            "text-sand/90",
+            "text-fg/90",
             large ? "font-display text-3xl leading-snug sm:text-4xl" : "text-lg",
           )}
         >
           {localize(review.text, lang)}
         </blockquote>
-        <figcaption className="mt-auto text-sm text-sand/70">
-          <span className="font-semibold text-sand">{review.author}</span>
+        <figcaption className="mt-auto text-sm text-fg/70">
+          <span className="font-semibold text-fg">{review.author}</span>
           {`, ${countryName(review.country)}`}
           {trip && <span className="block">{trip}</span>}
           <span className="block">
@@ -110,10 +107,10 @@ export function ReviewsSection({ lang, dict, reviews, trips }: ReviewsSectionPro
   };
 
   return (
-    <section id="reviews" aria-labelledby="reviews-title" className="bg-ink-deep py-16 sm:py-24">
+    <section id="reviews" aria-labelledby="reviews-title" className="bg-surface-2 py-16 sm:py-24">
       <Container>
         <header className="mb-10 max-w-2xl sm:mb-14">
-          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-accent uppercase">
             {t.eyebrow}
           </p>
           <h2
@@ -123,7 +120,7 @@ export function ReviewsSection({ lang, dict, reviews, trips }: ReviewsSectionPro
             {t.title}
           </h2>
           {summary && (
-            <p className="mt-4 text-lg text-sand/80">
+            <p className="mt-4 text-lg text-fg/80">
               {t.summary
                 .replace(
                   "{rating}",

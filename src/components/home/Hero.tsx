@@ -20,7 +20,7 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative isolate flex min-h-[calc(100svh-4rem-env(safe-area-inset-top,0px))] items-end overflow-hidden sm:items-center"
+      className="dark-zone relative isolate flex min-h-[calc(100svh-4rem-env(safe-area-inset-top,0px))] items-end overflow-hidden sm:items-center"
     >
       <Photo
         id="giza-pyramids"
@@ -32,11 +32,11 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-linear-to-t from-ink via-ink/60 to-ink/30 sm:bg-linear-to-r sm:from-ink-deep/90 sm:via-ink/55 sm:to-transparent"
+        className="absolute inset-0 -z-10 bg-linear-to-t from-surface via-surface/60 to-surface/30 sm:bg-linear-to-r sm:from-surface-2/90 sm:via-surface/55 sm:to-transparent"
       />
 
       <Container className="py-14 sm:py-24">
-        <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+        <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-accent uppercase">
           {t.eyebrow}
         </p>
         <h1
@@ -45,7 +45,7 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
         >
           {t.title}
         </h1>
-        <p className="mt-5 max-w-xl text-lg text-sand/90 sm:text-xl">{t.subtitle}</p>
+        <p className="mt-5 max-w-xl text-lg text-fg/90 sm:text-xl">{t.subtitle}</p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Button href={plannerPath(lang)}>{dict.cta.plan}</Button>
@@ -58,8 +58,8 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
         <ul className="mt-8 flex flex-wrap gap-2">
           {trust.map(({ Icon, label }) => (
             <li key={label}>
-              <Chip tone="neutral" className="bg-ink-deep/60 backdrop-blur-sm">
-                <Icon className="size-4 text-gold" />
+              <Chip tone="neutral" className="bg-card/60 backdrop-blur-sm">
+                <Icon className="size-4 text-accent" />
                 {label}
               </Chip>
             </li>

@@ -7,7 +7,7 @@ import { JourneyIntro } from "./JourneyIntro";
 // for the animated journey as soon as the animation code has loaded. There is no static version.
 export function JourneyShell({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
-    <section id="journey" aria-labelledby="journey-title" className="bg-ink-deep">
+    <section id="journey" aria-labelledby="journey-title" className="dark-zone bg-surface-2">
       <JourneyEnhancer lang={lang} copy={dict.journey} intro={<JourneyIntro dict={dict} />} />
     </section>
   );

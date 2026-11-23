@@ -21,7 +21,7 @@ export function JourneyIntro({ dict }: { dict: Dictionary }) {
         <h2 id="journey-title" className="font-display text-4xl font-semibold sm:text-5xl">
           {t.title}
         </h2>
-        <p className="mx-auto mt-3 max-w-md text-lg text-sand/80">{t.subtitle}</p>
+        <p className="mx-auto mt-3 max-w-md text-lg text-fg/80">{t.subtitle}</p>
       </div>
       <EgyptMapOutline label={t.mapLabel} stations={stations} className="max-h-[60svh] max-w-lg" />
     </Container>

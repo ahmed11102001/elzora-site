@@ -22,9 +22,9 @@ export type StageProps = {
 };
 
 const glass =
-  "border-gold/45 bg-ink/80 rounded-2xl border backdrop-blur group-data-[variant=mobile]/stage:backdrop-blur-none";
+  "border-accent/45 bg-surface/80 rounded-2xl border backdrop-blur group-data-[variant=mobile]/stage:backdrop-blur-none";
 const shadow = "[text-shadow:0_2px_24px_rgba(5,13,26,.85)]";
-const eyebrowClass = "text-gold text-xs font-semibold tracking-[0.3em] uppercase";
+const eyebrowClass = "text-accent text-xs font-semibold tracking-[0.3em] uppercase";
 const leftEdge = "left-[clamp(16px,5vw,64px)]";
 const rightEdge = "right-[clamp(16px,5vw,64px)]";
 const cardBottom = "bottom-[calc(72px+env(safe-area-inset-bottom,0px))]";
@@ -93,7 +93,7 @@ function Explain({
           </article>
           <div
             data-part="page"
-            className="absolute right-[clamp(16px,6vw,96px)] bottom-[calc(88px+env(safe-area-inset-bottom,0px))] z-10 w-[min(260px,36vw)] overflow-hidden rounded-md border-[6px] border-sand opacity-0 shadow-2xl max-sm:top-[calc(130px+env(safe-area-inset-top,0px))] max-sm:bottom-auto max-sm:w-[30vw]"
+            className="absolute right-[clamp(16px,6vw,96px)] bottom-[calc(88px+env(safe-area-inset-bottom,0px))] z-10 w-[min(260px,36vw)] overflow-hidden rounded-md border-[6px] border-fg opacity-0 shadow-2xl max-sm:top-[calc(130px+env(safe-area-inset-top,0px))] max-sm:bottom-auto max-sm:w-[30vw]"
           >
             {mounted && <Photo id={photo.image} alt={photo.alt} eager sizes="260px" />}
           </div>
@@ -112,7 +112,7 @@ function Explain({
             <h3 className="my-1.5 font-display text-2xl font-semibold">{t.title}</h3>
             <div className="my-2.5 flex gap-5">
               <div>
-                <b data-part="n1" className="block font-display text-3xl font-semibold text-gold">
+                <b data-part="n1" className="block font-display text-3xl font-semibold text-accent">
                   {props.format(0, 0)}+
                 </b>
                 <span className="text-xs tracking-wide uppercase opacity-85">
@@ -120,7 +120,7 @@ function Explain({
                 </span>
               </div>
               <div>
-                <b data-part="n2" className="block font-display text-3xl font-semibold text-gold">
+                <b data-part="n2" className="block font-display text-3xl font-semibold text-accent">
                   {props.format(0, 1)} M
                 </b>
                 <span className="text-xs tracking-wide uppercase opacity-85">
@@ -157,7 +157,7 @@ function Explain({
             data-part="chip"
             className={`${glass} absolute top-[calc(86px+env(safe-area-inset-top,0px))] z-10 rounded-full px-3.5 py-2 text-sm opacity-0 max-sm:text-xs ${leftEdge}`}
           >
-            <b className="font-semibold text-gold">{t.eyebrow}</b> · {t.title}
+            <b className="font-semibold text-accent">{t.eyebrow}</b> · {t.title}
           </div>
           <div className="absolute top-1/2 right-[clamp(16px,4vw,56px)] z-10 flex w-[min(300px,calc(100vw-32px))] -translate-y-1/2 flex-col gap-3 max-sm:top-auto max-sm:right-4 max-sm:bottom-[calc(72px+env(safe-area-inset-bottom,0px))] max-sm:translate-y-0">
             {t.extras.map((item) => (
@@ -178,7 +178,9 @@ function Explain({
                   <div className="size-[72px] shrink-0 max-sm:size-[52px]" />
                 )}
                 <div>
-                  <b className="block font-display text-lg font-semibold text-gold">{item.title}</b>
+                  <b className="block font-display text-lg font-semibold text-accent">
+                    {item.title}
+                  </b>
                   <span className="text-xs leading-snug opacity-90">{item.text}</span>
                 </div>
               </div>
@@ -209,7 +211,7 @@ function Explain({
             data-part="kinetic"
             className="absolute inset-x-0 bottom-[calc(12%+env(safe-area-inset-bottom,0px))] z-10 px-6 text-center opacity-0"
           >
-            <h3 className="font-display text-[clamp(3rem,12vw,9rem)] leading-none font-semibold tracking-[0.08em] text-sand/0 uppercase [-webkit-text-stroke:1.5px_var(--color-sand)]">
+            <h3 className="font-display text-[clamp(3rem,12vw,9rem)] leading-none font-semibold tracking-[0.08em] text-fg/0 uppercase [-webkit-text-stroke:1.5px_var(--color-fg)]">
               {t.title}
             </h3>
             <p className="mt-2.5 [text-shadow:0_1px_12px_rgba(5,13,26,.9)]">{t.text}</p>
@@ -227,19 +229,19 @@ export function JourneyStage({ stageRef, ...props }: StageProps) {
     <div
       ref={stageRef}
       data-variant={variant}
-      className="group/stage relative isolate h-svh overflow-hidden bg-ink"
+      className="group/stage relative isolate h-svh overflow-hidden bg-surface"
     >
       <button
         type="button"
         onClick={props.onSkip}
-        className="absolute right-4 bottom-4 z-30 rounded-full border border-sand/50 px-4 py-2 text-sm font-medium text-sand hover:border-gold hover:text-gold max-sm:right-auto max-sm:left-4"
+        className="absolute right-4 bottom-4 z-30 rounded-full border border-fg/50 px-4 py-2 text-sm font-medium text-fg hover:border-accent hover:text-accent max-sm:right-auto max-sm:left-4"
       >
         {copy.ui.skip}
       </button>
 
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-b from-ink-deep via-ink to-[#13335a]"
+        className="absolute inset-0 bg-gradient-to-b from-surface-2 via-surface to-[#2a3d8a]"
       />
 
       <svg
@@ -252,7 +254,7 @@ export function JourneyStage({ stageRef, ...props }: StageProps) {
         <g data-el="cam">
           <path
             d={EGYPT_PATH}
-            className="fill-gold/10 stroke-gold"
+            className="fill-accent/10 stroke-accent"
             strokeWidth={1.6}
             strokeLinejoin="round"
           />
@@ -271,13 +273,13 @@ export function JourneyStage({ stageRef, ...props }: StageProps) {
             const p = stationPositions[s.id];
             return (
               <g key={s.id}>
-                <circle cx={p.x} cy={p.y} r={3.6} className="fill-gold" />
+                <circle cx={p.x} cy={p.y} r={3.6} className="fill-accent" />
                 <circle
                   data-ring={s.id}
                   cx={p.x}
                   cy={p.y}
                   r={3}
-                  className="fill-none stroke-gold"
+                  className="fill-none stroke-accent"
                   strokeWidth={1.2}
                 />
               </g>
@@ -292,7 +294,7 @@ export function JourneyStage({ stageRef, ...props }: StageProps) {
                   x={p.x + 10}
                   y={p.y + 4}
                   fontSize={13}
-                  className="fill-sand font-sans"
+                  className="fill-fg font-sans"
                 >
                   {copy.stations[s.id]}
                 </text>
@@ -313,7 +315,7 @@ export function JourneyStage({ stageRef, ...props }: StageProps) {
         <h2 id="journey-title" className="font-display text-4xl font-semibold sm:text-5xl">
           {copy.title}
         </h2>
-        <p className="mx-auto mt-3 max-w-md text-lg text-sand/80">{copy.subtitle}</p>
+        <p className="mx-auto mt-3 max-w-md text-lg text-fg/80">{copy.subtitle}</p>
       </div>
       <p
         data-el="hint"
@@ -347,8 +349,8 @@ export function JourneyStage({ stageRef, ...props }: StageProps) {
                 type="button"
                 onClick={() => props.onRail(i)}
                 aria-current={props.railIndex === i ? "step" : undefined}
-                className={`flex items-center gap-2.5 text-[0.7rem] tracking-widest uppercase after:size-[9px] after:rounded-full after:border-[1.5px] after:border-gold after:content-[''] ${
-                  props.railIndex === i ? "opacity-100 after:bg-gold" : "opacity-60"
+                className={`flex items-center gap-2.5 text-[0.7rem] tracking-widest uppercase after:size-[9px] after:rounded-full after:border-[1.5px] after:border-accent after:content-[''] ${
+                  props.railIndex === i ? "opacity-100 after:bg-accent" : "opacity-60"
                 }`}
               >
                 <span className="max-sm:hidden">{copy.stations[s.id]}</span>

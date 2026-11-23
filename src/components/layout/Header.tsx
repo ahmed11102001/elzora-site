@@ -26,11 +26,11 @@ export function Header({
   const whatsapp = whatsappNumber ? `https://wa.me/${whatsappNumber}` : null;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-sand/10 bg-ink/90 pt-[env(safe-area-inset-top)] backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-fg/10 bg-surface/90 pt-[env(safe-area-inset-top)] backdrop-blur">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link
           href={`/${lang}`}
-          className="font-display text-2xl font-semibold tracking-[0.18em] text-sand"
+          className="font-display text-2xl font-semibold tracking-[0.18em] text-fg"
         >
           {siteName}
         </Link>
@@ -41,7 +41,7 @@ export function Header({
               <Link
                 key={key}
                 href={routePath(lang, route)}
-                className="text-sm font-medium text-sand/80 hover:text-gold"
+                className="text-sm font-medium text-fg/80 hover:text-accent"
               >
                 {dict.nav[key]}
               </Link>

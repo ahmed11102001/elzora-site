@@ -1,11 +1,25 @@
 @import "tailwindcss";
 
 @theme {
+  /* Legacy palette. Still used by the admin dashboard (src/admin, src/app/admin), so leave it alone. */
   --color-ink: #0b1f3a;
   --color-ink-deep: #050d1a;
   --color-gold: #c9a24b;
   --color-sand: #f3e9d7;
   --color-teal: #2aa6ab;
+
+  /* Public site palette: warm sand surfaces, indigo text, terracotta accent.
+     The semantic tokens below are light by default; a `.dark-zone` ancestor flips them
+     (see below), so one set of classes (bg-surface, text-fg, text-accent...) serves both. */
+  --color-indigo: #1b2a63;
+  --color-deep: #0e1538;
+  --color-surface: #fbf6ec;
+  --color-surface-2: #f3ead9;
+  --color-card: #ffffff;
+  --color-fg: #1b2a63;
+  --color-accent: #a9481f;
+  --color-accent-strong: #7f3516;
+  --color-on-accent: #ffffff;
 
   /* Trip planner: a short fade-and-rise between steps. Used as motion-safe:animate-planner-in. */
   --animate-planner-in: planner-in 320ms ease-out both;
@@ -27,6 +41,19 @@
 }
 
 :root {
+  color-scheme: light;
+}
+
+/* Dark indigo zone (hero over photos, footer, journey, call-to-action panels). */
+.dark-zone {
+  --color-surface: #1b2a63;
+  --color-surface-2: #0e1538;
+  --color-card: #0e1538;
+  --color-fg: #f3e9d7;
+  --color-accent: #d9a93f;
+  --color-accent-strong: #f3e9d7;
+  --color-on-accent: #1b2a63;
+  color: var(--color-fg);
   color-scheme: dark;
 }
 
@@ -35,15 +62,18 @@ html {
   scroll-padding-top: calc(4rem + env(safe-area-inset-top, 0px));
 }
 
-body {
-  background: var(--color-ink);
-  color: var(--color-sand);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
+/* In a layer so a utility on <body> (the admin layout sets its own) still wins. */
+@layer base {
+  body {
+    background: var(--color-surface);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 

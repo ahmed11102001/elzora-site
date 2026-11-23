@@ -38,7 +38,7 @@ export function FAQSection({ lang, dict, faqs, whatsappUrl }: FAQSectionProps) {
     <section id="faq" aria-labelledby="faq-title" className="py-16 sm:py-24">
       <Container className="grid items-start gap-10 lg:grid-cols-12 lg:gap-16">
         <header className="lg:sticky lg:top-28 lg:col-span-4">
-          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-accent uppercase">
             {t.eyebrow}
           </p>
           <h2
@@ -47,11 +47,11 @@ export function FAQSection({ lang, dict, faqs, whatsappUrl }: FAQSectionProps) {
           >
             {t.title}
           </h2>
-          <p className="mt-4 text-lg text-sand/80">{t.description}</p>
+          <p className="mt-4 text-lg text-fg/80">{t.description}</p>
           {whatsappUrl && (
             <div className="mt-8">
               <p className="font-display text-2xl font-semibold">{t.contactTitle}</p>
-              <p className="mt-1 mb-4 text-sand/75">{t.contactText}</p>
+              <p className="mt-1 mb-4 text-fg/75">{t.contactText}</p>
               <Button href={whatsappUrl} variant="ghost">
                 {dict.cta.whatsapp}
               </Button>

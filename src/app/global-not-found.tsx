@@ -12,10 +12,10 @@ export default function GlobalNotFound() {
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="flex min-h-dvh flex-col items-center justify-center gap-4 px-6 text-center">
-        <p className="text-xs font-semibold tracking-[0.3em] text-gold uppercase">404</p>
+        <p className="text-xs font-semibold tracking-[0.3em] text-accent uppercase">404</p>
         <h1 className="font-display text-5xl font-semibold sm:text-6xl">Page not found</h1>
-        <p className="text-sand/80">The page you are looking for does not exist.</p>
-        <p className="text-sand/80" lang="de">
+        <p className="text-fg/80">The page you are looking for does not exist.</p>
+        <p className="text-fg/80" lang="de">
           Die gesuchte Seite existiert nicht.
         </p>
         <div className="mt-2 flex gap-3">
@@ -23,7 +23,7 @@ export default function GlobalNotFound() {
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <a
             href="/en"
-            className="rounded-full bg-gold px-6 py-3 font-semibold text-ink transition-colors hover:bg-sand"
+            className="rounded-full bg-accent px-6 py-3 font-semibold text-on-accent transition-colors hover:bg-accent-strong"
           >
             Home
           </a>
@@ -31,7 +31,7 @@ export default function GlobalNotFound() {
           <a
             href="/de"
             lang="de"
-            className="rounded-full border border-sand/50 px-6 py-3 font-semibold text-sand transition-colors hover:border-gold hover:text-gold"
+            className="rounded-full border border-fg/50 px-6 py-3 font-semibold text-fg transition-colors hover:border-accent hover:text-accent"
           >
             Startseite
           </a>

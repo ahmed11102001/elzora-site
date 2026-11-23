@@ -220,7 +220,7 @@ export function TripPlanner({ lang, copy, turnstileSiteKey }: TripPlannerProps) 
   }[stepId];
 
   return (
-    <div className="relative rounded-3xl border border-sand/15 bg-ink-deep/40 p-5 sm:p-10">
+    <div className="relative rounded-3xl border border-fg/15 bg-card p-5 sm:p-10">
       {/* Honeypot: invisible to people and assistive tech; bots that fill every field get rejected. */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
         <label>
@@ -243,7 +243,7 @@ export function TripPlanner({ lang, copy, turnstileSiteKey }: TripPlannerProps) 
         current={stepIndex}
         total={STEP_IDS.length}
       />
-      <p className="mt-3 text-xs text-sand/50">{copy.common.requiredNote}</p>
+      <p className="mt-3 text-xs text-fg/70">{copy.common.requiredNote}</p>
 
       <div className="mt-8">
         <PlannerStep
@@ -272,7 +272,7 @@ export function TripPlanner({ lang, copy, turnstileSiteKey }: TripPlannerProps) 
                     type="button"
                     onClick={() => goTo(stepIndex - 1)}
                     disabled={submitting}
-                    className="min-h-12 rounded-full px-5 text-base font-semibold text-sand/80 transition-colors hover:text-gold disabled:opacity-50"
+                    className="min-h-12 rounded-full px-5 text-base font-semibold text-fg/80 transition-colors hover:text-accent disabled:opacity-50"
                   >
                     {copy.common.back}
                   </button>
@@ -280,7 +280,7 @@ export function TripPlanner({ lang, copy, turnstileSiteKey }: TripPlannerProps) 
                     type="submit"
                     disabled={submitting || !online}
                     aria-busy={submitting}
-                    className="min-h-14 rounded-full bg-gold px-8 text-base font-semibold text-ink transition-colors hover:bg-sand disabled:cursor-not-allowed disabled:opacity-60"
+                    className="min-h-14 rounded-full bg-accent px-8 text-base font-semibold text-on-accent transition-colors hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {submitting
                       ? copy.review.submitting
@@ -289,7 +289,7 @@ export function TripPlanner({ lang, copy, turnstileSiteKey }: TripPlannerProps) 
                         : copy.review.submit}
                   </button>
                 </div>
-                <p className="mt-4 text-center text-sm text-sand/60">{copy.review.reassurance}</p>
+                <p className="mt-4 text-center text-sm text-fg/70">{copy.review.reassurance}</p>
               </div>
             ) : undefined
           }

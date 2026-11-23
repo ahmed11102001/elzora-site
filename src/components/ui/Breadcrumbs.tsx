@@ -18,19 +18,19 @@ export function Breadcrumbs({ items, label }: { items: Crumb[]; label: string })
     })),
   };
   return (
-    <nav aria-label={label} className="border-b border-sand/10 py-3 text-sm">
+    <nav aria-label={label} className="border-b border-fg/10 py-3 text-sm">
       <JsonLd data={data} />
       <Container>
-        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sand/70">
+        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-fg/70">
           {items.map((item, index) => (
             <li key={item.label} className="flex items-center gap-2">
               {index > 0 && <span aria-hidden>/</span>}
               {item.href ? (
-                <Link href={item.href} className="hover:text-gold">
+                <Link href={item.href} className="hover:text-accent">
                   {item.label}
                 </Link>
               ) : (
-                <span aria-current="page" className="text-sand">
+                <span aria-current="page" className="text-fg">
                   {item.label}
                 </span>
               )}

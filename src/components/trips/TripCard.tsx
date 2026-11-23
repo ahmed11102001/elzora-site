@@ -25,8 +25,8 @@ export function TripCard({ trip, lang, labels, href, showHighlights = false }: T
     : labels.priceOnRequest;
 
   const card = (
-    <Card className="flex h-full flex-col transition-colors group-hover:border-gold/50">
-      <div className="aspect-[4/3] bg-gradient-to-br from-ink to-teal/30">
+    <Card className="flex h-full flex-col transition-colors group-hover:border-accent/50">
+      <div className="aspect-[4/3] bg-gradient-to-br from-indigo to-teal/30">
         {trip.image && (
           <Photo
             id={trip.image.photoId}
@@ -42,15 +42,15 @@ export function TripCard({ trip, lang, labels, href, showHighlights = false }: T
             <Clock className="size-3.5" />
             {days}
           </Chip>
-          <span className="font-medium text-gold">{price}</span>
+          <span className="font-medium text-accent">{price}</span>
         </div>
         <h3 className="font-display text-2xl leading-tight font-semibold">{trip.title}</h3>
-        <p className="line-clamp-3 text-sand/75">{trip.summary}</p>
+        <p className="line-clamp-3 text-fg/75">{trip.summary}</p>
         {showHighlights && trip.highlights.length > 0 && (
-          <ul className="mt-auto space-y-2 border-t border-sand/10 pt-4 text-sm text-sand/80">
+          <ul className="mt-auto space-y-2 border-t border-fg/10 pt-4 text-sm text-fg/80">
             {trip.highlights.slice(0, 3).map((highlight) => (
               <li key={highlight} className="flex gap-2">
-                <Check className="mt-0.5 size-4 shrink-0 text-gold" />
+                <Check className="mt-0.5 size-4 shrink-0 text-accent" />
                 {highlight}
               </li>
             ))}

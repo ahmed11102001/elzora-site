@@ -24,11 +24,12 @@ export const metadata: Metadata = {
 };
 
 const swatches = [
-  { name: "ink", hex: "#0B1F3A", className: "bg-ink" },
-  { name: "ink-deep", hex: "#050D1A", className: "bg-ink-deep" },
-  { name: "gold", hex: "#C9A24B", className: "bg-gold" },
-  { name: "sand", hex: "#F3E9D7", className: "bg-sand" },
+  { name: "surface", hex: "#FBF6EC", className: "bg-surface" },
+  { name: "surface-2", hex: "#F3EAD9", className: "bg-surface-2" },
+  { name: "indigo (fg)", hex: "#1B2A63", className: "bg-indigo" },
+  { name: "accent", hex: "#A9481F", className: "bg-accent" },
   { name: "teal", hex: "#2AA6AB", className: "bg-teal" },
+  { name: "deep", hex: "#0E1538", className: "bg-deep" },
 ];
 
 // Internal page to review the components. Hidden in production unless ENABLE_DESIGN_PAGE=true.
@@ -50,9 +51,9 @@ export default async function DesignPage({ params }: PageProps<"/[lang]/design">
         <div className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-5">
           {swatches.map((s) => (
             <div key={s.name}>
-              <div className={`${s.className} h-20 rounded-xl border border-sand/20`} />
+              <div className={`${s.className} h-20 rounded-xl border border-fg/20`} />
               <p className="mt-2 text-sm font-medium">{s.name}</p>
-              <p className="text-xs text-sand/60">{s.hex}</p>
+              <p className="text-xs text-fg/70">{s.hex}</p>
             </div>
           ))}
         </div>
@@ -63,7 +64,7 @@ export default async function DesignPage({ params }: PageProps<"/[lang]/design">
           <p className="text-lg">
             Body large 18 Inter. Äöüß for German. Egypt isn’t a destination.
           </p>
-          <p className="text-sm text-sand/70">Small muted 14 Inter</p>
+          <p className="text-sm text-fg/70">Small muted 14 Inter</p>
         </div>
       </Section>
 
@@ -81,8 +82,8 @@ export default async function DesignPage({ params }: PageProps<"/[lang]/design">
         </div>
         <ul className="flex flex-wrap gap-5">
           {Object.entries(icons).map(([name, Icon]) => (
-            <li key={name} className="flex w-20 flex-col items-center gap-2 text-xs text-sand/80">
-              <Icon className="size-7 text-gold" />
+            <li key={name} className="flex w-20 flex-col items-center gap-2 text-xs text-fg/80">
+              <Icon className="size-7 text-accent" />
               {name}
             </li>
           ))}
@@ -99,7 +100,7 @@ export default async function DesignPage({ params }: PageProps<"/[lang]/design">
             <TripCard key={trip.id} trip={trip} lang={lang} labels={dict.trips} />
           ))}
         </div>
-        <p className="mt-10 mb-4 text-sm text-sand/60">Skeleton</p>
+        <p className="mt-10 mb-4 text-sm text-fg/70">Skeleton</p>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <TripCardSkeleton />
           <TripCardSkeleton />
@@ -166,7 +167,7 @@ export default async function DesignPage({ params }: PageProps<"/[lang]/design">
           <Card>
             <CardBody className="space-y-4">
               <h3 className="font-display text-2xl font-semibold">Generic card</h3>
-              <p className="text-sand/75">
+              <p className="text-fg/75">
                 Cards, skeleton blocks and chips share the same borders and radii.
               </p>
               <Skeleton className="h-4 w-2/3" />

@@ -42,13 +42,13 @@ export default async function DestinationsPage({ params }: PageProps<"/[lang]/de
       <section className="py-12 sm:py-16">
         <Container>
           <header className="mb-10 max-w-2xl">
-            <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+            <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-accent uppercase">
               {t.eyebrow}
             </p>
             <h1 className="font-display text-4xl leading-tight font-semibold text-balance sm:text-6xl">
               {t.title}
             </h1>
-            <p className="mt-4 text-lg text-sand/80">{t.description}</p>
+            <p className="mt-4 text-lg text-fg/80">{t.description}</p>
           </header>
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {places.map((place) => (
@@ -57,8 +57,8 @@ export default async function DestinationsPage({ params }: PageProps<"/[lang]/de
                   href={routePath(lang, "destinations", `/${place.slug}`)}
                   className="group block h-full"
                 >
-                  <Card className="flex h-full flex-col transition-colors group-hover:border-gold/50">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-ink to-teal/30">
+                  <Card className="flex h-full flex-col transition-colors group-hover:border-accent/50">
+                    <div className="aspect-[4/3] bg-gradient-to-br from-indigo to-teal/30">
                       {place.image && (
                         <Photo
                           id={place.image}
@@ -70,8 +70,8 @@ export default async function DestinationsPage({ params }: PageProps<"/[lang]/de
                     </div>
                     <CardBody className="flex flex-1 flex-col gap-2">
                       <h2 className="font-display text-2xl font-semibold">{place.name}</h2>
-                      <p className="text-gold">{place.tagline}</p>
-                      <p className="line-clamp-3 text-sand/75">{place.summary}</p>
+                      <p className="text-accent">{place.tagline}</p>
+                      <p className="line-clamp-3 text-fg/75">{place.summary}</p>
                     </CardBody>
                   </Card>
                 </Link>

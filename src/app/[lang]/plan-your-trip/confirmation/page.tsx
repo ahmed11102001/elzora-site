@@ -24,7 +24,10 @@ export default async function ConfirmationPage({
   const dict = await getDictionary(lang);
 
   return (
-    <section data-hide-planner-entry className="bg-linear-to-b from-ink-deep to-ink py-16 sm:py-24">
+    <section
+      data-hide-planner-entry
+      className="bg-linear-to-b from-surface-2 to-surface py-16 sm:py-24"
+    >
       <Container className="max-w-3xl">
         <ConfirmationView
           lang={lang}

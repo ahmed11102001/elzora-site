@@ -12,8 +12,8 @@ type ButtonProps = {
 const base =
   "inline-flex items-center justify-center rounded-full font-semibold whitespace-nowrap transition-colors";
 const variants = {
-  primary: "bg-gold text-ink hover:bg-sand",
-  ghost: "border border-sand/50 text-sand hover:border-gold hover:text-gold",
+  primary: "bg-accent text-on-accent hover:bg-accent-strong",
+  ghost: "border border-fg/50 text-fg hover:border-accent hover:text-accent",
 };
 const sizes = { sm: "px-4 py-2 text-sm", md: "px-6 py-3 text-base" };
 

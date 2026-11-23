@@ -25,19 +25,19 @@ export function Counter({
   className,
 }: CounterProps) {
   const button =
-    "grid size-12 place-items-center rounded-full border border-sand/30 text-2xl leading-none transition-colors hover:border-gold hover:text-gold disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-sand/30 disabled:hover:text-sand";
+    "grid size-12 place-items-center rounded-full border border-fg/30 text-2xl leading-none transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-fg/30 disabled:hover:text-fg";
   return (
     <div
       role="group"
       aria-label={label}
       className={cn(
-        "flex items-center justify-between gap-4 rounded-2xl border border-sand/20 bg-ink-deep/40 px-4 py-3 sm:px-5",
+        "flex items-center justify-between gap-4 rounded-2xl border border-fg/20 bg-card px-4 py-3 sm:px-5",
         className,
       )}
     >
       <div className="min-w-0">
         <p className="text-base font-semibold sm:text-lg">{label}</p>
-        {hint && <p className="text-sm text-sand/65">{hint}</p>}
+        {hint && <p className="text-sm text-fg/70">{hint}</p>}
       </div>
       <div className="flex items-center gap-3">
         <button

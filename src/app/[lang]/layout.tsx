@@ -21,7 +21,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover", // edge-to-edge on notched phones; header/footer add safe-area padding
-  themeColor: "#0B1F3A",
+  themeColor: "#FBF6EC",
 };
 
 export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {

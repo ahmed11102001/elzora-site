@@ -49,9 +49,9 @@ export function WhoStep({ copy, draft, update, errors }: StepProps) {
       )}
 
       {draft.children > 0 && (
-        <fieldset className="mt-3 rounded-2xl border border-sand/15 p-4 sm:p-5">
+        <fieldset className="mt-3 rounded-2xl border border-fg/15 p-4 sm:p-5">
           <legend className="px-2 text-base font-semibold">{copy.who.agesTitle}</legend>
-          <p className="mb-4 text-sm text-sand/65">{copy.who.agesHint}</p>
+          <p className="mb-4 text-sm text-fg/70">{copy.who.agesHint}</p>
           <div className="grid gap-4 sm:grid-cols-2">
             {draft.childrenAges.map((age, index) => (
               <Field

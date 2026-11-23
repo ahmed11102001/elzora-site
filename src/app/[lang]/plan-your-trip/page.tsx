@@ -30,11 +30,11 @@ export default async function PlanYourTripPage({ params }: PageProps<"/[lang]/pl
     <section
       id="planner"
       aria-labelledby="planner-intro-title"
-      className="bg-linear-to-b from-ink-deep to-ink py-10 sm:py-16"
+      className="bg-linear-to-b from-surface-2 to-surface py-10 sm:py-16"
     >
       <Container className="max-w-3xl">
         <header className="mb-8 sm:mb-10">
-          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-accent uppercase">
             {t.eyebrow}
           </p>
           <h1
@@ -43,11 +43,11 @@ export default async function PlanYourTripPage({ params }: PageProps<"/[lang]/pl
           >
             {t.title}
           </h1>
-          <p className="mt-4 max-w-xl text-lg text-sand/85">{t.text}</p>
-          <ul className="mt-5 flex flex-col gap-2 text-sm text-sand/80 sm:flex-row sm:flex-wrap sm:gap-x-6">
+          <p className="mt-4 max-w-xl text-lg text-fg/85">{t.text}</p>
+          <ul className="mt-5 flex flex-col gap-2 text-sm text-fg/80 sm:flex-row sm:flex-wrap sm:gap-x-6">
             {t.points.map((point) => (
               <li key={point} className="flex items-center gap-2">
-                <Check className="size-4 shrink-0 text-gold" />
+                <Check className="size-4 shrink-0 text-accent" />
                 {point}
               </li>
             ))}

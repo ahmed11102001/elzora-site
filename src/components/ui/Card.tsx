@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 export function Card({ className, children, ...rest }: React.ComponentProps<"div">) {
   return (
     <div
-      className={cn("overflow-hidden rounded-2xl border border-sand/10 bg-ink-deep/50", className)}
+      className={cn("overflow-hidden rounded-2xl border border-fg/10 bg-card", className)}
       {...rest}
     >
       {children}

@@ -11,12 +11,12 @@ export function ModalDemo({ closeLabel }: { closeLabel: string }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="rounded-full bg-gold px-6 py-3 font-semibold text-ink transition-colors hover:bg-sand"
+        className="rounded-full bg-accent px-6 py-3 font-semibold text-on-accent transition-colors hover:bg-accent-strong"
       >
         Open modal
       </button>
       <Modal open={open} onClose={() => setOpen(false)} title="Modal title" closeLabel={closeLabel}>
-        <p className="mb-5 text-sand/80">
+        <p className="mb-5 text-fg/80">
           Built on the native dialog element: Escape closes it and focus stays inside.
         </p>
         <Button href="#" size="sm">

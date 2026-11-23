@@ -34,7 +34,7 @@ export function Field({
       </label>
       {children({ id, "aria-describedby": describedBy, "aria-invalid": error ? true : undefined })}
       {hint && (
-        <p id={hintId} className="text-sm text-sand/60">
+        <p id={hintId} className="text-sm text-fg/70">
           {hint}
         </p>
       )}
@@ -48,7 +48,7 @@ export function Field({
 }
 
 const control =
-  "w-full rounded-xl border border-sand/25 bg-ink-deep/60 px-4 py-3 text-sand placeholder:text-sand/40 transition-colors focus-visible:border-gold aria-[invalid=true]:border-red-300";
+  "w-full rounded-xl border border-fg/25 bg-card px-4 py-3 text-fg placeholder:text-fg/60 transition-colors focus-visible:border-accent aria-[invalid=true]:border-red-300";
 
 export function Input({ className, ...props }: React.ComponentProps<"input">) {
   return <input className={cn(control, className)} {...props} />;

@@ -62,18 +62,18 @@ export function TrustBar({
   if (items.length === 0) return null;
 
   return (
-    <section aria-label={t.label} className="border-y border-sand/10 bg-ink py-8 sm:py-10">
+    <section aria-label={t.label} className="border-y border-fg/10 bg-surface py-8 sm:py-10">
       <Container>
         <ul className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-6">
           {items.map(({ key, Icon, title, text, href }) => {
             const content = (
               <>
-                <Icon className="mt-1 size-6 shrink-0 text-gold" />
+                <Icon className="mt-1 size-6 shrink-0 text-accent" />
                 <span>
                   <span className="block font-display text-xl leading-snug font-semibold">
                     {title}
                   </span>
-                  <span className="mt-0.5 block text-sm text-sand/70">{text}</span>
+                  <span className="mt-0.5 block text-sm text-fg/70">{text}</span>
                 </span>
               </>
             );

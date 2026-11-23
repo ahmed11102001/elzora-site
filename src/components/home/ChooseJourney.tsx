@@ -35,10 +35,10 @@ export function ChooseJourney({ lang, dict, styles, trips }: ChooseJourneyProps)
   const shown = featuredTrips(trips);
 
   return (
-    <section id="styles" aria-labelledby="styles-title" className="bg-ink-deep py-16 sm:py-24">
+    <section id="styles" aria-labelledby="styles-title" className="bg-surface-2 py-16 sm:py-24">
       <Container>
         <header className="mb-10 max-w-2xl sm:mb-14">
-          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+          <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-accent uppercase">
             {t.eyebrow}
           </p>
           <h2
@@ -47,7 +47,7 @@ export function ChooseJourney({ lang, dict, styles, trips }: ChooseJourneyProps)
           >
             {t.title}
           </h2>
-          <p className="mt-4 text-lg text-sand/80">{t.description}</p>
+          <p className="mt-4 text-lg text-fg/80">{t.description}</p>
         </header>
 
         <ol className="grid gap-4 sm:gap-5 lg:grid-cols-12">
@@ -64,7 +64,7 @@ export function ChooseJourney({ lang, dict, styles, trips }: ChooseJourneyProps)
               <li key={style.id} className={spans[index % spans.length]}>
                 <Link
                   href={href}
-                  className="group relative isolate flex h-80 flex-col justify-end overflow-hidden rounded-2xl p-6 sm:h-96 sm:p-8 lg:h-[26rem]"
+                  className="dark-zone group relative isolate flex h-80 flex-col justify-end overflow-hidden rounded-2xl p-6 sm:h-96 sm:p-8 lg:h-[26rem]"
                 >
                   {style.image ? (
                     <Photo
@@ -77,30 +77,30 @@ export function ChooseJourney({ lang, dict, styles, trips }: ChooseJourneyProps)
                   ) : (
                     <div
                       aria-hidden
-                      className="absolute inset-0 -z-20 bg-linear-to-br from-ink via-ink-deep to-teal/30"
+                      className="absolute inset-0 -z-20 bg-linear-to-br from-surface via-surface-2 to-teal/30"
                     />
                   )}
                   <div
                     aria-hidden
-                    className="absolute inset-0 -z-10 bg-linear-to-t from-ink-deep/90 via-ink-deep/40 to-transparent"
+                    className="absolute inset-0 -z-10 bg-linear-to-t from-surface-2/90 via-surface-2/40 to-transparent"
                   />
                   <span
                     aria-hidden
-                    className="absolute top-5 right-6 font-display text-6xl leading-none text-sand/25 sm:text-7xl"
+                    className="absolute top-5 right-6 font-display text-6xl leading-none text-fg/25 sm:text-7xl"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
                   {related.length > 0 && (
-                    <p className="mb-2 text-xs font-semibold tracking-[0.25em] text-gold uppercase">
+                    <p className="mb-2 text-xs font-semibold tracking-[0.25em] text-accent uppercase">
                       {countLabel}
                     </p>
                   )}
                   <h3 className="font-display text-3xl leading-tight font-semibold sm:text-4xl">
                     {localize(style.title, lang)}
                   </h3>
-                  <p className="mt-2 max-w-md text-sand/85">{localize(style.summary, lang)}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gold">
+                  <p className="mt-2 max-w-md text-fg/85">{localize(style.summary, lang)}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
                     {related.length > 0 ? t.seeTrips : t.plan}
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
                   </span>

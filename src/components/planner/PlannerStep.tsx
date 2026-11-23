@@ -60,7 +60,7 @@ export function PlannerStep({
       >
         {title}
       </h2>
-      {hint && <p className="mt-2 text-base text-sand/70">{hint}</p>}
+      {hint && <p className="mt-2 text-base text-fg/70">{hint}</p>}
 
       <div className="mt-6 sm:mt-8">{children}</div>
 
@@ -70,7 +70,7 @@ export function PlannerStep({
             <button
               type="button"
               onClick={onBack}
-              className="min-h-12 rounded-full px-5 text-base font-semibold text-sand/80 transition-colors hover:text-gold"
+              className="min-h-12 rounded-full px-5 text-base font-semibold text-fg/80 transition-colors hover:text-accent"
             >
               {backLabel}
             </button>
@@ -81,7 +81,7 @@ export function PlannerStep({
             type="submit"
             disabled={nextDisabled}
             className={cn(
-              "min-h-12 rounded-full bg-gold px-8 text-base font-semibold text-ink transition-colors hover:bg-sand",
+              "min-h-12 rounded-full bg-accent px-8 text-base font-semibold text-on-accent transition-colors hover:bg-accent-strong",
               "disabled:cursor-not-allowed disabled:opacity-50",
             )}
           >

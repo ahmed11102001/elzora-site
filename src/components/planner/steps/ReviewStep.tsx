@@ -39,15 +39,15 @@ export function ReviewStep({
             onChange={(event) => update({ consent: event.target.checked })}
             aria-invalid={consentError ? true : undefined}
             aria-describedby={consentError ? "consent-error" : undefined}
-            className="mt-1 size-6 shrink-0 cursor-pointer accent-gold"
+            className="mt-1 size-6 shrink-0 cursor-pointer accent-accent"
           />
-          <span className="text-sm leading-relaxed text-sand/85 sm:text-base">
+          <span className="text-sm leading-relaxed text-fg/85 sm:text-base">
             {copy.review.consent.before}
             <Link
               href={privacyPath(locale)}
               target="_blank"
               rel="noopener"
-              className="text-gold underline underline-offset-4"
+              className="text-accent underline underline-offset-4"
             >
               {copy.review.consent.link}
             </Link>

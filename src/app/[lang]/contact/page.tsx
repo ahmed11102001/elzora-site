@@ -36,32 +36,32 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
         <h1 className="font-display text-4xl leading-tight font-semibold text-balance sm:text-5xl">
           {t.title}
         </h1>
-        <p className="mt-5 text-lg text-sand/85">{t.intro}</p>
+        <p className="mt-5 text-lg text-fg/85">{t.intro}</p>
 
         <ul className="mt-10 space-y-4">
-          <li className="rounded-2xl border border-sand/10 bg-ink-deep/50 p-6">
+          <li className="rounded-2xl border border-fg/10 bg-card p-6">
             <h2 className="font-display text-2xl font-semibold">{t.plannerTitle}</h2>
-            <p className="mt-2 text-sand/85">{t.plannerText}</p>
+            <p className="mt-2 text-fg/85">{t.plannerText}</p>
             <Button href={plannerPath(lang)} className="mt-4">
               {dict.cta.plan}
             </Button>
           </li>
           {whatsappNumber && (
-            <li className="rounded-2xl border border-sand/10 bg-ink-deep/50 p-6">
+            <li className="rounded-2xl border border-fg/10 bg-card p-6">
               <h2 className="font-display text-2xl font-semibold">{t.whatsappTitle}</h2>
-              <p className="mt-2 text-sand/85">{t.whatsappText}</p>
+              <p className="mt-2 text-fg/85">{t.whatsappText}</p>
               <Button href={`https://wa.me/${whatsappNumber}`} variant="ghost" className="mt-4">
                 {dict.cta.whatsapp}
               </Button>
             </li>
           )}
           {contactEmail && (
-            <li className="rounded-2xl border border-sand/10 bg-ink-deep/50 p-6">
+            <li className="rounded-2xl border border-fg/10 bg-card p-6">
               <h2 className="font-display text-2xl font-semibold">{t.emailTitle}</h2>
-              <p className="mt-2 text-sand/85">{t.emailText}</p>
+              <p className="mt-2 text-fg/85">{t.emailText}</p>
               <a
                 href={`mailto:${contactEmail}`}
-                className="mt-3 inline-block font-semibold text-gold underline underline-offset-4"
+                className="mt-3 inline-block font-semibold text-accent underline underline-offset-4"
               >
                 {contactEmail}
               </a>
@@ -69,8 +69,8 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
           )}
         </ul>
 
-        <p className="mt-8 text-sm text-sand/70">
-          <Link href={privacyPath(lang)} className="underline underline-offset-4 hover:text-gold">
+        <p className="mt-8 text-sm text-fg/70">
+          <Link href={privacyPath(lang)} className="underline underline-offset-4 hover:text-accent">
             {t.privacy}
           </Link>
         </p>

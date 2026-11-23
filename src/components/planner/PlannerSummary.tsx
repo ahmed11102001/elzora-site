@@ -75,9 +75,9 @@ export function PlannerSummary({ copy, locale, draft, onEdit }: PlannerSummaryPr
           <br />
           {countryName(draft.country, locale)}
           <br />
-          {draft.phone || <span className="text-sand/55">{copy.common.notProvided}</span>}
+          {draft.phone || <span className="text-fg/70">{copy.common.notProvided}</span>}
           {draft.notes && (
-            <span className="mt-2 block whitespace-pre-line text-sand/75">{draft.notes}</span>
+            <span className="mt-2 block whitespace-pre-line text-fg/75">{draft.notes}</span>
           )}
         </>
       ),
@@ -85,18 +85,18 @@ export function PlannerSummary({ copy, locale, draft, onEdit }: PlannerSummaryPr
   ];
 
   return (
-    <dl className="divide-y divide-sand/10 rounded-2xl border border-sand/15 bg-ink-deep/40">
+    <dl className="divide-y divide-fg/10 rounded-2xl border border-fg/15 bg-card">
       {rows.map((row) => (
         <div key={row.step} className="flex items-start justify-between gap-4 px-4 py-4 sm:px-5">
           <div className="min-w-0">
-            <dt className="text-xs tracking-[0.2em] text-gold uppercase">{row.label}</dt>
+            <dt className="text-xs tracking-[0.2em] text-accent uppercase">{row.label}</dt>
             <dd className="mt-1 text-base break-words">{row.value}</dd>
           </div>
           <button
             type="button"
             onClick={() => onEdit(row.step)}
             aria-label={`${copy.common.change}: ${row.label}`}
-            className="-my-1 min-h-11 shrink-0 rounded-full px-3 text-sm font-semibold text-sand/80 underline decoration-gold/60 underline-offset-4 transition-colors hover:text-gold"
+            className="-my-1 min-h-11 shrink-0 rounded-full px-3 text-sm font-semibold text-fg/80 underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent"
           >
             {copy.common.change}
           </button>

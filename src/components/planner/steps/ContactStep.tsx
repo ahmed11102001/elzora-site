@@ -97,7 +97,7 @@ export function ContactStep({ copy, locale, draft, update, errors }: StepProps) 
           />
         )}
       </Field>
-      <p className="text-sm text-sand/65">{copy.contact.privacyNote}</p>
+      <p className="text-sm text-fg/70">{copy.contact.privacyNote}</p>
     </div>
   );
 }

@@ -18,15 +18,13 @@ const legal: { key: "privacy" | "terms" | "cookies"; route: RouteKey }[] = [
 ];
 
 export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
-  const linkClass = "text-sand/70 hover:text-gold";
+  const linkClass = "text-fg/70 hover:text-accent";
   return (
-    <footer className="border-t border-sand/10 py-10 pb-[calc(2.5rem+env(safe-area-inset-bottom))]">
+    <footer className="dark-zone border-t border-fg/10 bg-surface py-10 pb-[calc(2.5rem+env(safe-area-inset-bottom))]">
       <Container className="flex flex-col gap-8 text-sm">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-display text-xl font-semibold tracking-[0.18em] text-sand">
-            {siteName}
-          </p>
-          <p className="text-sand/70">{dict.footer.tagline}</p>
+          <p className="font-display text-xl font-semibold tracking-[0.18em] text-fg">{siteName}</p>
+          <p className="text-fg/70">{dict.footer.tagline}</p>
         </div>
         <div className="flex flex-col gap-6 sm:flex-row sm:justify-between">
           <nav aria-label={dict.footer.browse}>
@@ -52,7 +50,7 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
             </ul>
           </nav>
         </div>
-        <p className="text-sand/50">
+        <p className="text-fg/70">
           © {siteName}. {dict.footer.rights}
         </p>
       </Container>

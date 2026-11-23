@@ -19,7 +19,7 @@ export function FinalCTA({ lang, dict, whatsappUrl }: FinalCTAProps) {
   return (
     <section
       aria-labelledby="final-cta-title"
-      className="relative isolate overflow-hidden py-24 sm:py-36"
+      className="dark-zone relative isolate overflow-hidden py-24 sm:py-36"
     >
       <Photo
         id="aswan-nile"
@@ -30,11 +30,11 @@ export function FinalCTA({ lang, dict, whatsappUrl }: FinalCTAProps) {
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-linear-to-t from-ink-deep/90 via-ink/60 to-ink/40 sm:bg-linear-to-r sm:from-ink-deep/85 sm:via-ink/55 sm:to-transparent"
+        className="absolute inset-0 -z-10 bg-linear-to-t from-surface-2/90 via-surface/60 to-surface/40 sm:bg-linear-to-r sm:from-surface-2/85 sm:via-surface/55 sm:to-transparent"
       />
 
       <Container>
-        <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-gold uppercase">
+        <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-accent uppercase">
           {t.eyebrow}
         </p>
         <h2
@@ -43,7 +43,7 @@ export function FinalCTA({ lang, dict, whatsappUrl }: FinalCTAProps) {
         >
           {t.title}
         </h2>
-        <p className="mt-5 max-w-xl text-lg text-sand/90 sm:text-xl">{t.text}</p>
+        <p className="mt-5 max-w-xl text-lg text-fg/90 sm:text-xl">{t.text}</p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Button href={plannerPath(lang)}>{dict.cta.plan}</Button>
           {whatsappUrl && (

@@ -31,9 +31,9 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
       page={getPage("about", lang)}
       draft={pagesStatus !== "published"}
     >
-      <div className="mt-12 rounded-2xl border border-sand/10 bg-ink-deep/50 p-6 sm:p-8">
+      <div className="mt-12 rounded-2xl border border-fg/10 bg-card p-6 sm:p-8">
         <h2 className="font-display text-2xl font-semibold">{dict.pages.about.ctaTitle}</h2>
-        <p className="mt-2 text-sand/85">{dict.pages.about.ctaText}</p>
+        <p className="mt-2 text-fg/85">{dict.pages.about.ctaText}</p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Button href={plannerPath(lang)}>{dict.cta.plan}</Button>
           <Button href={routePath(lang, "contact")} variant="ghost">

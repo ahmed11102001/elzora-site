@@ -29,19 +29,19 @@ export function TextPage({ lang, dict, page, draft, children }: TextPageProps) {
           <h1 className="font-display text-4xl leading-tight font-semibold text-balance sm:text-5xl">
             {page.title}
           </h1>
-          <p className="mt-5 text-lg text-sand/85">{page.intro}</p>
+          <p className="mt-5 text-lg text-fg/85">{page.intro}</p>
           {updated && (
-            <p className="mt-4 text-sm text-sand/60">
+            <p className="mt-4 text-sm text-fg/70">
               {dict.pages.updated}: <time dateTime={page.updated}>{updated}</time>
             </p>
           )}
           {draft && (
             <aside
               aria-label={dict.pages.draftNotice.title}
-              className="mt-6 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-sm"
+              className="mt-6 rounded-2xl border border-accent/40 bg-accent/10 p-4 text-sm"
             >
-              <p className="font-semibold text-gold">{dict.pages.draftNotice.title}</p>
-              <p className="mt-1 text-sand/85">{dict.pages.draftNotice.text}</p>
+              <p className="font-semibold text-accent">{dict.pages.draftNotice.title}</p>
+              <p className="mt-1 text-fg/85">{dict.pages.draftNotice.text}</p>
             </aside>
           )}
         </header>
@@ -52,12 +52,12 @@ export function TextPage({ lang, dict, page, draft, children }: TextPageProps) {
               <h2 id={`section-${index}`} className="font-display text-2xl font-semibold">
                 {section.heading}
               </h2>
-              <div className="mt-3 space-y-3 text-sand/85">
+              <div className="mt-3 space-y-3 text-fg/85">
                 {section.paragraphs?.map((text) => (
                   <p key={text}>{text}</p>
                 ))}
                 {section.list && (
-                  <ul className="list-disc space-y-2 pl-5 marker:text-gold">
+                  <ul className="list-disc space-y-2 pl-5 marker:text-accent">
                     {section.list.map((item) => (
                       <li key={item}>{item}</li>
                     ))}

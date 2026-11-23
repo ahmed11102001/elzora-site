@@ -43,7 +43,7 @@ export function PlannerMobileEntry({ lang, label }: { lang: Locale; label: strin
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 flex justify-center px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:hidden">
-      <Button href={plannerPath(lang)} className="pointer-events-auto shadow-lg shadow-ink-deep/60">
+      <Button href={plannerPath(lang)} className="pointer-events-auto shadow-lg shadow-deep/60">
         {label}
       </Button>
     </div>

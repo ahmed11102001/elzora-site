@@ -22,7 +22,7 @@ export function MobileNav({ items, label, closeLabel }: MobileNavProps) {
         onClick={() => setOpen(true)}
         aria-label={label}
         aria-haspopup="dialog"
-        className="-m-1 rounded-full p-1 text-sand hover:text-gold"
+        className="-m-1 rounded-full p-1 text-fg hover:text-accent"
       >
         <Menu className="size-6" />
       </button>
@@ -34,7 +34,7 @@ export function MobileNav({ items, label, closeLabel }: MobileNavProps) {
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-lg hover:bg-sand/10"
+                  className="block rounded-lg px-3 py-3 text-lg hover:bg-fg/10"
                 >
                   {item.label}
                 </Link>

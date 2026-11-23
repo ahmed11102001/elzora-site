@@ -70,8 +70,8 @@ export default async function DestinationPage({
             <h1 className="font-display text-5xl leading-tight font-semibold text-balance sm:text-6xl">
               {place.name}
             </h1>
-            <p className="mt-3 text-xl text-gold">{place.tagline}</p>
-            <p className="mt-5 text-lg text-sand/85">{place.summary}</p>
+            <p className="mt-3 text-xl text-accent">{place.tagline}</p>
+            <p className="mt-5 text-lg text-fg/85">{place.summary}</p>
           </div>
           {place.image && (
             <Photo
@@ -93,8 +93,8 @@ export default async function DestinationPage({
             </h2>
             <dl className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {place.facts.map((fact) => (
-                <div key={fact.label} className="rounded-2xl border border-sand/10 p-5">
-                  <dt className="text-xs tracking-wider text-sand/60 uppercase">{fact.label}</dt>
+                <div key={fact.label} className="rounded-2xl border border-fg/10 p-5">
+                  <dt className="text-xs tracking-wider text-fg/70 uppercase">{fact.label}</dt>
                   <dd className="mt-1 text-lg font-medium">{fact.value}</dd>
                 </div>
               ))}
@@ -120,15 +120,15 @@ export default async function DestinationPage({
               ))}
             </ul>
           ) : (
-            <p className="mt-4 max-w-2xl text-sand/80">{t.noTrips.replace("{name}", place.name)}</p>
+            <p className="mt-4 max-w-2xl text-fg/80">{t.noTrips.replace("{name}", place.name)}</p>
           )}
         </section>
 
-        <section className="rounded-3xl border border-gold/30 bg-ink-deep p-8 text-center sm:p-12">
+        <section className="dark-zone rounded-3xl border border-accent/30 bg-surface p-8 text-center sm:p-12">
           <h2 className="font-display text-3xl font-semibold">
             {t.cta.title.replace("{name}", place.name)}
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sand/85">{t.cta.text}</p>
+          <p className="mx-auto mt-3 max-w-xl text-fg/85">{t.cta.text}</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button href={plannerPath(lang)}>{t.cta.button}</Button>
             <Button href={routePath(lang, "destinations")} variant="ghost">

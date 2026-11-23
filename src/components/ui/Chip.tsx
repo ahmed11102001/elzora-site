@@ -13,7 +13,7 @@ export function Chip({
     <span
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium",
-        tone === "gold" ? "border-gold/50 text-gold" : "border-sand/25 text-sand/80",
+        tone === "gold" ? "border-accent/50 text-accent" : "border-fg/25 text-fg/80",
         className,
       )}
     >

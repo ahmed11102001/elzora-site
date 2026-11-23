@@ -28,8 +28,8 @@ export function PlannerProgress({
       aria-valuetext={`${stepText}: ${stepName}`}
     >
       <p className="mb-3 flex items-baseline justify-between gap-3 text-xs tracking-[0.2em] uppercase">
-        <span className="text-gold">{stepText}</span>
-        <span className="truncate text-sand/60">{stepName}</span>
+        <span className="text-accent">{stepText}</span>
+        <span className="truncate text-fg/70">{stepName}</span>
       </p>
       <div aria-hidden className="flex gap-1.5">
         {Array.from({ length: total }, (_, i) => (
@@ -37,7 +37,7 @@ export function PlannerProgress({
             key={i}
             className={cn(
               "h-0.5 flex-1 rounded-full transition-colors duration-300 motion-reduce:transition-none",
-              i <= current ? "bg-gold" : "bg-sand/20",
+              i <= current ? "bg-accent" : "bg-fg/20",
             )}
           />
         ))}

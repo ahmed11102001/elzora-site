@@ -20,7 +20,7 @@ export default function ErrorPage({
       <button
         type="button"
         onClick={reset}
-        className="rounded-full bg-gold px-6 py-3 font-semibold text-ink transition-colors hover:bg-sand"
+        className="rounded-full bg-accent px-6 py-3 font-semibold text-on-accent transition-colors hover:bg-accent-strong"
       >
         {strings.retry}
       </button>

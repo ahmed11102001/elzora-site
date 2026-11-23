@@ -16,7 +16,7 @@ type Props = {
 };
 
 const selectClass =
-  "w-full rounded-xl border border-sand/25 bg-ink px-3 py-2.5 text-sand focus:border-gold";
+  "w-full rounded-xl border border-fg/25 bg-surface px-3 py-2.5 text-fg focus:border-accent";
 
 // A plain GET form: it works without JavaScript and every filtered view is a shareable address.
 export function TripFilters({ lang, dict, filter, styles, destinations, budgets }: Props) {
@@ -38,7 +38,7 @@ export function TripFilters({ lang, dict, filter, styles, destinations, budgets 
       method="get"
       action={routePath(lang, "trips")}
       aria-label={f.label}
-      className="grid gap-4 rounded-2xl border border-sand/10 p-5 sm:grid-cols-2 lg:grid-cols-4"
+      className="grid gap-4 rounded-2xl border border-fg/10 p-5 sm:grid-cols-2 lg:grid-cols-4"
     >
       {fields.map(({ name, label, options }) =>
         options.length > 0 ? (
@@ -58,14 +58,14 @@ export function TripFilters({ lang, dict, filter, styles, destinations, budgets 
       <div className="flex items-end gap-4 sm:col-span-2 lg:col-span-4">
         <button
           type="submit"
-          className="rounded-full bg-gold px-6 py-2.5 font-semibold text-ink hover:bg-sand"
+          className="rounded-full bg-accent px-6 py-2.5 font-semibold text-on-accent hover:bg-accent-strong"
         >
           {f.apply}
         </button>
         {active && (
           <Link
             href={routePath(lang, "trips")}
-            className="text-sm text-sand/80 underline hover:text-gold"
+            className="text-sm text-fg/80 underline hover:text-accent"
           >
             {f.clear}
           </Link>

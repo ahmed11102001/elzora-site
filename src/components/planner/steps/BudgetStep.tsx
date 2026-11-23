@@ -28,7 +28,7 @@ export function BudgetStep({ copy, locale, draft, update, errors }: StepProps) {
           {copy.errors.choose}
         </p>
       )}
-      <p className="mt-5 text-sm text-sand/65">{copy.budget.note}</p>
+      <p className="mt-5 text-sm text-fg/70">{copy.budget.note}</p>
     </>
   );
 }

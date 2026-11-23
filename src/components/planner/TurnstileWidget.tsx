@@ -99,7 +99,7 @@ export function TurnstileWidget({
     <div>
       <div ref={container} aria-label={label} />
       {!ready && (
-        <p className="text-xs text-sand/50" role="status">
+        <p className="text-xs text-fg/70" role="status">
           {loadingLabel}
         </p>
       )}

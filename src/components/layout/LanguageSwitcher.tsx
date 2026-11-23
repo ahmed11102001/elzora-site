@@ -30,7 +30,7 @@ export function LanguageSwitcher({
               aria-current={l === lang ? "true" : undefined}
               className={cn(
                 "rounded-full px-2.5 py-1 transition-colors",
-                l === lang ? "bg-sand/15 text-gold" : "text-sand/80 hover:text-gold",
+                l === lang ? "bg-fg/15 text-accent" : "text-fg/80 hover:text-accent",
               )}
             >
               {localeLabels[l].short}

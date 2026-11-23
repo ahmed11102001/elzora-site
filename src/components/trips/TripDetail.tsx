@@ -77,12 +77,12 @@ export function TripDetail({ trip, lang, dict, styles, destinations, related, pr
       {preview && (
         <aside
           role="status"
-          className="sticky top-16 z-30 border-b border-gold/40 bg-gold/15 px-4 py-2 text-center text-sm text-sand backdrop-blur"
+          className="sticky top-16 z-30 border-b border-accent/40 bg-accent/15 px-4 py-2 text-center text-sm text-fg backdrop-blur"
         >
           {d.previewBanner}{" "}
           {/* A form, not a link: <Link> would prefetch the route and end the preview by itself. */}
           <form action="/api/preview/exit" method="get" className="inline">
-            <button type="submit" className="font-semibold underline hover:text-gold">
+            <button type="submit" className="font-semibold underline hover:text-accent">
               {d.exitPreview}
             </button>
           </form>
@@ -111,9 +111,9 @@ export function TripDetail({ trip, lang, dict, styles, destinations, related, pr
             <h1 className="font-display text-4xl leading-tight font-semibold text-balance sm:text-6xl">
               {trip.title}
             </h1>
-            {trip.subtitle && <p className="mt-3 text-xl text-gold">{trip.subtitle}</p>}
-            <p className="mt-5 text-lg text-sand/85">{trip.summary}</p>
-            <p className="mt-3 text-sm text-sand/60">{trip.priceNote || d.priceNoteDefault}</p>
+            {trip.subtitle && <p className="mt-3 text-xl text-accent">{trip.subtitle}</p>}
+            <p className="mt-5 text-lg text-fg/85">{trip.summary}</p>
+            <p className="mt-3 text-sm text-fg/70">{trip.priceNote || d.priceNoteDefault}</p>
             <div className="mt-7">
               <Button href={plan}>{d.cta.button}</Button>
             </div>
@@ -131,26 +131,26 @@ export function TripDetail({ trip, lang, dict, styles, destinations, related, pr
       </header>
 
       <Container className="space-y-14 pb-16 sm:space-y-20 sm:pb-24">
-        <dl className="grid gap-4 rounded-2xl border border-sand/10 p-5 sm:grid-cols-3">
+        <dl className="grid gap-4 rounded-2xl border border-fg/10 p-5 sm:grid-cols-3">
           <div>
-            <dt className="text-xs tracking-wider text-sand/60 uppercase">{d.duration}</dt>
+            <dt className="text-xs tracking-wider text-fg/70 uppercase">{d.duration}</dt>
             <dd className="mt-1 font-medium">{days}</dd>
           </div>
           {styleNames.length > 0 && (
             <div>
-              <dt className="text-xs tracking-wider text-sand/60 uppercase">{d.styles}</dt>
+              <dt className="text-xs tracking-wider text-fg/70 uppercase">{d.styles}</dt>
               <dd className="mt-1 font-medium">{styleNames.join(", ")}</dd>
             </div>
           )}
           {places.length > 0 && (
             <div>
-              <dt className="text-xs tracking-wider text-sand/60 uppercase">{d.destinations}</dt>
+              <dt className="text-xs tracking-wider text-fg/70 uppercase">{d.destinations}</dt>
               <dd className="mt-1 flex flex-wrap gap-x-3 font-medium">
                 {places.map((place) => (
                   <Link
                     key={place.id}
                     href={routePath(lang, "destinations", `/${destinationSlug(place.id, lang)}`)}
-                    className="underline decoration-gold/50 hover:text-gold"
+                    className="underline decoration-accent/50 hover:text-accent"
                   >
                     {place.name}
                   </Link>
@@ -165,7 +165,7 @@ export function TripDetail({ trip, lang, dict, styles, destinations, related, pr
             <h2 id="overview" className={h2}>
               {d.overview}
             </h2>
-            <div className="mt-4 max-w-3xl space-y-4 text-sand/85">
+            <div className="mt-4 max-w-3xl space-y-4 text-fg/85">
               {trip.description.split(/\n{2,}/).map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -180,8 +180,8 @@ export function TripDetail({ trip, lang, dict, styles, destinations, related, pr
             </h2>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {trip.highlights.map((item) => (
-                <li key={item} className="flex gap-2 text-sand/85">
-                  <Check className="mt-1 size-4 shrink-0 text-gold" />
+                <li key={item} className="flex gap-2 text-fg/85">
+                  <Check className="mt-1 size-4 shrink-0 text-accent" />
                   {item}
                 </li>
               ))}
@@ -196,14 +196,14 @@ export function TripDetail({ trip, lang, dict, styles, destinations, related, pr
             </h2>
             <ol className="mt-6 space-y-4">
               {trip.itinerary.map((day) => (
-                <li key={day.day} className="rounded-2xl border border-sand/10 p-5">
-                  <p className="text-xs font-semibold tracking-[0.25em] text-gold uppercase">
+                <li key={day.day} className="rounded-2xl border border-fg/10 p-5">
+                  <p className="text-xs font-semibold tracking-[0.25em] text-accent uppercase">
                     {d.day} {day.day}
                   </p>
                   <h3 className="mt-1 font-display text-2xl font-semibold">{day.title}</h3>
-                  <p className="mt-2 text-sand/85">{day.description}</p>
+                  <p className="mt-2 text-fg/85">{day.description}</p>
                   {day.highlights.length > 0 && (
-                    <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-sand/75 marker:text-gold">
+                    <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-fg/75 marker:text-accent">
                       {day.highlights.map((h) => (
                         <li key={h}>{h}</li>
                       ))}
@@ -222,10 +222,10 @@ export function TripDetail({ trip, lang, dict, styles, destinations, related, pr
                 <h2 id="included" className="font-display text-2xl font-semibold">
                   {d.included}
                 </h2>
-                <ul className="mt-4 space-y-2 text-sand/85">
+                <ul className="mt-4 space-y-2 text-fg/85">
                   {trip.inclusions.map((item) => (
                     <li key={item} className="flex gap-2">
-                      <Check className="mt-1 size-4 shrink-0 text-gold" />
+                      <Check className="mt-1 size-4 shrink-0 text-accent" />
                       {item}
                     </li>
                   ))}
@@ -237,7 +237,7 @@ export function TripDetail({ trip, lang, dict, styles, destinations, related, pr
                 <h2 id="not-included" className="font-display text-2xl font-semibold">
                   {d.notIncluded}
                 </h2>
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sand/75 marker:text-sand/40">
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-fg/75 marker:text-fg/40">
                   {trip.exclusions.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -269,12 +269,12 @@ export function TripDetail({ trip, lang, dict, styles, destinations, related, pr
 
         <section
           aria-labelledby="trip-cta"
-          className="rounded-3xl border border-gold/30 bg-ink-deep p-8 text-center sm:p-12"
+          className="dark-zone rounded-3xl border border-accent/30 bg-surface p-8 text-center sm:p-12"
         >
           <h2 id="trip-cta" className={h2}>
             {d.cta.title}
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sand/85">{d.cta.text}</p>
+          <p className="mx-auto mt-3 max-w-xl text-fg/85">{d.cta.text}</p>
           <div className="mt-6">
             <Button href={plan}>{d.cta.button}</Button>
           </div>
