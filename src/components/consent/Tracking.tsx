@@ -2,9 +2,15 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { clearTrackingCookies, isWithdrawn } from "@/lib/consent/consent";
+import { isWithdrawn } from "@/lib/consent/consent";
 import { useConsentState } from "@/lib/consent/store";
-import { applyConsent, initConsentMode, track, trackPageView } from "@/lib/analytics/browser";
+import {
+  applyConsent,
+  clearTrackingCookies,
+  initConsentMode,
+  track,
+  trackPageView,
+} from "@/lib/analytics/browser";
 import { trackingEnabled } from "@/lib/analytics/config";
 import type { ConsentChoice } from "@/lib/consent/consent";
 
