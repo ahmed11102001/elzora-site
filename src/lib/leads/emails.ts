@@ -179,6 +179,10 @@ export function renderTeamEmail(lead: StoredLead): Email {
     ["UTM source / medium", [lead.utmSource, lead.utmMedium].filter(Boolean).join(" / ") || "-"],
     ["UTM campaign", lead.utmCampaign ?? "-"],
     ["UTM content / term", [lead.utmContent, lead.utmTerm].filter(Boolean).join(" / ") || "-"],
+    [
+      "Ad click ID",
+      [lead.gclid && "Google Ads", lead.fbclid && "Meta"].filter(Boolean).join(" + ") || "-",
+    ],
     ["Landing page", lead.landingPage ?? "-"],
     ["Referrer", lead.referrer ?? "-"],
     ["Consent", `${lead.consentVersion} at ${lead.consentedAt.toISOString()}`],

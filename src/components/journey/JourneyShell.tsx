@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { TrackOnView } from "@/components/consent/TrackOnView";
 import { JourneyEnhancer } from "./JourneyEnhancer";
 import { JourneyIntro } from "./JourneyIntro";
 
@@ -8,6 +9,7 @@ import { JourneyIntro } from "./JourneyIntro";
 export function JourneyShell({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
     <section id="journey" aria-labelledby="journey-title" className="dark-zone bg-surface-2">
+      <TrackOnView event="view_journey" />
       <JourneyEnhancer lang={lang} copy={dict.journey} intro={<JourneyIntro dict={dict} />} />
     </section>
   );

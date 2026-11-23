@@ -1,8 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/i18n/config";
+import { trackOnce } from "@/lib/analytics/browser";
+import type { AnalyticsEvent } from "@/lib/analytics/events";
 import { captureAttribution, readAttribution } from "@/lib/leads/attribution";
 import { postLead, saveReference, type SubmitOutcome } from "@/lib/leads/client";
 import { plannerConfirmationPath } from "@/lib/routes";
@@ -79,6 +81,16 @@ export function TripPlanner({ lang, copy, turnstileSiteKey }: TripPlannerProps) 
   );
 
   const stepId: StepId = STEP_IDS[stepIndex];
+
+  // Funnel events (no personal data): the planner opened, and each step the first time it is shown.
+  useEffect(() => {
+    trackOnce("planner_start", { locale: lang });
+  }, [lang]);
+  useEffect(() => {
+    const event = `planner_step_${stepIndex + 1}` as AnalyticsEvent;
+    trackOnce(event, { locale: lang });
+  }, [stepIndex, lang]);
+
   const update = (patch: Partial<PlannerDraft>) => {
     setDraft((current) => ({ ...current, ...patch }));
     setServerErrors({});
@@ -126,6 +138,15 @@ export function TripPlanner({ lang, copy, turnstileSiteKey }: TripPlannerProps) 
     switch (outcome.kind) {
       case "success":
         saveReference(outcome.referenceCode);
+        // Once per reference code, so a retry that returns the same lead is never counted twice.
+        trackOnce(
+          "lead_submit",
+          {
+            locale: lang,
+            trip: new URLSearchParams(window.location.search).get("trip") ?? undefined,
+          },
+          `lead_submit:${outcome.referenceCode}`,
+        );
         // replace: Back does not return to a fresh, re-submittable form. Stay "submitting" until navigation.
         router.replace(plannerConfirmationPath(lang));
         return;

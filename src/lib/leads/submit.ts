@@ -73,6 +73,8 @@ function toNewLead(lead: ValidLead, consentedAt: Date): NewLead {
     utmCampaign: a.utmCampaign,
     utmContent: a.utmContent,
     utmTerm: a.utmTerm,
+    gclid: a.gclid,
+    fbclid: a.fbclid,
     referrer: a.referrer,
     tripSlug: lead.tripSlug,
     consentVersion: CONSENT_VERSION,

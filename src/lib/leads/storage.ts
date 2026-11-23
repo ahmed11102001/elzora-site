@@ -77,6 +77,8 @@ export function toLead(row: Row): StoredLead {
     utmCampaign: opt(row.utm_campaign),
     utmContent: opt(row.utm_content),
     utmTerm: opt(row.utm_term),
+    gclid: opt(row.gclid),
+    fbclid: opt(row.fbclid),
     referrer: opt(row.referrer),
     tripSlug: opt(row.trip_slug),
     tripId: (row.trip_id as string | null) ?? null,
@@ -143,7 +145,7 @@ export const postgresStorage: LeadStorage = {
               reference_code, idempotency_key, dedupe_hash, locale, full_name, email, country, phone,
               date_flexibility, arrival_date, departure_date, flexible_when,
               adults, children, children_ages, interests, duration, budget, budget_type, notes,
-              source, landing_page, utm_source, utm_medium, utm_campaign, utm_content, utm_term, referrer,
+              source, landing_page, utm_source, utm_medium, utm_campaign, utm_content, utm_term, gclid, fbclid, referrer,
               trip_id, trip_slug,
               consent_version, consented_at
             ) VALUES (
@@ -156,7 +158,7 @@ export const postgresStorage: LeadStorage = {
               ${lead.budgetType}, ${lead.notes ?? null},
               ${lead.source ?? null}, ${lead.landingPage ?? null}, ${lead.utmSource ?? null},
               ${lead.utmMedium ?? null}, ${lead.utmCampaign ?? null}, ${lead.utmContent ?? null},
-              ${lead.utmTerm ?? null}, ${lead.referrer ?? null},
+              ${lead.utmTerm ?? null}, ${lead.gclid ?? null}, ${lead.fbclid ?? null}, ${lead.referrer ?? null},
               (SELECT trip_id FROM trip_translations WHERE slug = ${lead.tripSlug ?? null}
                  ORDER BY (locale = ${lead.locale}) DESC LIMIT 1),
               ${lead.tripSlug ?? null},

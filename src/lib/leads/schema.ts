@@ -102,6 +102,14 @@ const country = z
   .pipe(z.string().min(1, "required"))
   .refine((value) => COUNTRY_CODES.includes(value), "invalid_option");
 
+// Ad click identifiers (gclid, fbclid). A malformed one is dropped, never an error: it must not stop an inquiry.
+const CLICK_ID = /^[A-Za-z0-9_-]{10,200}$/;
+const clickId = z
+  .string()
+  .max(400)
+  .optional()
+  .transform((value) => (value && CLICK_ID.test(value.trim()) ? value.trim() : undefined));
+
 const attribution = z
   .object({
     source: optionalLine(100),
@@ -112,6 +120,8 @@ const attribution = z
     utmCampaign: optionalLine(150),
     utmContent: optionalLine(150),
     utmTerm: optionalLine(150),
+    gclid: clickId,
+    fbclid: clickId,
   })
   .optional()
   .transform((value): Attribution => value ?? {});

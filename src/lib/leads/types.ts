@@ -39,6 +39,9 @@ export type NewLead = {
   utmCampaign?: string;
   utmContent?: string;
   utmTerm?: string;
+  /** Ad click identifiers, present only when the traveler allowed marketing cookies. */
+  gclid?: string;
+  fbclid?: string;
   referrer?: string;
   /** Slug of the trip the traveler came from (the planner link carries ?trip=<slug>). */
   tripSlug?: string;

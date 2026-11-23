@@ -28,7 +28,24 @@
       "terms": "Terms of Use",
       "cookies": "Cookie Policy"
     },
-    "browse": "Explore"
+    "browse": "Explore",
+    "cookieSettings": "Cookie settings"
+  },
+  "consent": {
+    "title": "Your privacy choices",
+    "text": "We would like to use optional cookies to see how the site is used and to measure whether our ads lead to trip requests. They stay off until you agree, and you can change your mind at any time.",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "customize": "Customize",
+    "save": "Save my choices",
+    "policy": "Cookie Policy",
+    "necessaryTitle": "Necessary",
+    "necessaryText": "Keeps the site secure and working, for example the bot check on the trip request form.",
+    "alwaysOn": "Always on",
+    "analyticsTitle": "Analytics",
+    "analyticsText": "Google Analytics shows us which pages and steps people use, so we can improve the site.",
+    "marketingTitle": "Marketing",
+    "marketingText": "Google Ads and Meta measure whether our ads lead to requests. They may keep the ad click identifier that brought you here."
   },
   "common": {
     "close": "Close"

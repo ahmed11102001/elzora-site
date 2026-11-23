@@ -3,7 +3,9 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { routePath, type RouteKey } from "@/lib/routes";
 import { siteName } from "@/lib/site";
+import { CookieSettingsButton } from "@/components/consent/CookieSettingsButton";
 import { Container } from "@/components/ui/Container";
+import { trackingEnabled } from "@/lib/analytics/config";
 
 const browse: { key: "trips" | "destinations" | "about" | "contact"; route: RouteKey }[] = [
   { key: "trips", route: "trips" },
@@ -47,6 +49,14 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
                   </Link>
                 </li>
               ))}
+              {trackingEnabled && (
+                <li>
+                  <CookieSettingsButton
+                    label={dict.footer.cookieSettings}
+                    className={`${linkClass} cursor-pointer`}
+                  />
+                </li>
+              )}
             </ul>
           </nav>
         </div>

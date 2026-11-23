@@ -1,7 +1,13 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { describe, it } from "node:test";
-import { captureAttribution, mergeAttribution, readAttribution } from "./attribution";
+import {
+  captureAttribution,
+  captureClickIds,
+  mergeAttribution,
+  readAttribution,
+  readClickIds,
+} from "./attribution";
 import { renderTeamEmail, renderTravelerEmail, type TravelerEmailCopy } from "./emails";
 import { fakeStorage, NOW, toNew, validInput } from "./fixtures";
 import { notifyLead } from "./notifications";
@@ -91,6 +97,48 @@ describe("attribution", () => {
   it("upgrades an organic first touch when a campaign link follows", () => {
     const organic = readAttribution({ ...page, search: "" });
     assert.equal(mergeAttribution(organic, readAttribution(page)).utmCampaign, "winter");
+  });
+  it("never reads ad click identifiers as part of the normal attribution", () => {
+    const a = readAttribution({ ...page, search: "?utm_source=google&gclid=Cj0KCQiAabc123_-xyz" });
+    assert.equal("gclid" in a && a.gclid !== undefined, false);
+  });
+  it("reads well-formed click identifiers and ignores odd ones", () => {
+    assert.deepEqual(readClickIds("?gclid=Cj0KCQiAabc123_-xyz&fbclid=IwAR0abcdefghij"), {
+      gclid: "Cj0KCQiAabc123_-xyz",
+      fbclid: "IwAR0abcdefghij",
+    });
+    assert.deepEqual(readClickIds("?gclid=short&fbclid=<script>alert(1)</script>"), {
+      gclid: undefined,
+      fbclid: undefined,
+    });
+    assert.deepEqual(readClickIds(""), { gclid: undefined, fbclid: undefined });
+  });
+  it("adds click identifiers to the stored visit and keeps them through a campaign upgrade", () => {
+    const store = new Map<string, string>();
+    const storage = {
+      getItem: (k: string) => store.get(k) ?? null,
+      setItem: (k: string, v: string) => void store.set(k, v),
+    };
+    captureAttribution(storage, readAttribution({ ...page, search: "" })); // organic first touch
+    captureClickIds(storage, { gclid: "Cj0KCQiAabc123_-xyz" });
+    const later = captureAttribution(storage, readAttribution(page)); // campaign link follows
+    assert.equal(later.utmCampaign, "winter");
+    assert.equal(later.gclid, "Cj0KCQiAabc123_-xyz");
+    // The newest click wins; nothing is removed when a visit has none.
+    captureClickIds(storage, { gclid: "NEWclickIDabcdef123" });
+    captureClickIds(storage, {});
+    assert.equal(captureAttribution(storage, readAttribution(page)).gclid, "NEWclickIDabcdef123");
+  });
+  it("stores click identifiers on the lead and drops malformed ones", () => {
+    const schema = createLeadSchema(() => NOW);
+    const ok = schema.parse(
+      validInput({ attribution: { gclid: "Cj0KCQiAabc123_-xyz", fbclid: "IwAR0abcdefghij" } }),
+    );
+    assert.equal(ok.attribution.gclid, "Cj0KCQiAabc123_-xyz");
+    assert.equal(ok.attribution.fbclid, "IwAR0abcdefghij");
+    const bad = schema.parse(validInput({ attribution: { gclid: "x y", fbclid: "<b>" } }));
+    assert.equal(bad.attribution.gclid, undefined);
+    assert.equal(bad.attribution.fbclid, undefined);
   });
 });
 

@@ -3,11 +3,20 @@ import { Suspense } from "react";
 import { defaultLocale, hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getTripSlugMap } from "@/content/public";
+import {
+  hasAnalyticsTool,
+  hasMarketingTool,
+  trackingConfig,
+  trackingEnabled,
+} from "@/lib/analytics/config";
+import { routePath } from "@/lib/routes";
 import { siteName, siteUrl } from "@/lib/site";
 import type { TripSlugMap } from "@/lib/switch-path";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SkipLink } from "@/components/layout/SkipLink";
+import { CookieBanner } from "@/components/consent/CookieBanner";
+import { Tracking } from "@/components/consent/Tracking";
 import { AttributionCapture } from "@/components/planner/AttributionCapture";
 import { PlannerMobileEntry } from "@/components/planner/PlannerMobileEntry";
 import { cormorant, inter } from "../fonts";
@@ -64,6 +73,20 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         </main>
         <Footer lang={locale} dict={dict} />
         <AttributionCapture />
+        {trackingEnabled && (
+          <>
+            {/* usePathname() needs a Suspense boundary here for the same reason as the language switcher. */}
+            <Suspense fallback={null}>
+              <Tracking />
+            </Suspense>
+            <CookieBanner
+              copy={dict.consent}
+              policyHref={routePath(locale, "cookies")}
+              hasAnalytics={hasAnalyticsTool(trackingConfig)}
+              hasMarketing={hasMarketingTool(trackingConfig)}
+            />
+          </>
+        )}
         <Suspense fallback={null}>
           <PlannerMobileEntry lang={locale} label={dict.cta.planMobile} />
         </Suspense>

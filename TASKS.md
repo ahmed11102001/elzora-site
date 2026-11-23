@@ -261,14 +261,17 @@ to `#planner` (Phase 6).
 
 ---
 
-## Phase 9 — Tracking & consent
+## Phase 9 — Tracking & consent ✅ (code done; needs your tool IDs and the verification below)
 
-- [ ] Cookie banner with Consent Mode v2 (EU requirement) (**M**)
-- [ ] GA4, Meta Pixel, Google Ads conversion, loaded only after consent (**M**)
-- [ ] Event map: `view_journey`, `journey_station_n`, `planner_start`, `planner_step_n`, `lead_submit`, `whatsapp_click` (**M**)
-- [ ] UTM and click-ID persistence into the lead record (**S**)
+See `docs/phase-9/9.0-tracking-and-consent.md` for how it works and how to verify it.
+
+- [x] Cookie banner with Consent Mode v2 (EU requirement) (**M**), EN and DE, "Cookie settings" link in the footer
+- [x] GA4, Meta Pixel, Google Ads conversion, loaded only after consent (**M**), each one only if its ID is set
+- [x] Event map: `view_journey`, `journey_station_n`, `planner_start`, `planner_step_n`, `lead_submit`, `whatsapp_click` (**M**)
+- [x] UTM and click-ID persistence into the lead record (**S**), `gclid`/`fbclid` only with marketing consent (migration `0006`)
 - [ ] Optional: server-side conversion events (**M**)
-- [ ] Verify with Tag Assistant and Meta Events Manager (**S**)
+- [ ] Verify with Tag Assistant and Meta Events Manager (**S**) — needs the real IDs, see the doc
+- [ ] Legal review of the cookie and privacy text (cookie names and lifetimes, providers) before launch
 
 **Done when:** a test lead shows up as a conversion in each platform, and nothing fires before consent.
 

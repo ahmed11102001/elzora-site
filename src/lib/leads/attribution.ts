@@ -12,6 +12,9 @@ export type Attribution = {
   utmCampaign?: string;
   utmContent?: string;
   utmTerm?: string;
+  /** Ad click identifiers. Stored only with marketing consent (see AttributionCapture). */
+  gclid?: string;
+  fbclid?: string;
 };
 
 export const ATTRIBUTION_STORAGE_KEY = "elzora:attribution";
@@ -62,6 +65,39 @@ export function readAttribution(input: {
   };
 }
 
+const CLICK_ID = /^[A-Za-z0-9_-]{10,200}$/;
+
+/** Google Ads (gclid) and Meta (fbclid) click identifiers from a query string. Anything odd is ignored. */
+export function readClickIds(search: string): Pick<Attribution, "gclid" | "fbclid"> {
+  const params = new URLSearchParams(search);
+  const pick = (name: string) => {
+    const value = (params.get(name) ?? "").trim();
+    return CLICK_ID.test(value) ? value : undefined;
+  };
+  return { gclid: pick("gclid"), fbclid: pick("fbclid") };
+}
+
+/** Adds click identifiers to the stored attribution. The newest click wins, as ad platforms count it. */
+export function captureClickIds(
+  storage: Pick<Storage, "getItem" | "setItem">,
+  ids: Pick<Attribution, "gclid" | "fbclid">,
+): Attribution {
+  const stored = loadAttribution(storage);
+  const merged: Attribution = {
+    ...stored,
+    ...(ids.gclid ? { gclid: ids.gclid } : {}),
+    ...(ids.fbclid ? { fbclid: ids.fbclid } : {}),
+  };
+  if (merged.gclid !== stored.gclid || merged.fbclid !== stored.fbclid) {
+    try {
+      storage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(merged));
+    } catch {
+      // Storage blocked: the click identifier is simply not kept.
+    }
+  }
+  return merged;
+}
+
 const hasUtm = (a: Attribution) => Boolean(a.utmSource || a.utmMedium || a.utmCampaign);
 
 /**
@@ -70,7 +106,10 @@ const hasUtm = (a: Attribution) => Boolean(a.utmSource || a.utmMedium || a.utmCa
  */
 export function mergeAttribution(stored: Attribution | null, current: Attribution): Attribution {
   if (!stored) return current;
-  if (!hasUtm(stored) && hasUtm(current)) return current;
+  // The upgrade keeps click identifiers that were stored meanwhile.
+  if (!hasUtm(stored) && hasUtm(current)) {
+    return { ...current, gclid: stored.gclid, fbclid: stored.fbclid };
+  }
   return stored;
 }
 

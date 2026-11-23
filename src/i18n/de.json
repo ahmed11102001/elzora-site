@@ -28,7 +28,24 @@
       "terms": "Nutzungsbedingungen",
       "cookies": "Cookie-Richtlinie"
     },
-    "browse": "Entdecken"
+    "browse": "Entdecken",
+    "cookieSettings": "Cookie-Einstellungen"
+  },
+  "consent": {
+    "title": "Ihre Datenschutz-Auswahl",
+    "text": "Wir möchten optionale Cookies verwenden, um zu sehen, wie die Website genutzt wird, und um zu messen, ob unsere Anzeigen zu Reiseanfragen führen. Sie bleiben ausgeschaltet, bis Sie zustimmen, und Sie können Ihre Entscheidung jederzeit ändern.",
+    "acceptAll": "Alle akzeptieren",
+    "rejectAll": "Alle ablehnen",
+    "customize": "Anpassen",
+    "save": "Auswahl speichern",
+    "policy": "Cookie-Richtlinie",
+    "necessaryTitle": "Notwendig",
+    "necessaryText": "Hält die Website sicher und funktionsfähig, zum Beispiel die Bot-Prüfung im Anfrageformular.",
+    "alwaysOn": "Immer aktiv",
+    "analyticsTitle": "Analyse",
+    "analyticsText": "Google Analytics zeigt uns, welche Seiten und Schritte genutzt werden, damit wir die Website verbessern können.",
+    "marketingTitle": "Marketing",
+    "marketingText": "Google Ads und Meta messen, ob unsere Anzeigen zu Anfragen führen. Sie können die Klick-Kennung der Anzeige speichern, über die Sie gekommen sind."
   },
   "common": {
     "close": "Schließen"

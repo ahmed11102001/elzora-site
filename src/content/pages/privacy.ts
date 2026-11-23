@@ -6,7 +6,7 @@ export const privacy: LocalizedPage = {
     title: "Privacy Policy",
     description:
       "How ELZORA handles the personal data you send when you ask for a trip, and your rights.",
-    updated: "2026-11-20",
+    updated: "2026-11-23",
     intro:
       "This page explains what personal data we collect when you use this website and send a trip request, why we collect it, who receives it and what rights you have. It is a working draft: details marked as “to be confirmed” will be completed before the website goes live.",
     sections: [
@@ -25,6 +25,7 @@ export const privacy: LocalizedPage = {
           "Your travel plans: dates or a flexible timeframe, the number of adults and children (and the children’s ages), interests, trip length, budget range and any notes you write",
           "The language of the website you used",
           "Which page or campaign brought you here (campaign parameters, the website you came from and the first page you opened), so we can understand which channels work",
+          "If you allow marketing cookies and came from a Google or Meta ad: the ad click identifier in the link (gclid or fbclid), saved with your request",
           "The date and version of the consent you gave, and a reference code for your request",
         ],
         after: [
@@ -39,6 +40,7 @@ export const privacy: LocalizedPage = {
           "To send you the confirmation email and follow up on your request (Art. 6(1)(b) GDPR)",
           "To protect the website and the form against abuse with a bot check and rate limiting (legitimate interest, Art. 6(1)(f) GDPR)",
           "To understand which campaigns lead to requests (legitimate interest, Art. 6(1)(f) GDPR; to be reviewed together with our cookie and consent setup)",
+          "To measure how the site is used and whether ads lead to requests, with optional analytics and marketing tools (Google Analytics, Google Ads, Meta Pixel), only if you consent in the cookie banner (Art. 6(1)(a) GDPR; storage on your device under § 25 TDDDG). You can withdraw it at any time with “Cookie settings” in the footer.",
           "Where we ask for your consent, for example when you submit the planner form, we rely on it (Art. 6(1)(a) GDPR). You can withdraw it at any time with effect for the future.",
         ],
       },
@@ -52,6 +54,7 @@ export const privacy: LocalizedPage = {
           "Supabase, for the database that stores your request",
           "Resend, to send emails (the confirmation to you and the notification to our team)",
           "Cloudflare Turnstile, to check that a request comes from a person",
+          "Google (Google Analytics and Google Ads) and Meta (Meta Pixel), only if you allow analytics or marketing cookies",
         ],
       },
       {
@@ -90,7 +93,7 @@ export const privacy: LocalizedPage = {
     title: "Datenschutzerklärung",
     description:
       "Wie ELZORA mit den personenbezogenen Daten umgeht, die Sie bei einer Reiseanfrage senden, und welche Rechte Sie haben.",
-    updated: "2026-11-20",
+    updated: "2026-11-23",
     intro:
       "Diese Seite erklärt, welche personenbezogenen Daten wir erheben, wenn Sie diese Website nutzen und eine Reiseanfrage senden, warum wir sie erheben, wer sie erhält und welche Rechte Sie haben. Es ist ein Arbeitsentwurf: Angaben, die als „noch zu bestätigen“ gekennzeichnet sind, werden vor dem Start der Website ergänzt.",
     sections: [
@@ -109,6 +112,7 @@ export const privacy: LocalizedPage = {
           "Ihre Reisepläne: Reisedaten oder einen flexiblen Zeitraum, die Anzahl der Erwachsenen und Kinder (und das Alter der Kinder), Interessen, Reisedauer, Budgetrahmen und Ihre Anmerkungen",
           "Die Sprache der Website, die Sie genutzt haben",
           "Über welche Seite oder Kampagne Sie zu uns gekommen sind (Kampagnenparameter, die Website, von der Sie kamen, und die erste geöffnete Seite), damit wir verstehen, welche Kanäle funktionieren",
+          "Wenn Sie Marketing-Cookies erlauben und über eine Google- oder Meta-Anzeige gekommen sind: die Klick-Kennung der Anzeige im Link (gclid oder fbclid), gespeichert mit Ihrer Anfrage",
           "Datum und Version Ihrer Einwilligung sowie einen Referenzcode für Ihre Anfrage",
         ],
         after: [
@@ -123,6 +127,7 @@ export const privacy: LocalizedPage = {
           "Versand der Bestätigung per E-Mail und Nachverfolgung Ihrer Anfrage (Art. 6 Abs. 1 lit. b DSGVO)",
           "Schutz der Website und des Formulars vor Missbrauch durch Bot-Prüfung und Begrenzung der Anfragehäufigkeit (berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO)",
           "Auswertung, welche Kampagnen zu Anfragen führen (berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO; wird zusammen mit unserer Cookie- und Einwilligungslösung geprüft)",
+          "Messung, wie die Website genutzt wird und ob Anzeigen zu Anfragen führen, mit optionalen Analyse- und Marketing-Werkzeugen (Google Analytics, Google Ads, Meta-Pixel), nur wenn Sie im Cookie-Banner einwilligen (Art. 6 Abs. 1 lit. a DSGVO; Speicherung auf Ihrem Gerät nach § 25 TDDDG). Sie können die Einwilligung jederzeit über „Cookie-Einstellungen“ in der Fußzeile widerrufen.",
           "Wo wir um Ihre Einwilligung bitten, etwa beim Absenden des Reiseplaners, stützen wir uns darauf (Art. 6 Abs. 1 lit. a DSGVO). Sie können sie jederzeit mit Wirkung für die Zukunft widerrufen.",
         ],
       },
@@ -136,6 +141,7 @@ export const privacy: LocalizedPage = {
           "Supabase für die Datenbank, in der Ihre Anfrage gespeichert wird",
           "Resend für den E-Mail-Versand (Bestätigung an Sie und Benachrichtigung an unser Team)",
           "Cloudflare Turnstile, um zu prüfen, ob eine Anfrage von einer Person stammt",
+          "Google (Google Analytics und Google Ads) und Meta (Meta-Pixel), nur wenn Sie Analyse- oder Marketing-Cookies erlauben",
         ],
       },
       {

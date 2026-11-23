@@ -145,6 +145,8 @@ export default async function Page({
               <Row label="UTM content · term">
                 {[lead.utmContent, lead.utmTerm].filter(Boolean).join(" · ")}
               </Row>
+              <Row label="Google Ads click ID (gclid)">{lead.gclid}</Row>
+              <Row label="Meta click ID (fbclid)">{lead.fbclid}</Row>
               <Row label="Referrer">{lead.referrer}</Row>
               <Row label="Consent">
                 version {lead.consentVersion}, {stamp(lead.consentedAt.toISOString())}

@@ -2,7 +2,9 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { trackOnce } from "@/lib/analytics/browser";
+import type { AnalyticsEvent } from "@/lib/analytics/events";
 import type { Locale } from "@/i18n/config";
 import { formatNumber, type JourneyCopy } from "./copy";
 import { JourneyStage } from "./JourneyStage";
@@ -58,6 +60,12 @@ export function JourneyAnimated({ lang, copy, variant }: JourneyAnimatedProps) {
       triggerRef.current = null;
     };
   }, [lang, variant, schedule]);
+
+  // Station N reached (1 = Alexandria ... 5 = Abu Simbel), once per page view. The finale is not a station.
+  useEffect(() => {
+    if (railIndex < 0 || railIndex >= stations.length) return;
+    trackOnce(`journey_station_${railIndex + 1}` as AnalyticsEvent, { locale: lang });
+  }, [railIndex, lang]);
 
   const scrollToProgress = (fraction: number) => {
     const trigger = triggerRef.current;
